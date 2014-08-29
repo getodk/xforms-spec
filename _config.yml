@@ -1,0 +1,13 @@
+# Site settings
+title: ODK XForm Specification
+email: 
+description: "Documents the XForm and OpenRosa-derived form specification as supported by ODK-compliant tools."
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+safe: true
+highlighter: pygments
+collections:
+- sections
