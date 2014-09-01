@@ -6,7 +6,7 @@ A `<group>` combines elements together. If it has a child `<label>` element, the
 
 A `<group>` may or may not contain a `ref` attribute. If it does, the group is considered a _logical group_. A logical group has a corresponding element in the [primary instance](#instance) and usually a corresponding `<bind>` element. A logical group's `ref` is used as the context node for the relative `ref` paths of its descendants. 
 
-A group can both be a logical and a presentation group. 
+A group can be both a logical and a presentation group. 
 
 Groups may be nested to provide different levels of structure.
 

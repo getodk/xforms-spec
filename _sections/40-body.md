@@ -34,18 +34,18 @@ Within the user controls the following elements can be used:
 
 | element       | description
 |---------------|------------------
-| `<group>`     | Child of `<body>` or another `<group>` that groups form controls together. See [groups](#groups) section for further details.
-| `<repeat>`    | Child of `<group>` that can be repeated. See [repeats](#repeats) for further details.
-| `<label>`     | Child of a form control element, `<item>`, `<itemset>` or `<group>` used to display a label. Only 1 label per form control is properly supported (in [multiple languages](#languages)).
-| `<hint>`      | Child of a form control element used to display a hint. Only 1 hint element per form control is properly supported (in [multiple languages](#languages)).
+| `<group>`     | Child of `<body>`, another `<group>`, or a `<repeat>` that groups form controls together. See [groups](#groups) section for further details.
+| `<repeat>`    | Child of `<body>` or `<group>` that can be repeated. See [repeats](#repeats) for further details.
+| `<label>`     | Child of a [form control](#body-elements) element, `<item>`, `<itemset>` or `<group>` used to display a label. Only 1 `<label>` per form control is properly supported but can be used in [multiple languages](#languages)).
+| `<hint>`      | Child of a [form control](#body-elements) element used to display a hint. Only 1 `<hint>` element per form control is properly supported but can be used in [multiple languages](#languages)).
 | `<output>`    | Child of a `<label>` or `<hint>` element used to display an instance value.
 | `<item>`      | Child of `<select>` or `<select1>` that defines an choice option.
 | `<itemset>`   | Child of `<select>` or `<select1>` that defines a list of choice options to be obtained elsewhere (from a [secondary instance](#secondary-instances)).
-| `<value>`     | Child of `<item>` or `<itemset>` that defines a choice value
+| `<value>`     | Child of `<item>` or `<itemset>` that defines a choice value.
 
 ### Body Attributes
 
-The following attributes are supported on body elements. Note that most attributes can only be used on specific elements.
+The following attributes are supported on body elements. Note that most attributes can only be used on specific elements. If such a specific attribute is used on elements that do not support it, it will usually be silently ignored. 
 
 | attribute     | description
 |---------------|----------------
@@ -54,12 +54,12 @@ The following attributes are supported on body elements. Note that most attribut
 | `appearance`    | For all form control elements and groups to change their appearance. See [appearances](#appearances)
 | `jr:count`      | For the `<repeat>` element (see [repeats](#repeats)). This is one of the ways to specify how many repeats should be created by default.
 | `jr:noAddRemove`| For the `<repeat>` element (see [repeats](#repeats)). This indicates whether the user is allow to add or remove repeats. Can have values `true()` and `false()`
-| `autoplay`      | For all 5 form control elements, this automatically plays a video or audio 'label' if the question is displayed on its own page, when the user reaches this page. In all other circumstances this does nothing.
-| `accuracyThreshold` | For `<input>` with type `geopoint`, `geotrace`, or `geoshape` this sets the auto-accept threshold in meters for geopoint captures. For other question types, this does nothing. [review]()
-| `rows`          | Specifies the minimum number of rows a string `<input>` field gets in ODK Collect.  In Enketo a similar effect is achieved by adding appearance="multiline". [pending]()
+| `autoplay`      | For all 5 form control elements, this automatically plays a [video or audio 'label'](#media) if the question is displayed on its own page, when the user reaches this page.
+| `accuracyThreshold` | For `<input>` with type `geopoint`, `geotrace`, or `geoshape` this sets the auto-accept threshold in meters for geopoint captures. [review]()
+| `rows`          | Specifies the minimum number of rows a string `<input>` field gets in ODK Collect. In Enketo a similar effect is achieved by adding appearance="multiline". [pending](https://github.com/enketo/enketo-xslt/issues/26)
 
 ### Appearances
 
-The appearance of the 5 form controls can be changed with the appearance attributes. Appearance values usually related to a specific [data type](#data-types). See the [XLS Form specification](https://xlsform.org) for a list of which appearance attributes are available for each data type.
+The appearance of the 5 form controls can be changed with the appearance attributes. Appearance values usually related to a specific [data type](#data-types). See the [XLS Form specification](https://xlsform.org) for a list of appearance attributes are available for each data type.
 
 TO ADD: 3rd party app launching with an appearance [review]()

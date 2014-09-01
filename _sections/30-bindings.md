@@ -2,7 +2,7 @@
 title: Bindings
 ---
 
-A `<bind>` wires together a primary instance node and the presentation of the corresponding question to the user. It is used to describe the datatype and various kinds of logic related to the data. A bind always refers to _a single leaf node in the primary instance_ and may or may not have a corresponding presentation node. 
+A `<bind>` element wires together a primary instance node and the presentation of the corresponding question to the user. It is used to describe the datatype and various kinds of logic related to the data. A bind always refers to _a single leaf node in the primary instance_ and may or may not have a corresponding presentation node. 
 
 {% highlight xml %}
 <bind nodeset="/d/my_intro" type="string" readonly="true()"/>
@@ -31,16 +31,16 @@ The following attributes are supported on `<bind>` nodes. Only the nodeset attri
 
 | attribute | description |
 | --------- | --------- |
-| `nodeset`   | Specifies the [path](#xpath-paths) to the instance node' \[required\]|
-| `type`      | Specifies the data type. These are discussed below. If omitted the type is considered 'string' |
-| `readonly`  | Specifies whether the user is allowed to enter data, options: `true()`, and `false()` |
-| `required`  | Specifies whether the question requires a non-empty value, options: `true()`, and `false()` |
-| `relevant`  | Specifies whether the question or group is relevant. The question or group will only be presented to the user when the XPath expression evaluates to true. When false the data node (and their descendants) is/are emptied. |
-| `constraint`| Specifies acceptable answers for the specified prompt with an XPath expression |
-| `calculate` | Calculates a node value with an XPath expression |
-| `jr:constraintMsg` | The message that will be displayed if the specified constraint is violated |
-| `jr:preload`| Preloaders for predefined meta data. These are discussed below |
-| `jr:preloadParams` | Parameters used by `jr:preload` |
+| `nodeset`   | Specifies the [path](#xpath-paths) to the instance node' \[required\].
+| `type`      | Specifies the data type. These are discussed below. Considered string if omitted.
+| `readonly`  | Specifies whether the user is allowed to enter data, options: `true()`, and `false()`. Considered false() if omitted.
+| `required`  | Specifies whether the question requires a non-empty value, options: `true()`, and `false()`. Considered false() if omitted.
+| `relevant`  | Specifies whether the question or group is relevant. The question or group will only be presented to the user when the XPath expression evaluates to true. When false the data node (and their descendants) is/are emptied.
+| `constraint`| Specifies acceptable answers for the specified prompt with an XPath expression.
+| `calculate` | Calculates a node value with an XPath expression.
+| `jr:constraintMsg` | The message that will be displayed if the specified constraint is violated.
+| `jr:preload`| Preloaders for predefined meta data. See [preloaders](#preloaders---metadata).
+| `jr:preloadParams` | Parameters used by `jr:preload`. See [preloaders](#preloaders---metadata).
 
 ### Data Types
 
@@ -54,10 +54,10 @@ The following attributes are supported on `<bind>` nodes. Only the nodeset attri
 | `time` 	 | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#time)
 | `dateTime` | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#dateTime) [review]()
 | `select`   | space-separated list of strings [review]()
-| `select1`  | as string (spaces discouraged) [review]()
+| `select1`  | as string (spaces strongly discouraged) [review]()
 | `geopoint` | space-separated list of valid latitude (decimal degrees), longitude (decimal degrees), altitude (decimal meters) and accuracy (decimal meters)
-| `geotrace` | semi-colon separated list of at least 2 geopoints, last geopoint's latitude and longitude not equal to first
-| `geoshape` | semi-colon separated list of at least 3 geopoints, last geopoint's latitude and longitude is equal to first
+| `geotrace` | semi-colon separated list of at least 2 geopoints, where the last geopoint's latitude and longitude is not equal to the first
+| `geoshape` | semi-colon separated list of at least 3 geopoints, where the last geopoint's latitude and longitude is equal to the first
 | `binary`   | [review]()
 | `barcode`  | string consisting only of alphanumeric characters [review]()
 
@@ -75,6 +75,7 @@ The following are examples of valid paths:
 * `../relative/path/to/node`
 * `./relative/path/to/node`
 * `another/relative/path`
+* `//node`
 
 
 ### XPath Expressions
@@ -83,9 +84,9 @@ All [XPath 1.0 expressions](http://www.w3.org/TR/xpath/#section-Expressions) are
 
 ### XPath Predicates
 
-Only the `path/to/node[node = value]` predicate is supported. 
+Only the `path/to/node[node=value]` predicate is supported. 
 
-_What about `xpath/to/node[2]`, `xpath/to/node[@attr = value]` in JavaRosa?._ [review]()
+\[What about `xpath/to/node[2]`, `xpath/to/node[@attr=value]`, `xpath/to/node[position()=2]` in JavaRosa?. [review]()\]
 
 ### XPath Axes
 
@@ -93,13 +94,13 @@ Only the _parent_ and _child_ axes are supported of the [XPath 1.0 axes](https:/
 
 ### XPath Functions
 
-A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib) and a number of additional custom functions are supported. Some of the XPath 1.0 functions have been extended with additional functionality. 
+A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some functions of later versions of XPath, and a number of additional custom functions are supported. Some of the XPath 1.0 functions have been extended with additional functionality. 
 
 | function | description |
 |---------|------|
 | `concat(* arg*)` 							| Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-concat) in that it may contain _1 argument_ and that all arguments can be _nodesets_ or strings. It concatenates all string values and _all node values_ inside the provided nodesets.
 | `selected(string list, string value)` 	| Checks if value is equal to an item in a space-separated list (e.g. `select` data type values).
-| `selected-at(string list, int index)` 	| Returns the value of the item at the 1-based index of a space-separated list or empty string if item does not exist (including for negative index and index 0).
+| `selected-at(string list, int index)` 	| Returns the value of the item at the 1-based index of a space-separated list or empty string if the item does not exist (including for negative index and index 0).
 | `count-selected(string list)` 			| Returns the number of items in a space-separated list (e.g. `select` data type values).
 | `jr:choice-name(string value, node node)` | Returns the label value in the active language corresponding to the choice option with the given value of a select or select1 question question for the given data node. (sorry)
 | `indexed-repeat(nodeset arg, nodeset repeat1, int index1, [nodeset repeatN, int indexN]{0,2})` | Returns a single node from a nodeset by selecting the 0-based index of a repeat nodeset. It does this up to 3 repeat levels deep.
