@@ -23,7 +23,7 @@ Any value inside a primary instance is considered a default value for that quest
 
 ### Primary Instance 
 
-Nodes inside a primary instance can contain attributes. The client application normally retains the attribute when a record is submitted. There are 2 pre-defined attributes:
+Nodes inside a primary instance can contain attributes. The client application normally retains the attribute when a record is submitted. There are 3 pre-defined instance attributes:
 
 * `id` on the childnode of the primary instance: This is the unique ID at which the form is identified the server that publishes the Form and receives data submissions. For more information see [this Form List Specification](https://bitbucket.org/javarosa/javarosa/wiki/FormListAPI). 
 * `version` on the childnode of the primary instance can contain any string value.
