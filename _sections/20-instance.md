@@ -36,4 +36,4 @@ The primary instance also includes a special type of nodes for metadata inside t
 
 Secondary instances are used to pre-load data inside a form. This data is searchable in XPath. At the moment the only use case is so-called _cascading selections_ where the available options of a multiple-choice question can be filtered based on an earlier answer.
 
-A secondary instance should get a unique `id` attribute on the `<instance>` node. This allows apps to query the data (which is outside the root, ie. the primary instance) the data to be reachable in XPath using the `instance('the_id')/path/to/node` syntax.
+A secondary instance should get a unique `id` attribute on the `<instance>` node. This allows apps to query the data (which is outside the root, ie. the primary instance, and would normally not be reachable). It uses the the `instance('the_id')/path/to/node` syntax to do this.

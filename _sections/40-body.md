@@ -53,13 +53,13 @@ The following attributes are supported on body elements. Note that most attribut
 | `class`         | Equivalent to class in HTML and allows a list of space-separate css classes as value. This attribute is only supported on the `<h:body>` element for form-wide style classes.
 | `appearance`    | For all form control elements and groups to change their appearance. See [appearances](#appearances)
 | `jr:count`      | For the `<repeat>` element (see [repeats](#repeats)). This is one of the ways to specify how many repeats should be created by default.
-| `jr:noAddRemove`| For the `<repeat>` element (see [repeats](#repeats)). This indicates whether the user is allow to add or remove repeats. Can have values `true()` and `false()`
+| `jr:noAddRemove`| For the `<repeat>` element (see [repeats](#repeats)). This indicates whether the user is allowed to add or remove repeats. Can have values `true()` and `false()`
 | `autoplay`      | For all 5 form control elements, this automatically plays a [video or audio 'label'](#media) if the question is displayed on its own page, when the user reaches this page.
 | `accuracyThreshold` | For `<input>` with type `geopoint`, `geotrace`, or `geoshape` this sets the auto-accept threshold in meters for geopoint captures. [review]()
 | `rows`          | Specifies the minimum number of rows a string `<input>` field gets in ODK Collect. In Enketo a similar effect is achieved by adding appearance="multiline". [pending](https://github.com/enketo/enketo-xslt/issues/26)
 
 ### Appearances
 
-The appearance of the 5 form controls can be changed with the appearance attributes. Appearance values usually related to a specific [data type](#data-types). See the [XLS Form specification](https://xlsform.org) for a list of appearance attributes are available for each data type.
+The appearance of the 5 form controls can be changed with the appearance attributes. Appearance values usually relate to a specific [data type](#data-types). See the [XLS Form specification](http://xlsform.org) for a list of appearance attributes are available for each data type.
 
 TO ADD: 3rd party app launching with an appearance [review]()
