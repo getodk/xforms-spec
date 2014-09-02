@@ -10,7 +10,7 @@ A group can be both a logical and a presentation group.
 
 Groups may be nested to provide different levels of structure.
 
-Apart from providing structure, a logical group can also contain a `relevant` attribute on its `<bind>` element, creating a powerful way to keep form logic maintainable (see [bind attributes](#bind-attributes)). 
+Apart from providing structure, a logical group can also contain a `relevant` attribute on its `<bind>` element, offering a powerful way to keep form logic maintainable (see [bind attributes](#bind-attributes)). 
 
 The sample below includes both the body and corresponding instance. The respondent group is a logical group and the context group is both a logical and a presentation group. The context group will only be shown if both first name and last name are filled in.
 
