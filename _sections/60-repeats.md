@@ -2,7 +2,7 @@
 title: Repeats
 ---
 
-Repeats are sections that may be repeated in a form. The could consist of a single question or multiple questions. It is recommended to wrap a `<repeat>` inside a `<group>` though strictly speaking not required.
+Repeats are sections that may be repeated in a form. They could consist of a single question or multiple questions. It is recommended to wrap a `<repeat>` inside a `<group>` though strictly speaking not required.
 
 A `<repeat>` uses the nodeset attribute to identify which instance node (and its children) can be repeated.
 

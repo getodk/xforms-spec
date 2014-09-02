@@ -12,7 +12,7 @@ Groups may be nested to provide different levels of structure.
 
 Apart from providing structure, a logical group can also contain a `relevant` attribute on its `<bind>` element, creating a powerful way to keep form logic maintainable (see [bind attributes](#bind-attributes)). 
 
-The sample below that includes both the body and corresponding instance. The respondent group is a logical group and the context group is both a logical and a presentation group. The context group will only be shown if both first name and last name are filled in.
+The sample below includes both the body and corresponding instance. The respondent group is a logical group and the context group is both a logical and a presentation group. The context group will only be shown if both first name and last name are filled in.
 
 {% highlight xml %}
 <h:head>
