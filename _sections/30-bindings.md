@@ -84,7 +84,7 @@ All [XPath 1.0 expressions](http://www.w3.org/TR/xpath/#section-Expressions) are
 
 ### XPath Predicates
 
-Only the `path/to/node[node=value]` predicate is supported. 
+Only the `path/to[node=value]` predicate is supported. 
 
 \[What about `xpath/to/node[2]`, `xpath/to/node[@attr=value]`, `xpath/to/node[position()=2]` in JavaRosa?. [review]()\]
 

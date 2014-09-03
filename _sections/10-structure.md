@@ -9,7 +9,7 @@ The high-level form definition is structured as follows:
     * bindings
 * body
 
-The model contains the **[instance](#instance)**(s) and the **[bindings](#bindings)**. The instance is the XML data structure of the _record_ that is captured with the form. A binding describes an individual instance node and includes information such as _datatype, skip logic, calculations, and more_.
+The model contains the **[instance](#instance)**(s) and the **[bindings](#bindings)**. The first instance is the XML data structure of the _record_ that is captured with the form. A binding describes an individual instance node and includes information such as _datatype, skip logic, calculations, and more_.
 
 The **[body](#body)** contains the information required to _display_ a form. 
 
