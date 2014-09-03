@@ -145,7 +145,7 @@ B. Specify the values for each repeat instance individually in the primary insta
 
 In XForms, relative XPaths should be evaluated _relative to context_, and absolute paths (/data/path/to/repeat) should be evaluated as _absolute paths without considering context_. If there are multiple repeats, the XPath /data/path/to/repeat would either return the first repeat (if e.g. a string value is requested), or all repeats (if a nodeset is requested).
 
-However, in this spec, due to an unfortunate persistent historical error, **absolute paths** /data/path/to/repeat/node **inside repeats are always evaluated as if the are relative to the current nodeset**. In other words, the absolute XPath `/data/path/to/repeat/node` when it is referred to from inside a repeat is evaluated as if it is the relative XPath `../node`.
+However, in this spec, due to an unfortunate persistent historical error, **absolute paths** /data/path/to/repeat/node **inside repeats are always evaluated as if they are relative to the current nodeset**. In other words, the absolute XPath `/data/path/to/repeat/node` when it is referred to from inside a repeat is evaluated as if it is the relative XPath `../node`.
 
 _In order to rectify this error at some time in the future, it would be very helpful if any form builders around this spec [start generating relative references](https://github.com/SEL-Columbia/pyxform/issues/91) automatically._
 
