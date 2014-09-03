@@ -59,7 +59,7 @@ The following attributes are supported on `<bind>` nodes. Only the nodeset attri
 | `geotrace` | semi-colon separated list of at least 2 geopoints, where the last geopoint's latitude and longitude is not equal to the first
 | `geoshape` | semi-colon separated list of at least 3 geopoints, where the last geopoint's latitude and longitude is equal to the first
 | `binary`   | [review]()
-| `barcode`  | string consisting only of alphanumeric characters [review]()
+| `barcode`  | as string [review]()
 
 ### XPath Paths
 
