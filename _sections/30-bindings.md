@@ -139,7 +139,7 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 | `instance(string id)`						| Returns a [secondary instance](#secondary-instances) node with the provided id, e.g. `instance('cities')/item/[country=/data/country]`. It is the only way to refer to a node outside of the primary instance. Note that it doesn't switch the XML Document (the primary instance) or document root for other expressions. E.g. `/data/country` still refers to the primary instance.
 | `current()`								| Like `instance()` but always referring to the primary instance (and no arguments). [review]()	
 | `area(node-set ns | geoshape gs)`			| Returns the calculated area in m2 of either a nodeset of geopoints or a geoshape value (not a combination of both) on Earth. It takes into account the circumference of the Earth around the Equator but does not take altitude into account.	
-| `once(* calc)`						| The parameter will be returned if the current value is empty, otherwise the current value will be returned. This function requires a context node as its hidden parameter and may technically not be an entirely proper XPath function for that reason. The function is used e.g. to ensure that a random number is only generated once with `once(random())`. [review]()
+| `once(* calc)`						| The parameter will be returned if the context nodes's value is empty, otherwise the current value of the context node will be returned. The function is used e.g. to ensure that a random number is only generated once with `once(random())`. [review]()
 
 ### Preloaders - Metadata
 
