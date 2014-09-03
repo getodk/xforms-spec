@@ -137,7 +137,8 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 | `position(node arg?)`						| Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-position) in that it accepts an argument. This argument has to be a single node. If an argument is provided the function returns the position of that node amongst its siblings (with the same node name). [review]()
 | `property(string prop)`					| Tbd, this is **not** a valid XPath function in its current JavaRosa implementation. [pending](https://code.google.com/p/opendatakit/issues/detail?id=1034)
 | `instance(string id)`						| Returns a [secondary instance](#secondary-instances) node with the provided id, e.g. `instance('cities')/item/[country=/data/country]`. It is the only way to refer to a node outside of the primary instance. Note that it doesn't switch the XML Document (the primary instance) or document root for other expressions. E.g. `/data/country` still refers to the primary instance.
-| `current()`								| Like `instance()` but always referring to the primary instance (and no arguments). [review]()				
+| `current()`								| Like `instance()` but always referring to the primary instance (and no arguments). [review]()	
+| `area(node-set ns | geoshape gs)`			| Returns the calculated area in m2 of either a nodeset of geopoints or a geoshape value (not a combination of both) on Earth. It takes into account the circumference of the Earth around the Equator but does not take altitude into account.									| 			
 
 ### Preloaders - Metadata
 
