@@ -38,6 +38,7 @@ The following attributes are supported on `<bind>` nodes. Only the nodeset attri
 | `relevant`  | Specifies whether the question or group is relevant. The question or group will only be presented to the user when the XPath expression evaluates to true. When false the data node (and their descendants) is/are emptied.
 | `constraint`| Specifies acceptable answers for the specified prompt with an XPath expression.
 | `calculate` | Calculates a node value with an XPath expression.
+| `saveIncomplete` | Specifies whether to automatically save the draft record when the user reaches this question, options `true()` and `false()`. Considered false() if omitted.
 | `jr:constraintMsg` | The message that will be displayed if the specified constraint is violated.
 | `jr:preload`| Preloaders for predefined meta data. See [preloaders](#preloaders---metadata).
 | `jr:preloadParams` | Parameters used by `jr:preload`. See [preloaders](#preloaders---metadata).
