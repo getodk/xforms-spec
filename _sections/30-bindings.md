@@ -2,7 +2,7 @@
 title: Bindings
 ---
 
-A `<bind>` element wires together a primary instance node and the presentation of the corresponding question to the user. It is used to describe the datatype and various kinds of logic related to the data. A bind always refers to _a single leaf node in the primary instance_ and may or may not have a corresponding presentation node. 
+A `<bind>` element wires together a primary instance node and the presentation of the corresponding question to the user. It is used to describe the datatype and various kinds of logic related to the data. A bind can refer to any node in the primary instance including repeated nodes_. It may or may not have a corresponding presentation node in the [body](#body). 
 
 {% highlight xml %}
 <bind nodeset="/d/my_intro" type="string" readonly="true()"/>
@@ -59,7 +59,7 @@ The following attributes are supported on `<bind>` nodes. Only the nodeset attri
 | `geotrace` | semi-colon separated list of at least 2 geopoints, where the last geopoint's latitude and longitude is not equal to the first
 | `geoshape` | semi-colon separated list of at least 3 geopoints, where the last geopoint's latitude and longitude is equal to the first
 | `binary`   | [review]()
-| `barcode`  | string consisting only of alphanumeric characters [review]()
+| `barcode`  | as string [review]()
 
 ### XPath Paths
 
@@ -84,7 +84,7 @@ All [XPath 1.0 expressions](http://www.w3.org/TR/xpath/#section-Expressions) are
 
 ### XPath Predicates
 
-Only the `path/to/node[node=value]` predicate is supported. 
+Only the `path/to[node=value]` predicate is supported. 
 
 \[What about `xpath/to/node[2]`, `xpath/to/node[@attr=value]`, `xpath/to/node[position()=2]` in JavaRosa?. [review]()\]
 
@@ -132,12 +132,14 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 | `now()`									| same as today() [review]()
 | `random()`								| Returns a random number between 0.0 (inclusive) and 1.0 (exclusive)
 | `uuid()`									| Return a random [RFC 4122 version 4](http://tools.ietf.org/html/rfc4122) compliant UUID string [review]()
-| `checklist(min, max, v*)`				    | Check wether the count of answers that evaluate to true (when it converts to a number > 0) is between the minimum and maximum inclusive. Min and max can be -1 to indicate _not applicable_.
-| `weighted-checklist(min, max, [v, w]*)`	| Like checklist(), but the number of arguments has to be even. Each v argument is paired with a w argument that _weights_ each v (true) count. The min and max refer to the weighted totals.
+| `checklist(number min, number max, string v*)`				    | Check wether the count of answers that evaluate to true (when it converts to a number > 0) is between the minimum and maximum inclusive. Min and max can be -1 to indicate _not applicable_.
+| `weighted-checklist(number min, number max, [string v, string w]*)`	| Like checklist(), but the number of arguments has to be even. Each v argument is paired with a w argument that _weights_ each v (true) count. The min and max refer to the weighted totals.
 | `position(node arg?)`						| Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-position) in that it accepts an argument. This argument has to be a single node. If an argument is provided the function returns the position of that node amongst its siblings (with the same node name). [review]()
 | `property(string prop)`					| Tbd, this is **not** a valid XPath function in its current JavaRosa implementation. [pending](https://code.google.com/p/opendatakit/issues/detail?id=1034)
 | `instance(string id)`						| Returns a [secondary instance](#secondary-instances) node with the provided id, e.g. `instance('cities')/item/[country=/data/country]`. It is the only way to refer to a node outside of the primary instance. Note that it doesn't switch the XML Document (the primary instance) or document root for other expressions. E.g. `/data/country` still refers to the primary instance.
-| `current()`								| Like `instance()` but always referring to the primary instance (and no arguments). [review]()				
+| `current()`								| Like `instance()` but always referring to the primary instance (and no arguments). [review]()	
+| `area(node-set ns | geoshape gs)`			| Returns the calculated area in m2 of either a nodeset of geopoints or a geoshape value (not a combination of both) on Earth. It takes into account the circumference of the Earth around the Equator but does not take altitude into account.	
+| `once(* calc)`						| The parameter will be returned if the context nodes's value is empty, otherwise the current value of the context node will be returned. The function is used e.g. to ensure that a random number is only generated once with `once(random())`. [review]()
 
 ### Preloaders - Metadata
 
