@@ -76,7 +76,8 @@ table tr th, table tr td {
     float: left;
     padding: 0 1em;
     zoom: 1;
-    width: 65%;
+    width: 75%;
+    box-sizing: border-box;
 }
 
 .sidenav {
@@ -84,8 +85,9 @@ table tr th, table tr td {
     float: left;
     margin-right: 1em;
     margin-top: 1em;
+    margin-left: 1em;
     padding-top: 1em;
-    width: 30%;
+    width: 20%;
 }
 
 .sidenav > ul {
@@ -111,6 +113,7 @@ table tr th, table tr td {
     border-bottom: 1px solid #e8e8e8;
     min-height: 56px;
     background-color: white;
+    padding: 1em;
 }
 
 .site-title,
@@ -700,6 +703,12 @@ table tr th, table tr td {
 /* ----------------------------------------------------------*/
 
 @media screen and (max-width: 750px) {
+    .wrap {
+        width: 100%;
+    }
+    .sidenav {
+        width: 100%;
+    }
     .footer-col-1 {
         width: 50%;
     }

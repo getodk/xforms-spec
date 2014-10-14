@@ -38,6 +38,7 @@ The following attributes are supported on `<bind>` nodes. Only the nodeset attri
 | `relevant`  | Specifies whether the question or group is relevant. The question or group will only be presented to the user when the XPath expression evaluates to true. When false the data node (and their descendants) is/are emptied.
 | `constraint`| Specifies acceptable answers for the specified prompt with an XPath expression.
 | `calculate` | Calculates a node value with an XPath expression.
+| `saveIncomplete` | Specifies whether to automatically save the draft record when the user reaches this question, options `true()` and `false()`. Considered false() if omitted.
 | `jr:constraintMsg` | The message that will be displayed if the specified constraint is violated.
 | `jr:preload`| Preloaders for predefined meta data. See [preloaders](#preloaders---metadata).
 | `jr:preloadParams` | Parameters used by `jr:preload`. See [preloaders](#preloaders---metadata).
@@ -137,7 +138,7 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 | `position(node arg?)`						| Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-position) in that it accepts an argument. This argument has to be a single node. If an argument is provided the function returns the position of that node amongst its siblings (with the same node name). [review]()
 | `property(string prop)`					| Tbd, this is **not** a valid XPath function in its current JavaRosa implementation. [pending](https://code.google.com/p/opendatakit/issues/detail?id=1034)
 | `instance(string id)`						| Returns a [secondary instance](#secondary-instances) node with the provided id, e.g. `instance('cities')/item/[country=/data/country]`. It is the only way to refer to a node outside of the primary instance. Note that it doesn't switch the XML Document (the primary instance) or document root for other expressions. E.g. `/data/country` still refers to the primary instance.
-| `current()`								| Like `instance()` but always referring to the primary instance (and no arguments). [review]()	
+| `current()`								| In the same league as `instance(ID)` but always referring to the primary instance (and accepting no arguments). Unlike instance(ID), which always requires an absolute path, current() can be used with relative references (e.g. `current()/.` and `current()/..`).
 | `area(node-set ns | geoshape gs)`			| Returns the calculated area in m2 of either a nodeset of geopoints or a geoshape value (not a combination of both) on Earth. It takes into account the circumference of the Earth around the Equator but does not take altitude into account.	
 | `once(* calc)`						| The parameter will be returned if the context nodes's value is empty, otherwise the current value of the context node will be returned. The function is used e.g. to ensure that a random number is only generated once with `once(random())`. [review]()
 
