@@ -8,6 +8,6 @@ url: ""
 # Build settings
 markdown: kramdown
 safe: true
-highlighter: pygments
+highlighter: rouge
 collections:
 - sections
