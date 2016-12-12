@@ -2,7 +2,7 @@
 title: Languages 
 ---
 
-Multi-lingual content for labels, and hints is supported. This is optional and can be done by replacing all language-dependent strings with 'text identifiers', which act as indexes into a multi-lingual dictionary in the model.
+Multi-lingual content for labels, and hints is supported. This is optional and can be done by replacing all language-dependent strings with 'text identifiers', which act as indexes into a multi-lingual dictionary in the model. The language strings can be identified with the `jr:itext()` [XPath function](#xpath-functions).
 
 In the `<model>`, a multi-lingual dictionary has the following structure:
 
@@ -53,8 +53,14 @@ With the corresponding entries in `<itext>`:
 
 Not every string must be localized. It is acceptable to intermix `<label>`s of both forms. Those which do not reference the dictionary will always show the same content, regardless of language.
 
+It is even allowed to intermix both a `ref` and a regular value. In this case, if the itext engine is missing it will refer to the regular value. E.g.
+
+{% highlight xml %}
+<label ref="jr:itext('mykey')">a default value</label>
+{% endhighlight %}
+
 In general, all text ids must be replicated across all languages. It is sometimes only a parser warning if you do not, but it will likely lead to headaches.
-Even within a single language, it is helpful to have multiple 'forms' of the same string. For example, a verbose phrasing used as the caption when answering a question, but a short, terse phrasing when that question is shown in the form summary. We handle this as follows: [review]()
+Even within a single language, it is helpful to have multiple 'forms' of the same string. For example, a verbose phrasing used as the caption when answering a question, but a short, terse phrasing when that question is shown in the form summary. This can be done as follows:
 
 {% highlight xml %}
 <text id="how-old">
@@ -63,4 +69,11 @@ Even within a single language, it is helpful to have multiple 'forms' of the sam
 </text>
 {% endhighlight %}
 
-The different `forms` are only supported for question captions (`<label>`s inside user controls). The [media](#media) section describes how to add non-text form labels using the same method.
+There are two form attribute options for text strings:
+
+| text type       | form attribute
+|-----------------|----------------|
+| single version  | _no form attr_ |
+| short version   |  `short`       |
+
+The different `forms` are only supported for question captions (`<label>`s inside user controls). The [media](#media) section describes how to add non-text form labels in a similar manner.
