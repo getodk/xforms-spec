@@ -43,12 +43,12 @@ Within the form controls the following elements can be used:
 |---------------|------------------
 | `<label>`     | Child of a [form control](#body-elements) element, `<item>`, `<itemset>` or `<group>` used to display a label. Only 1 `<label>` per form control is properly supported but can be used in [multiple languages](#languages)).
 | `<hint>`      | Child of a [form control](#body-elements) element used to display a hint. Only 1 `<hint>` element per form control is properly supported but can be used in [multiple languages](#languages)).
-| `<output>`    | Child of a `<label>` or `<hint>` element used to display an instance value, inline, as part of the label, or hint stext.
+| `<output>`    | Child of a `<label>` or `<hint>` element used to display an instance value, inline, as part of the label, or hint text.
 | `<item>`      | Child of `<select>` or `<select1>` that defines an choice option.
 | `<itemset>`   | Child of `<select>` or `<select1>` that defines a list of choice options to be obtained elsewhere (from a [secondary instance](#secondary-instances)).
 | `<value>`     | Child of `<item>` or `<itemset>` that defines a choice value.
 
-Below is an example of a labels, an output, a hint, an itemset and value used together to define a form control:
+Below is an example of a label, an output, a hint, an itemset and value used together to define a form control:
 
 {% highlight xml %}
  <group ref="/data/loc">
@@ -84,7 +84,7 @@ The following attributes are supported on body elements. Note that most attribut
 
 ### Appearances
 
-The appearance of the 5 form controls can be changed with appearance attributes. Appearance values usually relate to a specific [data](#data-types) or [question](#body-elements) type. See the [XLS Form specification](http://xlsform.org) for a list of appearance attributes are available for each data type. Multiple space-separated appearance values can be added to a form control in any order.
+The appearance of the 5 form controls can be changed with appearance attributes. Appearance values usually relate to a specific [data](#data-types) or [question](#body-elements) type. See the [XLS Form specification](http://xlsform.org) for a list of appearance attributes that are available for each data type. Multiple space-separated appearance values can be added to a form control in any order.
 
 An appearance attribute can also be used to indicate that an [external app](#external-applications) should be used as a form control.
 

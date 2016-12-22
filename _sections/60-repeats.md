@@ -45,7 +45,7 @@ A `<repeat>` cannnot have a label child element. To display a label it should be
 
 ### Creation, Removal of Repeats
 
-The default behaviour of repeats is to let the user create or remove repeats using the the user interface. The user control for creating and removing repeats can be disabled by adding the attribute `jr:noAddRemove="true()"` to the `<repeat>` element. 
+The default behavior of repeats is to let the user create or remove repeats using the the user interface. The user control for creating and removing repeats can be disabled by adding the attribute `jr:noAddRemove="true()"` to the `<repeat>` element. 
 
 There are 2 different ways to ensure that multiple repeats are automatically created when a form loads.
 

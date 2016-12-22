@@ -29,7 +29,7 @@ Nodes inside a primary instance can contain attributes. The client application n
 
 | attribute     | description
 |---------------|------------
-| `id`          | on the childnode of the primary instance: This is the unique ID at which the form is identified the server that publishes the Form and receives data submissions. For more information see [this Form List Specification](https://bitbucket.org/javarosa/javarosa/wiki/FormListAPI). \[required\]
+| `id`          | on the childnode of the primary instance: This is the unique ID at which the form is identified by the server that publishes the Form and receives data submissions. For more information see [this Form List Specification](https://bitbucket.org/javarosa/javarosa/wiki/FormListAPI). \[required\]
 | `orx:version` | on the childnode of the primary instance in the _http://openrosa.org/xforms/_ namespace: Form version which can contain any string value. Like [meta nodes](#metadata) this information is used as a _processing cue_ for the server receiving the submission.
 | `jr:template` | on any repeat group node in the _http://openrosa.org/javarosa namespace_: This serves to define a default template for repeats and is useful if any of the leaf nodes inside a repeat contains a default value. It is not transmitted in the record and only affects the behavior of the form engine. For more details, see the [repeats](#repeats) section.
 
@@ -110,3 +110,7 @@ A secondary instance should get a unique `id` attribute on the `<instance>` node
     </root>
 </instance>
 {% endhighlight %}
+
+### Secondary Instances - External
+
+[Proposal pending](https://github.com/opendatakit/odk-xform-spec/issues/50).
