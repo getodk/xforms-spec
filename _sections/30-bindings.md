@@ -41,7 +41,7 @@ The following attributes are supported on `<bind>` nodes. Only the nodeset attri
 | `constraint`| Specifies acceptable answers for the specified prompt with an XPath expression. Will only be evaluated when the node is non-empty.
 | `calculate` | Calculates a node value with an XPath expression.
 | `saveIncomplete` | Specifies whether to automatically save the draft record when the user reaches this question, options `true()` and `false()`. Considered false() if omitted.
-| `jr:constraintMsg` | The message that will be displayed if the specified constraint is violated. Attribute in "http://openrosa.org/javarosa" namespace.
+| `jr:constraintMsg` | Specifies the custom message to be displayed when the `constraint` is violated. Attribute in "http://openrosa.org/javarosa" namespace.
 | `jr:preload`| Preloaders for predefined meta data. See [preloaders](#metadata) for supported values. In "http://openrosa.org/javarosa" namespace.
 | `jr:preloadParams` | Parameters used by `jr:preload`. See [preloaders](#metadata) for supported values. In "http://openrosa.org/javarosa" namespace.
 
