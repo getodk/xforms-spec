@@ -369,19 +369,9 @@ table tr th, table tr td {
     padding: 0;
 }
 
-.badge:link, .badge:visited {
-    border-radius: 4px;
-    padding: 1px 3px;
-    color: white;
-    font-size: 12px;
-}
-
-.review {
-    background: orange;
-}
-
-.pending {
-    background: red;
+.clickable:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 /* Syntax highlighting styles */
