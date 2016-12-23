@@ -168,7 +168,9 @@ The namespace of the meta block is either the default XForms namespace or "https
 </instance>
 {% endhighlight %}
 
-These meta elements have corresponding `<bind>` elements with custom preload attributes or a calculation. _Note that these values may be recalculated, e.g. when a draft record is loaded. This could lead to undesirable results especially in case the result is a random value._
+These meta elements have corresponding `<bind>` elements with a calculation. _Note that these values may be recalculated, e.g. when a draft record is loaded. This could lead to undesirable results especially in case the result is a random value._
+
+Another approach, as mentioned in section [Bind Attributes](#bind-attributes), is to use _preload_ attributes to generate these values at a particular pre-defined time.
 
 The following meta elements are supported:
 
@@ -185,7 +187,7 @@ The following meta elements are supported:
 | `simSerial`	| SIM serial number of phone, when available. | string | |same as meta block
 | `subscriberID`| IMSI of phone prefixed (with imsi: prefix, e.g. imsi:SD655E212), when available. | string | |same as meta block
 
-As mentioned in section [Bind Attributes](#bind-attributes) it is possible to use _preload_ attributes to generate these values at a particular pre-defined time. The supported parameter combinations are:
+Supported preload parameter combinations are: 
 
 | jr:preload    | jr:preloadParams  | value           		| event
 |---------------|-------------------|-----------------------|-------------
