@@ -60,6 +60,8 @@ function getMenuElement(headingEl) {
  */
 function setHeaderListeners() {
     var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+
+    addClickableClass(headers);
     addListeners(headers, 'click', headerClickHandler);
 }
 
@@ -84,4 +86,17 @@ function headerClickHandler(event) {
 function setHash(hash) {
     hash = (hash && hash.indexOf('#') !== 0) ? '#' + hash : hash;
     history.pushState({}, '', hash);
+}
+
+/**
+ * Adds class "clickable" to all elements in NodeList.
+ * 
+ * @param {NodeList} headers list of HTML Elements
+ */
+function addClickableClass(elements) {
+    if (elements && elements.length) {
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.add('clickable');
+        }
+    }
 }
