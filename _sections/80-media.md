@@ -2,7 +2,7 @@
 title: Media
 ---
 
-The `<itext>` method described in the [languages](#languages) section can also be used for **media labels**. Media labels can be used in addition to text labels or instead of text labels. 
+The `<itext>` element described in the [languages](#languages) section can also be used for **media labels**. Media labels can be used in addition to text labels or instead of text labels. 
 
 {% highlight xml %}
 ....

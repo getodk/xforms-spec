@@ -28,20 +28,42 @@ The following form control elements are supported:
 |`<select1>`    | Used to display a single-select list (data type: select1)
 |`<select>`     | Used to display a multiple-select list (data type: select)
 |`<upload>`     | Used for image, audio, and video capture
-|`<trigger>`    | Used to obtain user confirmation (e.g. by displaying a single tickbox or button). Will add value _"OK"_ to corresponding instance node when user confirms. If not confirmed the value remains empty. [review]() 
+|`<trigger>`    | Used to obtain user confirmation (e.g. by displaying a single tickbox or button). Will add value _"OK"_ to corresponding instance node when user confirms. If not confirmed the value remains empty.
 
-Within the user controls the following elements can be used:
+The following user interface elements are supported:
+
+| element       | description
+|---------------|---------------------------------------
+| `<group>`     | Child of `<body>`, another `<group>`, or a `<repeat>` that groups form controls together. See [groups](#groups) section for further details.
+| `<repeat>`    | Child of `<body>` or `<group>` that can be repeated. See [repeats](#repeats) for further details.
+
+Within the form controls the following elements can be used:
 
 | element       | description
 |---------------|------------------
-| `<group>`     | Child of `<body>`, another `<group>`, or a `<repeat>` that groups form controls together. See [groups](#groups) section for further details.
-| `<repeat>`    | Child of `<body>` or `<group>` that can be repeated. See [repeats](#repeats) for further details.
 | `<label>`     | Child of a [form control](#body-elements) element, `<item>`, `<itemset>` or `<group>` used to display a label. Only 1 `<label>` per form control is properly supported but can be used in [multiple languages](#languages)).
 | `<hint>`      | Child of a [form control](#body-elements) element used to display a hint. Only 1 `<hint>` element per form control is properly supported but can be used in [multiple languages](#languages)).
-| `<output>`    | Child of a `<label>` or `<hint>` element used to display an instance value.
+| `<output>`    | Child of a `<label>` or `<hint>` element used to display an instance value, inline, as part of the label, or hint text.
 | `<item>`      | Child of `<select>` or `<select1>` that defines an choice option.
 | `<itemset>`   | Child of `<select>` or `<select1>` that defines a list of choice options to be obtained elsewhere (from a [secondary instance](#secondary-instances)).
 | `<value>`     | Child of `<item>` or `<itemset>` that defines a choice value.
+
+Below is an example of a label, an output, a hint, an itemset and value used together to define a form control:
+
+{% highlight xml %}
+ <group ref="/data/loc">
+    <label>Location</label>
+    ...
+    <select1 ref="/data/loc/city">
+        <label>City</label>
+        <hint>Cities in <output value="/data/loc/country"/></hint>
+        <itemset nodeset="instance('cities')/root/item[country= /data/loc/country ]">
+            <value ref="name"/>
+            <label ref="label"/>
+        </itemset>
+    </select1>
+</group>
+{% endhighlight %}
 
 ### Body Attributes
 
@@ -56,10 +78,14 @@ The following attributes are supported on body elements. Note that most attribut
 | `jr:noAddRemove`| For the `<repeat>` element (see [repeats](#repeats)). This indicates whether the user is allowed to add or remove repeats. Can have values `true()` and `false()`
 | `autoplay`      | For all 5 form control elements, this automatically plays a [video or audio 'label'](#media) if the question is displayed on its own page, when the user reaches this page.
 | `accuracyThreshold` | For `<input>` with type `geopoint`, `geotrace`, or `geoshape` this sets the auto-accept threshold in meters for geopoint captures. [review]()
-| `rows`          | Specifies the minimum number of rows a string `<input>` field gets in ODK Collect. In Enketo a similar effect is achieved by adding appearance="multiline". [pending](https://github.com/enketo/enketo-xslt/issues/26)
+| `value`         | For the `<output>` element to reference the node value to be displayed.
+| `rows`          | Specifies the minimum number of rows a string `<input>` field gets.
+
 
 ### Appearances
 
-The appearance of the 5 form controls can be changed with the appearance attributes. Appearance values usually relate to a specific [data type](#data-types). See the [XLS Form specification](http://xlsform.org) for a list of appearance attributes are available for each data type. Multiple space-separated appearance values can be added to a form control
+The appearance of the 5 form controls can be changed with appearance attributes. Appearance values usually relate to a specific [data](#data-types) or [question](#body-elements) type. See the [XLS Form specification](http://xlsform.org) for a list of appearance attributes that are available for each data type. Multiple space-separated appearance values can be added to a form control in any order.
 
-TO ADD: 3rd party app launching with an appearance [review]()
+An appearance attribute can also be used to indicate that an [external app](#external-applications) should be used as a form control.
+
+

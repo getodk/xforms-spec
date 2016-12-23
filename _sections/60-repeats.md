@@ -6,6 +6,8 @@ Repeats are sections that may be repeated in a form. They could consist of a sin
 
 A `<repeat>` uses the nodeset attribute to identify which instance node (and its children) can be repeated.
 
+A `<repeat>` cannnot have a label child element. To display a label it should be wrapped inside a `<group>` as shown below:
+
 {% highlight xml %}
 ...
 <h:head>
@@ -43,7 +45,7 @@ A `<repeat>` uses the nodeset attribute to identify which instance node (and its
 
 ### Creation, Removal of Repeats
 
-The default behaviour of repeats is to let the user create or remove repeats using the the user interface. ODK Collect will ask for the first repeat. Enketo will show the first repeat automatically. This can be disabled by adding the attribute `jr:noAddRemove="true()"` to the `<repeat>` element. 
+The default behavior of repeats is to let the user create or remove repeats using the the user interface. The user control for creating and removing repeats can be disabled by adding the attribute `jr:noAddRemove="true()"` to the `<repeat>` element. 
 
 There are 2 different ways to ensure that multiple repeats are automatically created when a form loads.
 
@@ -145,7 +147,7 @@ B. Specify the values for each repeat instance individually in the primary insta
 
 In XForms, relative XPaths should be evaluated _relative to context_, and absolute paths (/data/path/to/repeat) should be evaluated as _absolute paths without considering context_. If there are multiple repeats, the XPath /data/path/to/repeat would either return the first repeat (if e.g. a string value is requested), or all repeats (if a nodeset is requested).
 
-However, in this spec, due to an unfortunate persistent historical error, **absolute paths** /data/path/to/repeat/node **inside repeats are always evaluated as if they are relative to the current nodeset**. In other words, the absolute XPath `/data/path/to/repeat/node` when it is referred to from inside a repeat is evaluated as if it is the relative XPath `../node`.
+However, in this spec, due to an unfortunate persistent historical error, **absolute paths inside repeats are always evaluated as if they are relative to the current nodeset**. In other words, the absolute XPath `/data/path/to/repeat/node` when it is referred to from inside a repeat is evaluated as if it is the relative XPath `../node`.
 
-_In order to rectify this error at some time in the future, it would be very helpful if any form builders around this spec [start generating relative references](https://github.com/SEL-Columbia/pyxform/issues/91) automatically._
+_In order to rectify this error at some time in the future, it would be very helpful if any form builders around this spec start generating relative references automatically._
 
