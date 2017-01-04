@@ -1,7 +1,7 @@
-ODK XForm Spec
+ODK XForms Spec
 ===========
 
-Published at [http://opendatakit.github.io/odk-xform-spec/](http://opendatakit.github.io/odk-xform-spec/)
+Published at [http://opendatakit.github.io/odk-xforms-spec/](http://opendatakit.github.io/odk-xforms-spec/)
 
 ### Requirements
 * a version of jekyll that supports collections (update with `gem update jekyll`)
