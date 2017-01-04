@@ -131,6 +131,16 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 | `pow(number value, number power)`			| As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-pow).
 | `log(number arg)`                         | As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-log).
 | `log10(number arg)`                       | As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-log10).
+| `sin(number arg)`							| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-sin).
+| `cos(number arg)` 						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-cos).
+| `tan(number arg)` 						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-tan).
+| `asin(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-asin).
+| `acos(number arg)`						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-acos).
+| `atan(number arg)`						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-atan).
+| `atan2(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-atan2).
+| `sqrt(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-sqrt).
+| `exp(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-exp).
+| `pi()` 									| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-pi).
 | `today()`									| Returns today's date without a time component.
 | `now()`									| Returns the current datetime in the current time zone.
 | `random()`								| Returns a random number between 0.0 (inclusive) and 1.0 (exclusive).
