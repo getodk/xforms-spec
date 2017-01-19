@@ -149,7 +149,7 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 
 This section describes metadata about _the record_ that is created with the form. Metadata about _the form itself_ (id, version, etc) is covered in the [Primary Instance](http://localhost:4000/#primary-instance) section.
 
-The namespace of the meta block is either the default XForms namespace or "https://openrosa.org/xforms".
+The namespace of the meta block is either the default XForms namespace or "https://openrosa.org/xforms". The latter is recommended.
 
 {% highlight xml %}
 <instance>
@@ -168,36 +168,37 @@ The namespace of the meta block is either the default XForms namespace or "https
 </instance>
 {% endhighlight %}
 
-These meta elements have corresponding `<bind>` elements with a calculation. _Note that these values may be recalculated, e.g. when a draft record is loaded. This could lead to undesirable results especially in case the result is a random value._
+These meta elements have corresponding `<bind>` elements with either a calculation or with _preload attributes_. Note that when using a calculation these values may be recalculated, e.g. when a draft record is loaded. This could lead to undesirable results especially in case the result is a random value.
 
-Another approach, as mentioned in section [Bind Attributes](#bind-attributes), is to use _preload_ attributes to generate these values at a particular pre-defined time.
+Using both a calculation and preload attributes is technically allowed but never recommended, because one will overwrite the other. 
 
 The following meta elements are supported:
 
-| element      | description                                       | default datatype | default value             | namespace
+| element      | description                                       | default datatype | value             | namespace
 |--------------|---------------------------------------------------|----------------------------------------------------------------------------
 | `instanceID` | The unique ID of the record [required]            | string           | concatenation of 'uuid:' and uuid() | same as meta block
 | `timeStart`  | A timestamp of when the form entry was started    | datetime         | now()                     | same as meta block
 | `timeEnd`    | A timestamp of when the form entry ended          | datetime         | now()                     | same as meta block
 | `userID`     | The username stored in the client, when available | string           |                             | same as meta block
 | `deviceID`   | Unique identifier of device. Guaranteed not to be blank but could be 'not supported'. Either the cellular IMEI (with imei: prefix, e.g. imei:A0006F5E212), WiFi mac address (with mac: prefix, e.g mac:01:23:45:67:89:ab), Android ID (e.g. android_id:12011110), or another unique device ID for a webbased client (with domain prefix,e .g. enketo.org:SOMEID) | string | depends on client, prefixed | same as meta block
-| `deprecatedID` | The `<instanceID/>` of the submission for which this is a revision. This revision will have been given a newly generated `<instanceID/>` and this field is populated by the prior value. Server software can use this field to unify multiple revisions to a submission into a consolidated submission record. | string | concatenation of 'uuid:' and uuid() | same as meta block
+| `deprecatedID` | The `<instanceID/>` of the submission for which this is a revision. This revision will get a newly generated `<instanceID/>` and this field is populated by the prior value. Server software can use this field to unify multiple revisions to a submission into a consolidated submission record. | string |  | same as meta block
 | `email`		| The user's email address when available. | string | | same as meta block
 | `phoneNumber` | The phone number of the device, when available | string | | same as meta block
 | `simSerial`	| SIM serial number of phone, when available. | string | |same as meta block
 | `subscriberID`| IMSI of phone prefixed (with imsi: prefix, e.g. imsi:SD655E212), when available. | string | |same as meta block
 
-Supported preload parameter combinations are: 
+As mentioned in [Bind Attributes](#bind-attributes), there are two different preload attributes. A particular combination of pre-load attributes populates a value according to a **predetermined fixed formula**, when a **predetermined event** occurs. Different combinations handle different events and use a different calculation.
+
+Supported preload attribute combinations are: 
 
 | jr:preload    | jr:preloadParams  | value           		| event
 |---------------|-------------------|-----------------------|-------------
-| uid           |                   | see `instanceID` 		| upon load
-| timestamp     | start             | see `timeEnd` 		| upon load if there is no existing value
-| timestamp     | end               | see `timeEnd`  		| upon save and/or submit
-| property   	| deviceid          | see `deviceID` 	 	| upon load
-| property		| email             |  see `email` 			| upon load
-| property 		| username          | see `userID` 			| upon load
-| property      | phone number      | see `phoneNumber`  	| upon load
-| property      | simserial         | see `simSerial` 		| upon load
-| property      | subscriberid	    | see `subscriberID`  	| upon load
-
+| uid           |                   | see `instanceID` 		| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready) if no existing value
+| timestamp     | start             | see `timeEnd` 		| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready) if no existing value
+| timestamp     | end               | see `timeEnd`  		| [xforms-revalidate](https://www.w3.org/TR/xforms/#evt-revalidate)
+| property   	| deviceid          | see `deviceID` 	 	| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
+| property		| email             | see `email` 			| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
+| property 		| username          | see `userID` 			| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
+| property      | phone number      | see `phoneNumber`  	| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
+| property      | simserial         | see `simSerial` 		| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
+| property      | subscriberid	    | see `subscriberID`  	| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
