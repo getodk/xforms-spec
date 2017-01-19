@@ -41,9 +41,10 @@ The following attributes are supported on `<bind>` nodes. Only the nodeset attri
 | `constraint`| Specifies acceptable answers for the specified prompt with an XPath expression. Will only be evaluated when the node is non-empty.
 | `calculate` | Calculates a node value with an XPath expression.
 | `saveIncomplete` | Specifies whether to automatically save the draft record when the user reaches this question, options `true()` and `false()`. Considered false() if omitted.
-| `jr:constraintMsg` | Specifies the custom message to be displayed when the `constraint` is violated. Attribute in "http://openrosa.org/javarosa" namespace.
-| `jr:preload`| Preloaders for predefined meta data. See [preloaders](#metadata) for supported values. In "http://openrosa.org/javarosa" namespace.
-| `jr:preloadParams` | Parameters used by `jr:preload`. See [preloaders](#metadata) for supported values. In "http://openrosa.org/javarosa" namespace.
+| `jr:requiredMsg` | Specifies the custom message to be displayed when the `required` is violated. Attribute in "http://openrosa.org/javarosa" namespace.
+| `jr:constraintMsg` | Specifies the custom message to be displayed when the `constraint` is violated.
+| `jr:preload`| Preloaders for predefined meta data. See [preloaders](#preloaders---metadata).
+| `jr:preloadParams` | Parameters used by `jr:preload`. See [preloaders](#preloaders---metadata).
 
 ### Data Types
 
@@ -104,7 +105,7 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 | `count-selected(string list)` 			| Returns the number of items in a space-separated list (e.g. `select` data type values).
 | `jr:choice-name(string value, node node)` | Returns the label value in the active language corresponding to the choice option with the given value of a select or select1 question question for the given data node. (sorry)
 | `jr:itext(string arg)`                    | Obtains an itext value for the provided reference in the active language.
-| `indexed-repeat(nodeset arg, nodeset repeat1, int index1, [nodeset repeatN, int indexN]{0,2})` | Returns a single node from a nodeset by selecting the 0-based index of a repeat nodeset. It does this up to 3 repeat levels deep.
+| `indexed-repeat(nodeset arg, nodeset repeat1, int index1, [nodeset repeatN, int indexN]{0,2})` | Returns a single node from a nodeset by selecting the 1-based index of a repeat nodeset that this node is a child of. It does this up to 3 repeat levels deep.
 | `true()` 									| As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
 | `false()` 								| As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
 | `boolean(* arg)` 							| As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
@@ -131,6 +132,16 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 | `pow(number value, number power)`			| As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-pow).
 | `log(number arg)`                         | As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-log).
 | `log10(number arg)`                       | As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-log10).
+| `sin(number arg)`							| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-sin).
+| `cos(number arg)` 						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-cos).
+| `tan(number arg)` 						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-tan).
+| `asin(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-asin).
+| `acos(number arg)`						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-acos).
+| `atan(number arg)`						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-atan).
+| `atan2(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-atan2).
+| `sqrt(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-sqrt).
+| `exp(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-exp).
+| `pi()` 									| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-pi).
 | `today()`									| Returns today's date without a time component.
 | `now()`									| Returns the current datetime in the current time zone.
 | `random()`								| Returns a random number between 0.0 (inclusive) and 1.0 (exclusive).
