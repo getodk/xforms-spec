@@ -11,6 +11,6 @@ The purpose of this specification is to provide a common form description standa
 
 This document is intended primarily for developers who build form processing engines or software form builders. Most organizations who use tools in the ODK ecosystem for data collection will prefer to create forms using the [XLSForm standard](http://xlsform.org/) or a graphical form builder.
 
-A version of this specification was initially developed by the [OpenRosa Consortium](https://bitbucket.org/javarosa/javarosa/wiki/OpenRosaAPI). [JavaRosa](https://bitbucket.org/javarosa/javarosa/wiki/Home) is a Java library developed by the consortium as a J2ME app that implements this specification.
+A version of this specification was initially developed by the [OpenRosa Consortium](https://bitbucket.org/javarosa/javarosa/wiki/OpenRosaAPI). [JavaRosa](https://bitbucket.org/javarosa/javarosa/wiki/Home) is a Java library initially developed by the consortium as a J2ME app that implements this specification. There are now several other compatible implementations.
 
 The document assumes at least a fair understanding of XML and XPath. It is also useful to refer to [XForms 1.0](http://www.w3.org/TR/2003/REC-xforms-20031014/) for details about shared features.
