@@ -80,6 +80,7 @@ The following attributes are supported on body elements. Note that most attribut
 | `accuracyThreshold` | For `<input>` with type `geopoint`, `geotrace`, or `geoshape` this sets the auto-accept threshold in meters for geopoint captures. [review]()
 | `value`         | For the `<output>` element to reference the node value to be displayed.
 | `rows`          | Specifies the minimum number of rows a string `<input>` field gets.
+| `mediatype`     | For the `<upload>` element. The string value specifies the kind of media picker that will be displayed. Possible values vary by client. Examples include `image/*`, `audio/*` and `video/*`.
 
 
 ### Appearances
