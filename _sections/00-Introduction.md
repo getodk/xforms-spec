@@ -2,9 +2,10 @@
 title: Introduction
 ---
 
-The ODK XForms specification is a subset of the far larger [W3C XForms 1.0 specification](http://www.w3.org/TR/xforms/) used by tools in the [Open Data Kit](https://opendatakit.org) ecosystem. It contains a few additional features not found in the W3C XForms specification.
+The ODK XForms specification is used by tools in the [Open Data Kit](https://opendatakit.org) ecosystem. It is a subset of the far larger [W3C XForms 1.0 specification](http://www.w3.org/TR/xforms/) and also contains a few additional features not found in the W3C XForms specification.
 
 The purpose of this specification is to provide a common form description standard that many different kinds of compatible tools can be based on. Using a single, shared form description standard has the following advantages:
+
 1. Users in the ODK ecosystem can mix and match tools and reassess which they use based on their changing needs. In particular, they don't get locked in to tools that may become deprecated or for which an attractive replacement becomes available.
 1. Tool implementors in the ODK ecosystem can benefit from feedback from a broad range of collaborators when designing new core functionality.
 1. Tool implementors in the ODK ecosystem can share core implementations.
