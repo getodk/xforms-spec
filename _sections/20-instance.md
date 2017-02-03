@@ -113,4 +113,10 @@ A secondary instance should get a unique `id` attribute on the `<instance>` node
 
 ### Secondary Instances - External
 
-[Proposal pending](https://github.com/opendatakit/odk-xform-spec/issues/50).
+The previous section discussed secondary instances with static read-only data that is present in the XForm document itself. Another type of secondary instances presents read-only data from an _external_ source. The external source can be static or dynamic and is specified using the additional `src` attribute with a URI value on an empty `<instance>` node. Querying an external instance is done in exactly the same way as for an [internal secondary instance](#secondary-instances---internal).
+
+{% highlight xml %}
+<instance id="countries" src="jr://file/country-data.xml"/>
+{% endhighlight %}
+
+See the [section on URIs](#uris) for acceptable URI formats that refer to an external secondary instance.
