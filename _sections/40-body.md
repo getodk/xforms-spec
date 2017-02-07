@@ -80,7 +80,8 @@ The following attributes are supported on body elements. Note that most attribut
 | `accuracyThreshold` | For `<input>` with type `geopoint`, `geotrace`, or `geoshape` this sets the auto-accept threshold in meters for geopoint captures. [review]()
 | `value`         | For the `<output>` element to reference the node value to be displayed.
 | `rows`          | Specifies the minimum number of rows a string `<input>` field gets.
-| `mediatype`     | For the `<upload>` element. The string value specifies the kind of media picker that will be displayed. Possible values vary by client. Examples include `image/*`, `audio/*` and `video/*`.
+| `mediatype`     | For the `<upload>` element. The string value specifies the kind of media picker that will be displayed. Unlike in XForms 1.0, only one value can be specified. Possible values vary by client and examples include `image/*`, `audio/*` and `video/*`.
+|`accept`         | For the `<upload>` element. As from the [XForms 2.0 wiki](https://www.w3.org/community/xformsusers/wiki/XForms_2.0#The_upload_Element): "comma-separated list of suggested media types and file extensions used to determine the possible sources of data to upload."
 
 
 ### Appearances
