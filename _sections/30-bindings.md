@@ -141,6 +141,7 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 | `atan2(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-atan2).
 | `sqrt(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-sqrt).
 | `exp(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-exp).
+| `exp10(number arg)`                       | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-exp10).
 | `pi()` 									| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-pi).
 | `today()`									| Returns today's date without a time component.
 | `now()`									| Returns the current datetime in the current time zone.
