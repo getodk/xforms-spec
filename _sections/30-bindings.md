@@ -132,6 +132,7 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 | `pow(number value, number power)`			| As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-pow).
 | `log(number arg)`                         | As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-log).
 | `log10(number arg)`                       | As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-log10).
+| `abs(number arg)`                         | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-abs).
 | `sin(number arg)`							| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-sin).
 | `cos(number arg)` 						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-cos).
 | `tan(number arg)` 						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-tan).
