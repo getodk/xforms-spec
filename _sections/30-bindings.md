@@ -124,6 +124,9 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 | `join(string separator, nodeset nodes*)` 	| Joins the provided arguments using the provide separator between values.
 | `substr(string value, number start, number end?)` | Returns the substring beginning at the specified _0-based_ start index and extends to the character at end index - 1.
 | `string-length(string arg)`				| Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-string-length) in that the argument is _required_.
+| `contains(string haystack, string needle)`| As in [XPath 1.0](https://www.w3.org/TR/xpath/#function-contains).
+| `starts-with(string haystack, string needle)`| As in [XPath 1.0](https://www.w3.org/TR/xpath/#function-starts-with).
+| `ends-with(string haystack, string needle)`| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-ends-with).
 | `count(nodeset arg)`						| As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-count).
 | `sum(nodeset arg)`						| As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-sum).
 | `max(nodeset arg*)`						| As in [XPath 2.0](http://www.w3.org/TR/xpath-functions/#func-max). 
