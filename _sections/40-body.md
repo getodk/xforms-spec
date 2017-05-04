@@ -29,6 +29,7 @@ The following form control elements are supported:
 |`<select>`     | Used to display a multiple-select list (data type: select)
 |`<upload>`     | Used for image, audio, and video capture
 |`<trigger>`    | Used to obtain user confirmation (e.g. by displaying a single tickbox or button). Will add value _"OK"_ to corresponding instance node when user confirms. If not confirmed the value remains empty.
+|`<range>`      | Used to obtain numeric user input from a sequential range of values. As described [here](https://en.wikibooks.org/wiki/XForms/Range) except that the `incremental` attribute is not included in this specification.
 
 The following user interface elements are supported:
 
@@ -82,6 +83,9 @@ The following attributes are supported on body elements. Note that most attribut
 | `rows`          | Specifies the minimum number of rows a string `<input>` field gets.
 | `mediatype`     | For the `<upload>` element. The string value specifies the kind of media picker that will be displayed. Unlike in XForms 1.0, only one value can be specified. Possible values vary by client and examples include `image/*`, `audio/*` and `video/*`. Ignored if `accept` is also specified.
 |`accept`         | For the `<upload>` element. As from the [XForms 2.0 wiki](https://www.w3.org/community/xformsusers/wiki/XForms_2.0#The_upload_Element): "comma-separated list of suggested media types and file extensions used to determine the possible sources of data to upload."
+|`start`          | For the `<range>` element. The lower bound of the range.
+|`end`            | For the `<range>` element. The upper bound of the range.
+|`step`           | For the `<range>` element. The increment between values that can be selected.
 
 
 ### Appearances
