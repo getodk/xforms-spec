@@ -118,7 +118,7 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 | `int(* arg)` 								| Converts to an integer.
 | `string(* arg)` 							| As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-string).
 | `format-date(date value, string format)` 	| Returns the date value formatted as defined by the format argument using the following identifiers:<br/>`%Y`: 4-digit year<br/>`%y`: 2-digit year<br/>`%m` 0-padded month<br/>`%n` numeric month<br/>`%b` short text month (Jan, Feb, etc)<br/>`%d` 0-padded day of month<br/>`%e` day of month<br/>`%H` 0-padded hour (24-hr time)<br/>`%h` hour (24-hr time)<br/>`%M` 0-padded minute<br/>`%S` 0-padded second<br/>`%3` 0-padded millisecond ticks<br/>`%a` short text day (Sun, Mon, etc)
-| `date(* value)` 							| Converts to date.
+| `date (* value)` 							| Converts to date.
 | `regex(string value, string expression)` 	| Returns result of regex test on provided value. The regular expression is created from the provided expression string (`'[0-9]+'` becomes `/[0-9]+/`).
 | `coalesce(string arg1, string arg2)` 		| Returns first non-empty value of arg1 and arg2 or empty if both are empty and/or non-existent.
 | `join(string separator, nodeset nodes*)` 	| Joins the provided arguments using the provide separator between values.
