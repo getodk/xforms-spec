@@ -99,67 +99,67 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 
 | function                                  | description |
 |-------------------------------------------|------|
-| `concat(* arg*)` 							| Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-concat) in that it may contain _1 argument_ and that all arguments can be _nodesets_ or strings. It concatenates all string values and _all node values_ inside the provided nodesets.
-| `selected(string list, string value)` 	| Checks if value is equal to an item in a space-separated list (e.g. `select` data type values).
-| `selected-at(string list, int index)` 	| Returns the value of the item at the 0-based index of a space-separated list or empty string if the item does not exist (including for negative index and index 0).
-| `count-selected(string list)` 			| Returns the number of items in a space-separated list (e.g. `select` data type values).
-| `jr:choice-name(string value, node node)` | Returns the label value in the active language corresponding to the choice option with the given value of a select or select1 question question for the given data node. (sorry)
-| `jr:itext(string arg)`                    | Obtains an itext value for the provided reference in the active language.
-| `indexed-repeat(nodeset arg, nodeset repeat1, int index1, [nodeset repeatN, int indexN]{0,2})` | Returns a single node from a nodeset by selecting the 1-based index of a repeat nodeset that this node is a child of. It does this up to 3 repeat levels deep.
-| `true()` 									| As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
-| `false()` 								| As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
-| `boolean(* arg)` 							| As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
-| `boolean-from-string(string arg)` 		| Returns true if arg is "true" or "1", otherwise returns false.
-| `not(boolean arg)`						| As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-not).
-| `number(* arg)` 							| As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-number).
-| `decimal-date(date value)` 				| Converts date value to a number.
-| `decimal-date-time(dateTime value)` 		| Converts dateTime value to a number.
-| `decimal-time(time value)` 				| Converts time value to a number.
-| `int(* arg)` 								| Converts to an integer.
-| `string(* arg)` 							| As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-string).
-| `format-date(date value, string format)` 	| Returns the date value formatted as defined by the format argument using the following identifiers:<br/>`%Y`: 4-digit year<br/>`%y`: 2-digit year<br/>`%m` 0-padded month<br/>`%n` numeric month<br/>`%b` short text month (Jan, Feb, etc)<br/>`%d` 0-padded day of month<br/>`%e` day of month<br/>`%H` 0-padded hour (24-hr time)<br/>`%h` hour (24-hr time)<br/>`%M` 0-padded minute<br/>`%S` 0-padded second<br/>`%3` 0-padded millisecond ticks<br/>`%a` short text day (Sun, Mon, etc)
-| `date (* value)` 							| Converts to date.
-| `regex(string value, string expression)` 	| Returns result of regex test on provided value. The regular expression is created from the provided expression string (`'[0-9]+'` becomes `/[0-9]+/`).
-| `coalesce(string arg1, string arg2)` 		| Returns first non-empty value of arg1 and arg2 or empty if both are empty and/or non-existent.
-| `join(string separator, nodeset nodes*)` 	| Joins the provided arguments using the provide separator between values.
-| `substr(string value, number start, number end?)` | Returns the substring beginning at the specified _0-based_ start index and extends to the character at end index - 1.
-| `string-length(string arg)`				| Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-string-length) in that the argument is _required_.
-| `contains(string haystack, string needle)`| As in [XPath 1.0](https://www.w3.org/TR/xpath/#function-contains).
-| `starts-with(string haystack, string needle)`| As in [XPath 1.0](https://www.w3.org/TR/xpath/#function-starts-with).
-| `ends-with(string haystack, string needle)`| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-ends-with).
-| `count(nodeset arg)`						| As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-count).
-| `sum(nodeset arg)`						| As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-sum).
-| `max(nodeset arg*)`						| As in [XPath 2.0](http://www.w3.org/TR/xpath-functions/#func-max). 
-| `min(nodeset arg*)`						| As in [XPath 2.0](http://www.w3.org/TR/xpath-functions/#func-min). 
-| `round(number arg, number decimals?)`		| Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-round) in that a second argument may be provided to specify the number of decimals.
-| `pow(number value, number power)`			| As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-pow).
-| `log(number arg)`                         | As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-log).
-| `log10(number arg)`                       | As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-log10).
-| `abs(number arg)`                         | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-abs).
-| `sin(number arg)`							| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-sin).
-| `cos(number arg)` 						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-cos).
-| `tan(number arg)` 						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-tan).
-| `asin(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-asin).
-| `acos(number arg)`						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-acos).
-| `atan(number arg)`						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-atan).
-| `atan2(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-atan2).
-| `sqrt(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-sqrt).
-| `exp(number arg)`  						| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-exp).
-| `exp10(number arg)`                       | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-exp10).
-| `pi()` 									| As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-pi).
-| `today()`									| Returns today's date without a time component.
-| `now()`									| Returns the current datetime in the current time zone.
-| `random()`								| Returns a random number between 0.0 (inclusive) and 1.0 (exclusive).
-| `depend(* arg*)`							| Returns first argument. Shouldn't need to be used.
-| `uuid(number?)`							| Without arguments, it returns a random [RFC 4122 version 4](http://tools.ietf.org/html/rfc4122) compliant UUID. With an argument it returns a random GUID with the provided number of characters.
-| `checklist(number min, number max, string v*)`				    | Check wether the count of answers that evaluate to true (when it converts to a number > 0) is between the minimum and maximum inclusive. Min and max can be -1 to indicate _not applicable_.
-| `weighted-checklist(number min, number max, [string v, string w]*)`	| Like checklist(), but the number of arguments has to be even. Each v argument is paired with a w argument that _weights_ each v (true) count. The min and max refer to the weighted totals.
-| `position(node arg?)`						| Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-position) in that it accepts an argument. This argument has to be a single node. If an argument is provided the function returns the position of that node amongst its siblings (with the same node name).
-| `property(string prop)`					| Tbd
-| `instance(string id)`                     | Returns a [secondary instance](#secondary-instances) node with the provided id, e.g. `instance('cities')/item/[country=/data/country]`. It is the only way to refer to a node outside of the primary instance. Note that it doesn't switch the XML Document (the primary instance) or document root for other expressions. E.g. `/data/country` still refers to the primary instance.
-| `current()`                               | In the same league as `instance(ID)` but always referring to the primary instance (and accepting no arguments). Unlike instance(ID), which always requires an absolute path, current() can be used with relative references (e.g. `current()/.` and `current()/..`).  
-| `area(node-set ns | geoshape gs)`			| Returns the calculated area in m2 of either a nodeset of geopoints or a geoshape value (not a combination of both) on Earth. It takes into account the circumference of the Earth around the Equator but does not take altitude into account.	
-| `once(* calc)`						| The parameter will be evaluated and returned if the context nodes's value is empty, otherwise the current value of the context node will be returned. The function is used e.g. to ensure that a random number is only generated once with `once(random())`.
+<a id="fn:concat" href="#fn:concat">`concat(* arg*)`</a> | Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-concat) in that it may contain _1 argument_ and that all arguments can be _nodesets_ or strings. It concatenates all string values and _all node values_ inside the provided nodesets.
+<a id="fn:selected" href="#fn:selected">`selected(string list, string value)`</a> | Checks if value is equal to an item in a space-separated list (e.g. `select` data type values).
+<a id="fn:selected-at" href="#fn:selected-at">`selected-at(string list, int index)`</a> | Returns the value of the item at the 0-based index of a space-separated list or empty string if the item does not exist (including for negative index and index 0).
+<a id="fn:count-selected" href="#fn:count-selected">`count-selected(string list)`</a> | Returns the number of items in a space-separated list (e.g. `select` data type values).
+<a id="fn:jr:choice-name" href="#fn:jr:choice-name">`jr:choice-name(string value, node node)`</a> | Returns the label value in the active language corresponding to the choice option with the given value of a select or select1 question question for the given data node. (sorry)
+<a id="fn:jr:itext" href="#fn:jr:itext">`jr:itext(string arg)`</a> | Obtains an itext value for the provided reference in the active language.
+<a id="fn:indexed-repeat" href="#fn:indexed-repeat">`indexed-repeat(nodeset arg, nodeset repeat1, int index1, [nodeset repeatN, int indexN]{0,2})`</a> | Returns a single node from a nodeset by selecting the 1-based index of a repeat nodeset that this node is a child of. It does this up to 3 repeat levels deep.
+<a id="fn:true" href="#fn:true">`true()`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
+<a id="fn:false" href="#fn:false">`false()`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
+<a id="fn:boolean" href="#fn:boolean">`boolean(* arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
+<a id="fn:boolean-from-string" href="#fn:boolean-from-string">`boolean-from-string(string arg)`</a> | Returns true if arg is "true" or "1", otherwise returns false.
+<a id="fn:not" href="#fn:not">`not(boolean arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-not).
+<a id="fn:number" href="#fn:number">`number(* arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-number).
+<a id="fn:decimal-date" href="#fn:decimal-date">`decimal-date(date value)`</a> | Converts date value to a number.
+<a id="fn:decimal-date-time" href="#fn:decimal-date-time">`decimal-date-time(dateTime value)`</a> | Converts dateTime value to a number.
+<a id="fn:decimal-time" href="#fn:decimal-time">`decimal-time(time value)`</a> | Converts time value to a number.
+<a id="fn:int" href="#fn:int">`int(* arg)`</a> | Converts to an integer.
+<a id="fn:string" href="#fn:string">`string(* arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-string).
+<a id="fn:format-date" href="#fn:format-date">`format-date(date value, string format)`</a> | Returns the date value formatted as defined by the format argument using the following identifiers:<br/>`%Y`: 4-digit year<br/>`%y`: 2-digit year<br/>`%m` 0-padded month<br/>`%n` numeric month<br/>`%b` short text month (Jan, Feb, etc)<br/>`%d` 0-padded day of month<br/>`%e` day of month<br/>`%H` 0-padded hour (24-hr time)<br/>`%h` hour (24-hr time)<br/>`%M` 0-padded minute<br/>`%S` 0-padded second<br/>`%3` 0-padded millisecond ticks<br/>`%a` short text day (Sun, Mon, etc)
+<a id="fn:date" href="#fn:date">`date(* value)`</a> | Converts to date.
+<a id="fn:regex" href="#fn:regex">`regex(string value, string expression)`</a> | Returns result of regex test on provided value. The regular expression is created from the provided expression string (`'[0-9]+'` becomes `/[0-9]+/`).
+<a id="fn:coalesce" href="#fn:coalesce">`coalesce(string arg1, string arg2)`</a> | Returns first non-empty value of arg1 and arg2 or empty if both are empty and/or non-existent.
+<a id="fn:join" href="#fn:join">`join(string separator, nodeset nodes*)`</a> | Joins the provided arguments using the provide separator between values.
+<a id="fn:substr" href="#fn:substr">`substr(string value, number start, number end?)`</a> | Returns the substring beginning at the specified _0-based_ start index and extends to the character at end index - 1.
+<a id="fn:string-length" href="#fn:string-length">`string-length(string arg)`</a> | Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-string-length) in that the argument is _required_.
+<a id="fn:contains" href="#fn:contains">`contains(string haystack, string needle)`</a> | As in [XPath 1.0](https://www.w3.org/TR/xpath/#function-contains).
+<a id="fn:starts-with" href="#fn:starts-with">`starts-with(string haystack, string needle)`</a> | As in [XPath 1.0](https://www.w3.org/TR/xpath/#function-starts-with).
+<a id="fn:ends-with" href="#fn:ends-with">`ends-with(string haystack, string needle)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-ends-with).
+<a id="fn:count" href="#fn:count">`count(nodeset arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-count).
+<a id="fn:sum" href="#fn:sum">`sum(nodeset arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-sum).
+<a id="fn:max" href="#fn:max">`max(nodeset arg*)`</a> | As in [XPath 2.0](http://www.w3.org/TR/xpath-functions/#func-max).
+<a id="fn:min" href="#fn:min">`min(nodeset arg*)`</a> | As in [XPath 2.0](http://www.w3.org/TR/xpath-functions/#func-min).
+<a id="fn:round" href="#fn:round">`round(number arg, number decimals?)`</a> | Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-round) in that a second argument may be provided to specify the number of decimals.
+<a id="fn:pow" href="#fn:pow">`pow(number value, number power)`</a> | As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-pow).
+<a id="fn:log" href="#fn:log">`log(number arg)`</a> | As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-log).
+<a id="fn:log10" href="#fn:log10">`log10(number arg)`</a> | As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-log10).
+<a id="fn:abs" href="#fn:abs">`abs(number arg)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-abs).
+<a id="fn:sin" href="#fn:sin">`sin(number arg)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-sin).
+<a id="fn:cos" href="#fn:cos">`cos(number arg)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-cos).
+<a id="fn:tan" href="#fn:tan">`tan(number arg)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-tan).
+<a id="fn:asin" href="#fn:asin">`asin(number arg)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-asin).
+<a id="fn:acos" href="#fn:acos">`acos(number arg)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-acos).
+<a id="fn:atan" href="#fn:atan">`atan(number arg)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-atan).
+<a id="fn:atan2" href="#fn:atan2">`atan2(number arg)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-atan2).
+<a id="fn:sqrt" href="#fn:sqrt">`sqrt(number arg)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-sqrt).
+<a id="fn:exp" href="#fn:exp">`exp(number arg)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-exp).
+<a id="fn:exp10" href="#fn:exp10">`exp10(number arg)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-exp10).
+<a id="fn:pi" href="#fn:pi">`pi()`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-pi).
+<a id="fn:today" href="#fn:today">`today()`</a> | Returns today's date without a time component.
+<a id="fn:now" href="#fn:now">`now()`</a> | Returns the current datetime in the current time zone.
+<a id="fn:random" href="#fn:random">`random()`</a> | Returns a random number between 0.0 (inclusive) and 1.0 (exclusive).
+<a id="fn:depend" href="#fn:depend">`depend(* arg*)`</a> | Returns first argument. Shouldn't need to be used.
+<a id="fn:uuid" href="#fn:uuid">`uuid(number?)`</a> | Without arguments, it returns a random [RFC 4122 version 4](http://tools.ietf.org/html/rfc4122) compliant UUID. With an argument it returns a random GUID with the provided number of characters.
+<a id="fn:checklist" href="#fn:checklist">`checklist(number min, number max, string v*)`</a> | Check wether the count of answers that evaluate to true (when it converts to a number > 0) is between the minimum and maximum inclusive. Min and max can be -1 to indicate _not applicable_.
+<a id="fn:weighted-checklist" href="#fn:weighted-checklist">`weighted-checklist(number min, number max, [string v, string w]*)`</a> | Like checklist(), but the number of arguments has to be even. Each v argument is paired with a w argument that _weights_ each v (true) count. The min and max refer to the weighted totals.
+<a id="fn:position" href="#fn:position">`position(node arg?)`</a> | Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-position) in that it accepts an argument. This argument has to be a single node. If an argument is provided the function returns the position of that node amongst its siblings (with the same node name).
+<a id="fn:property" href="#fn:property">`property(string prop)`</a> | Tbd
+<a id="fn:instance" href="#fn:instance">`instance(string id)`</a> | Returns a [secondary instance](#secondary-instances) node with the provided id, e.g. `instance('cities')/item/[country=/data/country]`. It is the only way to refer to a node outside of the primary instance. Note that it doesn't switch the XML Document (the primary instance) or document root for other expressions. E.g. `/data/country` still refers to the primary instance.
+<a id="fn:current" href="#fn:current">`current()`</a> | In the same league as `instance(ID)` but always referring to the primary instance (and accepting no arguments). Unlike instance(ID), which always requires an absolute path, current() can be used with relative references (e.g. `current()/.` and `current()/..`).
+<a id="fn:area" href="#fn:area">`area(node-set ns | geoshape gs)`</a> | Returns the calculated area in m2 of either a nodeset of geopoints or a geoshape value (not a combination of both) on Earth. It takes into account the circumference of the Earth around the Equator but does not take altitude into account.
+<a id="fn:once" href="#fn:once">`once(* calc)`</a> | The parameter will be evaluated and returned if the context nodes's value is empty, otherwise the current value of the context node will be returned. The function is used e.g. to ensure that a random number is only generated once with `once(random())`.
 
 ### Metadata
 
