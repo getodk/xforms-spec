@@ -1,3 +1,13 @@
+[2017-05-05]
+--------------------
+#### Added
+* [Range control](https://opendatakit.github.io/xforms-spec/#body-elements) #109
+* Required namespace for `title` #22
+* [`contains()`](https://opendatakit.github.io/xforms-spec/#fn:contains), [`starts-with()`](https://opendatakit.github.io/xforms-spec/#fn:starts-with) and [`ends-with()`](https://opendatakit.github.io/xforms-spec/#fn:ends-with) functions #105
+* [`exp10()`](https://opendatakit.github.io/xforms-spec/#fn:exp10) function #107
+* [`abs()`](https://opendatakit.github.io/xforms-spec/#fn:abs) function #106
+
+
 [2017-02-06]
 --------------------
 #### Added
