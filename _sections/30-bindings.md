@@ -128,6 +128,7 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 <a id="fn:starts-with" href="#fn:starts-with">`starts-with(string haystack, string needle)`</a> | As in [XPath 1.0](https://www.w3.org/TR/xpath/#function-starts-with).
 <a id="fn:ends-with" href="#fn:ends-with">`ends-with(string haystack, string needle)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-ends-with).
 <a id="fn:count" href="#fn:count">`count(nodeset arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-count).
+<a id="fn:count-non-empty" href="#fn:count-non-empty">`count-non-empty(nodeset arg)`</a> | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-count-non-empty).
 <a id="fn:sum" href="#fn:sum">`sum(nodeset arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-sum).
 <a id="fn:max" href="#fn:max">`max(nodeset arg*)`</a> | As in [XPath 2.0](http://www.w3.org/TR/xpath-functions/#func-max).
 <a id="fn:min" href="#fn:min">`min(nodeset arg*)`</a> | As in [XPath 2.0](http://www.w3.org/TR/xpath-functions/#func-min).
