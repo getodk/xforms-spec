@@ -67,13 +67,21 @@ Even within a single language, it is helpful to have multiple 'forms' of the sam
     <value form="long">How old are you?</value>
     <value form="short">Age</value>
 </text>
+<text id="how-old-hint">
+    <value form="print">
+        If the respondent does not know try to find out 
+        approximately when they were born to calculate this.
+    </value> 
+</text>
 {% endhighlight %}
 
-There are two form attribute options for text strings:
+These are the different form attribute options for text strings:
 
-| text type       | form attribute
-|-----------------|----------------|
-| single version  | _no form attr_ |
-| short version   |  `short`       |
+| text type       | form attribute | use             |
+|-----------------|----------------|-----------------|
+| single version  | _no form attr_ | `<label>`, `<hint>` |
+| long version    | `long`         | `<label>`       |
+| short version   |  `short`       | `<label>`       |
+| print-only version | `print`     | `<hint>`        |
 
-The different `forms` are only supported for question captions (`<label>`s inside user controls). The [media](#media) section describes how to add non-text form labels in a similar manner.
+The different versions are all supported for question labels. The print-only version is only supported on hints and is meant to provide additional context/guidance on printouts. The [media](#media) section describes how to add non-text form labels in a similar manner.
