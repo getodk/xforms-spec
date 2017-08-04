@@ -112,7 +112,6 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 <a id="fn:boolean-from-string" href="#fn:boolean-from-string">`boolean-from-string(string arg)`</a> | Returns true if arg is "true" or "1", otherwise returns false.
 <a id="fn:not" href="#fn:not">`not(boolean arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-not).
 <a id="fn:number" href="#fn:number">`number(* arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-number).
-<a id="fn:decimal-date" href="#fn:decimal-date">`decimal-date(date value)`</a> | Converts date value to a number.
 <a id="fn:decimal-date-time" href="#fn:decimal-date-time">`decimal-date-time(dateTime value)`</a> | Converts dateTime value to a number.
 <a id="fn:decimal-time" href="#fn:decimal-time">`decimal-time(time value)`</a> | Converts time value to a number.
 <a id="fn:int" href="#fn:int">`int(* arg)`</a> | Converts to an integer.
