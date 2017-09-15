@@ -6,7 +6,7 @@ A `<model>` can have multiple instances as childnodes. The first and required `<
 
 ### Primary Instance 
 
-The primary instance should contain a single childnode. In the example below `<household>` will be populated with data and submitted. The primary instance's single child is the **document root** that XPath expressions are evaluated on (e.g. in the instance below the value of `/household/person/age` is 10).
+The _primary instance_ is the first instance defined by the form and should contain a single childnode. In the example below `<household>` will be populated with data and submitted. The primary instance's single child is the **document root** that XPath expressions are evaluated on (e.g. in the instance below the value of `/household/person/age` is 10).
 
 {% highlight xml %}
 <instance>
