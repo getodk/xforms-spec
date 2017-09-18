@@ -150,7 +150,6 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 <a id="fn:today" href="#fn:today">`today()`</a> | Returns today's date without a time component.
 <a id="fn:now" href="#fn:now">`now()`</a> | Returns the current datetime in the current time zone.
 <a id="fn:random" href="#fn:random">`random()`</a> | Returns a random number between 0.0 (inclusive) and 1.0 (exclusive).
-<a id="fn:depend" href="#fn:depend">`depend(* arg*)`</a> | Returns first argument. Shouldn't need to be used.
 <a id="fn:uuid" href="#fn:uuid">`uuid(number?)`</a> | Without arguments, it returns a random [RFC 4122 version 4](http://tools.ietf.org/html/rfc4122) compliant UUID. With an argument it returns a random GUID with the provided number of characters.
 <a id="fn:checklist" href="#fn:checklist">`checklist(number min, number max, string v*)`</a> | Check wether the count of answers that evaluate to true (when it converts to a number > 0) is between the minimum and maximum inclusive. Min and max can be -1 to indicate _not applicable_.
 <a id="fn:weighted-checklist" href="#fn:weighted-checklist">`weighted-checklist(number min, number max, [string v, string w]*)`</a> | Like checklist(), but the number of arguments has to be even. Each v argument is paired with a w argument that _weights_ each v (true) count. The min and max refer to the weighted totals.
