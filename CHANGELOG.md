@@ -1,7 +1,7 @@
 [2017-09-19]
 --------------------
 #### Added
-* `count-non-empty` function #127
+* [`count-non-empty`](https://opendatakit.github.io/xforms-spec/#fn:count-non-empty) function #127
 * `format-date` localization for %a and %b #122
 
 #### Removed
