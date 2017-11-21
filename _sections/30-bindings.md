@@ -112,8 +112,8 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 <a id="fn:boolean-from-string" href="#fn:boolean-from-string">`boolean-from-string(string arg)`</a> | Returns true if arg is "true" or "1", otherwise returns false.
 <a id="fn:not" href="#fn:not">`not(boolean arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-not).
 <a id="fn:number" href="#fn:number">`number(* arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-number).
-<a id="fn:decimal-date-time" href="#fn:decimal-date-time">`decimal-date-time(dateTime value)`</a> | Converts dateTime value to a number.
-<a id="fn:decimal-time" href="#fn:decimal-time">`decimal-time(time value)`</a> | Converts time value to a number.
+<a id="fn:decimal-date-time" href="#fn:decimal-date-time">`decimal-date-time(dateTime value)`</a> | Converts dateTime value to the number of days since January 1, 1970 UTC. This is the format used by Excel.
+<a id="fn:decimal-time" href="#fn:decimal-time">`decimal-time(time value)`</a> | Converts time value to a number representing a fractional day in the device's timezone. For example, noon is 0.5 and 6pm is 0.75.
 <a id="fn:int" href="#fn:int">`int(* arg)`</a> | Converts to an integer.
 <a id="fn:string" href="#fn:string">`string(* arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-string).
 <a id="fn:format-date" href="#fn:format-date">`format-date(date value, string format)`</a> | Returns the date value formatted as defined by the format argument using the following identifiers:<br/>`%Y`: 4-digit year<br/>`%y`: 2-digit year<br/>`%m` 0-padded month<br/>`%n` numeric month<br/>`%b` short text month (Jan, Feb, etc)\*<br/>`%d` 0-padded day of month<br/>`%e` day of month<br/>`%H` 0-padded hour (24-hr time)<br/>`%h` hour (24-hr time)<br/>`%M` 0-padded minute<br/>`%S` 0-padded second<br/>`%3` 0-padded millisecond ticks<br/>`%a` short text day (Sun, Mon, etc).\* <br/>\* If form locale can be determined that locale will be used. If form locale cannot be determined the locale of the client will be used (e.g. the browser or app).
