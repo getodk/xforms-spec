@@ -30,3 +30,7 @@ The `<itext>` element described in the [languages](#languages) section can also 
 By default, itext "image" values are not clickable. However, if you also include a "big-image", the image displayed by "image" will be clickable and will display a pannable, zoomable view of the file specified by "big-image". The user interface must provide a way to go back to the form after opening a "big-image". Specifying "big-image" alone has no effect, you must always include "image".
 
 Files referenced by "image" and "big-image" may be the same; however, for performance reasons, it is recommended to create smaller thumbnail images to be referenced by "image".
+
+### Form Logo
+
+Displaying a form logo is a special media feature that is worth mentioning though there is no associated syntax for it. If the media manifest that lists the resources for the form includes a special image item with the filename `form_logo.png`, this image will be shown by the client at the top of the form.
