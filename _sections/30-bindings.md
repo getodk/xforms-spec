@@ -106,6 +106,7 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 <a id="fn:jr:choice-name" href="#fn:jr:choice-name">`jr:choice-name(string value, node node)`</a> | Returns the label value in the active language corresponding to the choice option with the given value of a select or select1 question for the given data node. (sorry)
 <a id="fn:jr:itext" href="#fn:jr:itext">`jr:itext(string arg)`</a> | Obtains an itext value for the provided reference in the active language.
 <a id="fn:indexed-repeat" href="#fn:indexed-repeat">`indexed-repeat(nodeset arg, nodeset repeat1, int index1, [nodeset repeatN, int indexN]{0,2})`</a> | Returns a single node from a nodeset by selecting the 1-based index of a repeat nodeset that this node is a child of. It does this up to 3 repeat levels deep.
+<a id="fn:if" href="#fn:if">`if(boolean condition, string then, string else)`</a> | Depending on the boolean value of the "condition", this function returns either the string result of the "then" parameter (if `true`) or of the "else" parameter (if `false`).
 <a id="fn:true" href="#fn:true">`true()`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
 <a id="fn:false" href="#fn:false">`false()`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
 <a id="fn:boolean" href="#fn:boolean">`boolean(* arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
