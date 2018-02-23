@@ -77,7 +77,7 @@ The following attributes are supported on body elements. Note that most attribut
 | `appearance`    | For all form control elements and groups to change their appearance. See [appearances](#appearances)
 | `jr:count`      | For the `<repeat>` element (see [repeats](#repeats)). This is one of the ways to specify how many repeats should be created by default.
 | `jr:noAddRemove`| For the `<repeat>` element (see [repeats](#repeats)). This indicates whether the user is allowed to add or remove repeats. Can have values `true()` and `false()`
-| `autoplay`      | For all 5 form control elements, this automatically plays a [video or audio 'label'](#media) if the question is displayed on its own page, when the user reaches this page.
+| `autoplay`      | For all form control elements, this automatically plays a [video or audio 'label'](#media) if the question is displayed on its own page, when the user reaches this page.
 | `accuracyThreshold` | For `<input>` with type `geopoint`, `geotrace`, or `geoshape` this sets the auto-accept threshold in meters for geopoint captures. [review]()
 | `value`         | For the `<output>` element to reference the node value to be displayed.
 | `rows`          | Specifies the minimum number of rows a string `<input>` field gets.
@@ -90,7 +90,7 @@ The following attributes are supported on body elements. Note that most attribut
 
 ### Appearances
 
-The appearance of the 5 form controls and of a group can be changed with appearance attributes. Appearance values usually relate to a specific [data](#data-types) or [question](#body-elements) type. See the [XLS Form specification](http://xlsform.org) for a list of appearance attributes that are available for each data type. Multiple space-separated appearance values can be added to a form control in any order.
+The appearance of all form controls and of a group can be changed with appearance attributes. Appearance values usually relate to a specific [data](#data-types) or [question](#body-elements) type. See the [XLS Form specification](http://xlsform.org) for a list of appearance attributes that are available for each data type. Multiple space-separated appearance values can be added to a form control in any order.
 
 An appearance attribute can also be used to indicate that an [external app](#external-applications) should be used as a form control.
 
