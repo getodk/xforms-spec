@@ -60,20 +60,26 @@ It is even allowed to intermix both a `ref` and a regular value. In this case, i
 {% endhighlight %}
 
 In general, all text ids must be replicated across all languages. It is sometimes only a parser warning if you do not, but it will likely lead to headaches.
-Even within a single language, it is helpful to have multiple 'forms' of the same string. For example, a verbose phrasing used as the caption when answering a question, but a short, terse phrasing when that question is shown in the form summary. This can be done as follows:
+
+Even within a single language, it is helpful to have multiple 'forms' of the same string. For example, a verbose phrasing used as the caption when answering a question, but a short, terse phrasing when that question is shown in the form summary. This can be done using the `form` attribute, as follows:
 
 {% highlight xml %}
-<text id="how-old">
-    <value form="long">How old are you?</value>
+<text id="how-old-label">
+    <value>How old are you?</value>
     <value form="short">Age</value>
+</text>
+<text id="how-old-hint">
+    <value>Enter a number</value>
+    <value form="guidance">If the age is less than 18, the remainder of the survey will be hidden.</value>
 </text>
 {% endhighlight %}
 
-There are two form attribute options for text strings:
+There are three `form` attribute options for text strings:
 
-| text type       | form attribute
-|-----------------|----------------|
-| single version  | _no form attr_ |
-| short version   |  `short`       |
+| text type                | attribute      | description |
+| ------------------------ | -------------- |----------------------------
+| regular                  | _none_         | Supported for `<label>` and `<hint>` content to display regular labels and hints |
+| short version of label   | `short`        | Supported for `<label>` content only. It is a shorter version of the label, meant for very small screens, or to be shown in a summary of the form data. |
+| additional guidance hint | `guidance`     | Supported for `<hint>` content only. It is a description of the question that can be used to provide further guidance to enumerators. It is not meant to be shown in the client UI by default, but could be shown in a special view mode or on printouts. |
 
-The different `forms` are only supported for question captions (`<label>`s inside user controls). The [media](#media) section describes how to add non-text form labels in a similar manner.
+The [media](#media) section describes how to add non-text form labels in a similar manner.
