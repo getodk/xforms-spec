@@ -1,3 +1,24 @@
+[2018-03-13]
+--------------------
+#### Added
+* [`if`](https://opendatakit.github.io/xforms-spec/#fn:if) function
+* ["guidance" hints](https://opendatakit.github.io/xforms-spec/#languages)
+* [`format-date-time`](https://opendatakit.github.io/xforms-spec/#fn:format-date-time) function
+
+#### Changed
+* Edited [Appearances](https://opendatakit.github.io/xforms-spec/#appearances)
+
+#### Fixed
+* Error in [`count-selected`](https://opendatakit.github.io/xforms-spec/#fn:count-selected) argument description
+
+[2017-12-22]
+--------------------
+#### Added
+* [Events and Actions](https://opendatakit.github.io/xforms-spec/#events-and-actions)
+
+#### Changed
+* Updated descriptions of [`decimal-time`](https://opendatakit.github.io/xforms-spec/#fn:decimal-time) and [`decimal-date-time`](https://opendatakit.github.io/xforms-spec/#fn:decimal-date-time)
+
 [2017-09-19]
 --------------------
 #### Added
