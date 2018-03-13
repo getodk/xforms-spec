@@ -160,6 +160,7 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 <a id="fn:current" href="#fn:current">`current()`</a> | In the same league as `instance(ID)` but always referring to the primary instance (and accepting no arguments). Unlike instance(ID), which always requires an absolute path, current() can be used with relative references (e.g. `current()/.` and `current()/..`).
 <a id="fn:area" href="#fn:area">`area(node-set ns | geoshape gs)`</a> | Returns the calculated area in m2 of either a nodeset of geopoints or a geoshape value (not a combination of both) on Earth. It takes into account the circumference of the Earth around the Equator but does not take altitude into account.
 <a id="fn:once" href="#fn:once">`once(* calc)`</a> | The parameter will be evaluated and returned if the context nodes's value is empty, otherwise the current value of the context node will be returned. The function is used e.g. to ensure that a random number is only generated once with `once(random())`.
+<a id="fn:randomize" href="#fn:randomize">`randomize(nodeset arg, number seed)`</a> | Shuffles the nodeset argument using [Durstenfeld's version of the Fisher-Yates algorithm](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle). The optional seed argument performs a (reproducable) seeded shuffle using Fisher Yates with a linear congruential pseudorandom number generator as the one used by the [next() function in Java v7](https://docs.oracle.com/javase/7/docs/api/java/util/Random.html#next(int)).
 
 ### Metadata
 
