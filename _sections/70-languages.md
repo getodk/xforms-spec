@@ -80,6 +80,6 @@ There are three `form` attribute options for text strings:
 | ------------------------ | -------------- |----------------------------
 | regular                  | _none_         | Supported for `<label>` and `<hint>` content to display regular labels and hints |
 | short version of label   | `short`        | Supported for `<label>` content only. It is a shorter version of the label, meant for very small screens, or to be shown in a summary of the form data. |
-| additional guidance hint | `guidance`     | Supported for `<hint>` content only. It is a description of the question that can be used to provide further guidance to enumerators. It is not meant to be shown in the client UI by default, but could be shown in a special view mode or on printouts. |
+| additional guidance hint | `guidance`     | Supported for `<hint>` content only. It is a description of the question that can be used to provide further guidance to enumerators. It is not meant to be shown in the client UI by default, but could be shown in a special view mode (e.g., for a training) or on printouts. |
 
 The [media](#media) section describes how to add non-text form labels in a similar manner.
