@@ -8,11 +8,13 @@ Pull requests are welcome! Suggest additions to the specification and discuss pr
 
 ### Requirements for running locally
 
-Dependencies are managed with [bundler](https://bundler.io).  To install bundler and all dependencies:
+Install [Jekyll](https://jekyllrb.com/docs/installation/) (Windows users, see [here](https://jekyllrb.com/docs/windows/)) and [bundler](https://bundler.io).
 
-	gem install bundler
+Afterwards, to install all dependencies for this repo:
+
 	bundle install
 
 ### Run locally
-* when editing use `jekyll serve --watch`
+
+When editing use `jekyll serve` or `bundle exec jekyll serve` to build, start up a webserver and automatically rebuild.
 
