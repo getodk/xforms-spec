@@ -181,12 +181,13 @@ The namespace of the meta block is either the default XForms namespace or "https
             <orx:timeEnd/>
             <orx:userID/>
             <orx:instanceID/>
+            <orx:audit/>>
         </orx:meta>
     </data>
 </instance>
 {% endhighlight %}
 
-These meta elements have corresponding `<bind>` elements with either a calculation or with _preload attributes_. Note that when using a calculation these values may be recalculated, e.g. when a draft record is loaded. This could lead to undesirable results especially in case the result is a random value.
+These meta elements have corresponding `<bind>` elements with either a calculation or with _preload attributes_. Note that when using a calculation these values may be recalculated, e.g. when a draft record is loaded. This could lead to undesirable results for example when the result is a random value or timestamp.
 
 Using both a calculation and preload attributes is technically allowed but never recommended, because one will overwrite the other. 
 
@@ -204,6 +205,7 @@ The following meta elements are supported:
 | `phoneNumber` | The phone number of the device, when available | string | | same as meta block
 | `simSerial`	| SIM serial number of phone, when available. | string | |same as meta block
 | `subscriberID`| IMSI of phone prefixed (with imsi: prefix, e.g. imsi:SD655E212), when available. | string | |same as meta block
+| `audit`       | A CSV or zipped CSV file containing audit logs pertaining to the record, including timing data in a format that is yet to be documented. The file is attached in the same way as for an `<upload>` form control and binary instance node. Filename is determined by the client. | binary | filename | same as meta block
 
 As mentioned in [Bind Attributes](#bind-attributes), there are two different preload attributes. A particular combination of pre-load attributes populates a value according to a **predetermined fixed formula**, when a **predetermined event** occurs. Different combinations handle different events and use a different calculation.
 
