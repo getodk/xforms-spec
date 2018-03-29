@@ -1,3 +1,13 @@
+[2018-03-29]
+--------------------
+#### Added
+* [`randomize`](https://opendatakit.github.io/xforms-spec/#fn:randomize) function
+* [`audit`](https://opendatakit.github.io/xforms-spec/#metadata) metadata item
+* [`distance`](https://opendatakit.github.io/xforms-spec/#fn:distance) function
+
+#### Changed
+* New preferred http://opendatakit.org/xforms namespace for new functionality.
+
 [2018-03-13]
 --------------------
 #### Added
