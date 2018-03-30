@@ -374,6 +374,12 @@ table tr th, table tr td {
     text-decoration: underline;
 }
 
+.xforms {
+    background: #0080004a;
+    padding: 2px;
+    border-radius: 2px;;
+}
+
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
 

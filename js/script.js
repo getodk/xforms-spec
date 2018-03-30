@@ -1,6 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     addNavMenu();
     setHeaderListeners();
+    markXFormsReferences();
 });
 
 /**
@@ -21,8 +22,8 @@ function addListeners(elements, event, handler) {
  * Adds Navigation Menu up to 2 levels deep
  */
 function addNavMenu() {
-    var navListEl = document.createElement('ul'),
-        sectionHeadings = document.querySelectorAll('h2[id]');
+    var navListEl = document.createElement('ul');
+    var sectionHeadings = document.querySelectorAll('h2[id]');
 
     for (var i = 0; i < sectionHeadings.length; ++i) {
         var subHeadings = sectionHeadings[i].parentNode.querySelectorAll('h3[id]'),
@@ -37,6 +38,17 @@ function addNavMenu() {
     }
 
     document.querySelector('.sidenav').appendChild(navListEl);
+}
+
+/**
+ * Add class to all links to URLs starting with "https://www.w3.org/TR/2003/REC-xforms-20031014"
+ */
+function markXFormsReferences() {
+    var xformsLinks = document.querySelectorAll('a[href^="https://www.w3.org/TR/2003/REC-xforms-20031014"],a[href^="http://www.w3.org/TR/xforms/"] ');
+
+    for (var i = 0; i < xformsLinks.length; ++i) {
+        xformsLinks[i].classList.add('xforms');
+    }
 }
 
 /**
