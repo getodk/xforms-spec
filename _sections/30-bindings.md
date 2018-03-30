@@ -33,13 +33,13 @@ The following attributes are supported on `<bind>` nodes. Only the nodeset attri
 
 | attribute | description |
 | --------- | --------- |
-| `nodeset`   | Specifies the [path](#xpath-paths) to the instance node or attribute \[required\].
-| `type`      | Specifies the data type. These are discussed below. Considered "string" if omitted or if an unknown type is provided.
-| `readonly`  | Specifies whether the user is allowed to enter data, using a boolean expression. Considered `false()` if omitted. 
-| `required`  | Specifies whether the question requires a non-empty value, using a boolean expression. Considered `false()` if omitted.
-| `relevant`  | Specifies whether the question or group is relevant. The question or group will only be presented to the user when the XPath expression evaluates to `true()`. When `false()` the data node (and its descendants) are removed from the primary instance on submission.
-| `constraint`| Specifies acceptable answers for the specified prompt with an XPath expression. Will only be evaluated when the node is non-empty.
-| `calculate` | Calculates a node value with an XPath expression.
+| `nodeset`   | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice3.html#structure-bind-element) this specifies the [path](#xpath-paths) to the instance node or attribute \[required\].
+| `type`      | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice6.html#model-prop-type) this specifies the data type. [These data types](#data-types) values are supported and is considered "string" if omitted or if an unknown type is provided.
+| `readonly`  | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice6.html#model-prop-readOnly) this specifies whether the user is allowed to enter data, using a boolean expression. Considered `false()` if omitted. 
+| `required`  | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice6.html#model-prop-required) this pecifies whether the question requires a non-empty value, using a boolean expression. Considered `false()` if omitted.
+| `relevant`  | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice6.html#model-prop-relevant) this specifies whether the question or group is relevant. The question or group will only be presented to the user when the XPath expression evaluates to `true()`. When `false()` the data node (and its descendants) are removed from the primary instance on submission.
+| `constraint`| As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice6.html#model-prop-relevant) this specifies acceptable answers for the specified prompt with an XPath expression. Will only be evaluated when the node is non-empty.
+| `calculate` | As in [Xforms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice6.html#model-prop-calculate) this calculates a node value with an XPath expression.
 | `saveIncomplete` | Specifies whether to automatically save the draft record when the user reaches this question, options `true()` and `false()`. Considered false() if omitted.
 | `jr:requiredMsg` | Specifies the custom message to be displayed when the `required` is violated. Attribute in "http://openrosa.org/javarosa" namespace.
 | `jr:constraintMsg` | Specifies the custom message to be displayed when the `constraint` is violated.
@@ -47,6 +47,8 @@ The following attributes are supported on `<bind>` nodes. Only the nodeset attri
 | `jr:preloadParams` | Parameters used by `jr:preload`. See [preloaders](#preloaders---metadata).
 
 ### Data Types
+
+The following are acceptable data type values.
 
 | type 	     | description
 |------------|------------
@@ -80,7 +82,6 @@ The following are examples of valid paths:
 * `another/relative/path`
 * `//node`
 
-
 ### XPath Operators
 
 All [XPath 1.0 operators](http://www.w3.org/TR/xpath/#exprlex) are supported, i.e. `|`, `and`, `or`, `mod`, `div`, `=`, `!=`, `<=`, `<`, `>=`, `>`.
@@ -106,7 +107,7 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 <a id="fn:jr:choice-name" href="#fn:jr:choice-name">`jr:choice-name(node node, string value)`</a> | Returns the label value in the active language corresponding to the choice option with the given value of a select or select1 question for the given data node. (sorry)
 <a id="fn:jr:itext" href="#fn:jr:itext">`jr:itext(string arg)`</a> | Obtains an itext value for the provided reference in the active language.
 <a id="fn:indexed-repeat" href="#fn:indexed-repeat">`indexed-repeat(nodeset arg, nodeset repeat1, int index1, [nodeset repeatN, int indexN]{0,2})`</a> | Returns a single node from a nodeset by selecting the 1-based index of a repeat nodeset that this node is a child of. It does this up to 3 repeat levels deep.
-<a id="fn:if" href="#fn:if">`if(boolean condition, string then, string else)`</a> | Depending on the boolean value of the "condition", this function returns either the string result of the "then" parameter (if `true`) or of the "else" parameter (if `false`).
+<a id="fn:if" href="#fn:if">`if(boolean condition, string then, string else)`</a> | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-if).
 <a id="fn:true" href="#fn:true">`true()`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
 <a id="fn:false" href="#fn:false">`false()`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
 <a id="fn:boolean" href="#fn:boolean">`boolean(* arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#section-Boolean-Functions).
@@ -131,8 +132,8 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 <a id="fn:count" href="#fn:count">`count(nodeset arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-count).
 <a id="fn:count-non-empty" href="#fn:count-non-empty">`count-non-empty(nodeset arg)`</a> | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-count-non-empty).
 <a id="fn:sum" href="#fn:sum">`sum(nodeset arg)`</a> | As in [XPath 1.0](http://www.w3.org/TR/xpath/#function-sum).
-<a id="fn:max" href="#fn:max">`max(nodeset arg*)`</a> | As in [XPath 2.0](http://www.w3.org/TR/xpath-functions/#func-max).
-<a id="fn:min" href="#fn:min">`min(nodeset arg*)`</a> | As in [XPath 2.0](http://www.w3.org/TR/xpath-functions/#func-min).
+<a id="fn:max" href="#fn:max">`max(nodeset arg*)`</a> | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-max).
+<a id="fn:min" href="#fn:min">`min(nodeset arg*)`</a> | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-min).
 <a id="fn:round" href="#fn:round">`round(number arg, number decimals?)`</a> | Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-round) in that a second argument may be provided to specify the number of decimals.
 <a id="fn:pow" href="#fn:pow">`pow(number value, number power)`</a> | As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-pow).
 <a id="fn:log" href="#fn:log">`log(number arg)`</a> | As in [XPath 3.0](http://www.w3.org/TR/xpath-functions-30/#func-math-log).
@@ -150,14 +151,14 @@ A subset of [XPath 1.0 functions](http://www.w3.org/TR/xpath/#corelib), some fun
 <a id="fn:exp10" href="#fn:exp10">`exp10(number arg)`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-exp10).
 <a id="fn:pi" href="#fn:pi">`pi()`</a> | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-pi).
 <a id="fn:today" href="#fn:today">`today()`</a> | Returns today's date without a time component.
-<a id="fn:now" href="#fn:now">`now()`</a> | Returns the current datetime in the current time zone.
+<a id="fn:now" href="#fn:now">`now()`</a> | Deviates from [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-now) in that it returns the current datetime _including timezone offset_ (i.e. not normalized to UTC).
 <a id="fn:random" href="#fn:random">`random()`</a> | Returns a random number between 0.0 (inclusive) and 1.0 (exclusive).
 <a id="fn:uuid" href="#fn:uuid">`uuid(number?)`</a> | Without arguments, it returns a random [RFC 4122 version 4](http://tools.ietf.org/html/rfc4122) compliant UUID. With an argument it returns a random GUID with the provided number of characters.
 <a id="fn:checklist" href="#fn:checklist">`checklist(number min, number max, string v*)`</a> | Check wether the count of answers that evaluate to true (when it converts to a number > 0) is between the minimum and maximum inclusive. Min and max can be -1 to indicate _not applicable_.
 <a id="fn:weighted-checklist" href="#fn:weighted-checklist">`weighted-checklist(number min, number max, [string v, string w]*)`</a> | Like checklist(), but the number of arguments has to be even. Each v argument is paired with a w argument that _weights_ each v (true) count. The min and max refer to the weighted totals.
 <a id="fn:position" href="#fn:position">`position(node arg?)`</a> | Deviates from [XPath 1.0](http://www.w3.org/TR/xpath/#function-position) in that it accepts an argument. This argument has to be a single node. If an argument is provided the function returns the position of that node amongst its siblings (with the same node name).
 <a id="fn:property" href="#fn:property">`property(string prop)`</a> | Tbd
-<a id="fn:instance" href="#fn:instance">`instance(string id)`</a> | Returns a [secondary instance](#secondary-instances) node with the provided id, e.g. `instance('cities')/item/[country=/data/country]`. It is the only way to refer to a node outside of the primary instance. Note that it doesn't switch the XML Document (the primary instance) or document root for other expressions. E.g. `/data/country` still refers to the primary instance.
+<a id="fn:instance" href="#fn:instance">`instance(string id)`</a> | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-instance). Note that it doesn't switch the XML Document (the primary instance) or document root for other expressions. E.g. in `instance('cities')/item/[country=/data/country]`, the `/data/country` path still refers to the primary instance.
 <a id="fn:current" href="#fn:current">`current()`</a> | In the same league as `instance(ID)` but always referring to the primary instance (and accepting no arguments). Unlike instance(ID), which always requires an absolute path, current() can be used with relative references (e.g. `current()/.` and `current()/..`).
 <a id="fn:area" href="#fn:area">`area(node-set ns | geoshape gs)`</a> | Returns the calculated area in m2 of either a nodeset of geopoints or a geoshape value (not a combination of both) on Earth. It takes into account the circumference of the Earth around the Equator but does not take altitude into account.
 <a id="fn:distance" href="#fn:distance">`distance(node-set ns | geoshape gs | geotrace gt)`</a> | Returns the distance in meters of either a nodeset of geopoints or a single geoshape value or a single geotrace value (not a combination of these) on Earth, in the sequence provided by the points in the parameter. It takes into account the circumference of the Earth around the Equator and does not take altitude into account.

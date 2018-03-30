@@ -24,30 +24,30 @@ The following form control elements are supported:
 
 | control       | description
 |---------------|------------
-|`<input>`      | Used to obtain user input for data types: string, integer, decimal, and date.
-|`<select1>`    | Used to display a single-select list (data type: select1)
-|`<select>`     | Used to display a multiple-select list (data type: select)
-|`<upload>`     | Used for image, audio, and video capture
+|`<input>`      | This element is used to obtain user input for data types: string, integer, decimal, and date. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-input) without Special Attributes support.
+|`<select1>`    | Used to display a single-select list (data type: string). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-selectOne) without Special Attributes support.
+|`<select>`     | Used to display a multiple-select list (data type: string). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-selectMany) without Special Attributes support.
+|`<upload>`     | Used for image, audio, and video capture. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-upload) without support for filename and mediatype child elements, nor the `incremental` attribute and only supporting the `binary` data type.
 |`<trigger>`    | Used to obtain user confirmation (e.g. by displaying a single tickbox or button). Will add value _"OK"_ to corresponding instance node when user confirms. If not confirmed the value remains empty.
-|`<range>`      | Used to obtain numeric user input from a sequential range of values. As described [here](https://en.wikibooks.org/wiki/XForms/Range) except that the `incremental` attribute is not included in this specification.
+|`<range>`      | Used to obtain numeric user input from a sequential range of values. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-range) without support for the `incremental` attribute.
 
 The following user interface elements are supported:
 
 | element       | description
 |---------------|---------------------------------------
-| `<group>`     | Child of `<body>`, another `<group>`, or a `<repeat>` that groups form controls together. See [groups](#groups) section for further details.
+| `<group>`     | Child of `<body>`, another `<group>`, or a `<repeat>` that groups form controls together. See [groups](#groups) section for further details. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice9.html#ui-group).
 | `<repeat>`    | Child of `<body>` or `<group>` that can be repeated. See [repeats](#repeats) for further details.
 
 Within the form controls the following elements can be used:
 
 | element       | description
 |---------------|------------------
-| `<label>`     | Child of a [form control](#body-elements) element, `<item>`, `<itemset>` or `<group>` used to display a label. Only 1 `<label>` per form control is properly supported but can be used in [multiple languages](#languages)).
-| `<hint>`      | Child of a [form control](#body-elements) element used to display a hint. Only 1 `<hint>` element per form control is properly supported but can be used in [multiple languages](#languages)).
-| `<output>`    | Child of a `<label>` or `<hint>` element used to display an instance value, inline, as part of the label, or hint text.
-| `<item>`      | Child of `<select>` or `<select1>` that defines an choice option.
-| `<itemset>`   | Child of `<select>` or `<select1>` that defines a list of choice options to be obtained elsewhere (from a [secondary instance](#secondary-instances)).
-| `<value>`     | Child of `<item>` or `<itemset>` that defines a choice value.
+| `<label>`     | Child of a [form control](#body-elements) element, `<item>`, `<itemset>` or `<group>` used to display a label. Only 1 `<label>` per form control is properly supported but can be used in [multiple languages](#languages)). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-commonelems-label) without support for Linking Attributes.
+| `<hint>`      | Child of a [form control](#body-elements) element used to display a hint. Only 1 `<hint>` element per form control is properly supported but can be used in [multiple languages](#languages)). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-commonelems-hint) without support for Linking Attributes.
+| `<output>`    | Child of a `<label>` or `<hint>` element used to display an instance value, inline, as part of the label, or hint text. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-output) but only supporting the `value` attribute.
+| `<item>`      | Child of `<select>` or `<select1>` that defines an choice option. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-common-elements-item).
+| `<itemset>`   | Child of `<select>` or `<select1>` that defines a list of choice options to be obtained elsewhere (from a [secondary instance](#secondary-instances)). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice9.html#ui-common-elements-itemset).
+| `<value>`     | Child of `<item>` or `<itemset>` that defines a choice value. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-common-choices-value).
 
 Below is an example of a label, an output, a hint, an itemset and value used together to define a form control:
 
