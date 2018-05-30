@@ -13,7 +13,7 @@ _Note that submission behavior can be highly variable between different clients.
           ...
         </data>
     </instance>
-    <submission />
+    <submission orx:auto-send="true" />
     <bind nodeset="/data/firstname" type="xsd:string" required="true()" />
     ...
 </model>
