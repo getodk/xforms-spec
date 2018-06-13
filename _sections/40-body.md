@@ -29,7 +29,7 @@ The following form control elements are supported:
 |`<select>`     | Used to display a multiple-select list (data type: string). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-selectMany) without Special Attributes support.
 |`<upload>`     | Used for image, audio, and video capture. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-upload) without support for filename and mediatype child elements, nor the `incremental` attribute and only supporting the `binary` data type.
 |`<trigger>`    | Used to obtain user confirmation (e.g. by displaying a single tickbox or button). Will add value _"OK"_ to corresponding instance node when user confirms. If not confirmed the value remains empty.
-|`<range>`      | Used to obtain numeric user input from a sequential range of values. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-range) without support for the `incremental` attribute.
+|`<range>`      | Used to obtain numeric user input from a sequential range of values. Mostly as in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-range). However, it does not support the `incremental` attribute, and the `step`, `start`, and `end` attributes are required.
 
 The following user interface elements are supported:
 
@@ -83,9 +83,9 @@ The following attributes are supported on body elements. Note that most attribut
 | `rows`          | Specifies the minimum number of rows a string `<input>` field gets.
 | `mediatype`     | For the `<upload>` element. The string value specifies the kind of media picker that will be displayed. Unlike in XForms 1.0, only one value can be specified. Possible values vary by client and examples include `image/*`, `audio/*` and `video/*`. Ignored if `accept` is also specified.
 |`accept`         | For the `<upload>` element. As from the [XForms 2.0 wiki](https://www.w3.org/community/xformsusers/wiki/XForms_2.0#The_upload_Element): "comma-separated list of suggested media types and file extensions used to determine the possible sources of data to upload."
-|`start`          | For the `<range>` element. The lower bound of the range.
-|`end`            | For the `<range>` element. The upper bound of the range.
-|`step`           | For the `<range>` element. The increment between values that can be selected.
+|`start`          | For the `<range>` element. The lower bound of the range. This attribute is required and its value has to be valid for the data type used.
+|`end`            | For the `<range>` element. The upper bound of the range. This attribute is required and its value has to be valid for the data type used.
+|`step`           | For the `<range>` element. The increment between values that can be selected. This attribute is required and its value has to be valid for the data type used.
 
 
 ### Appearances
