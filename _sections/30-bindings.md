@@ -99,9 +99,17 @@ Only the _parent_, _child_ and _self_ axes are supported of the [XPath 1.0 axes]
 
 A subset of [XPath 1.0 functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#corelib), some functions of later versions of XPath, and a number of additional custom functions are supported. Some of the XPath 1.0 functions have been extended with additional functionality.  
 
-The table below describes the data types of the function arguments. If an argument of a function is optional it is followed by a `?`. If an argument can be repeated it is followed by a `*`. The `|` character is used to indicate an alternative. The XPath evaluator will automatically cast arguments to their required data types by calling the `number()`, `string()`, `boolean()` functions, as described in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Function-Calls).
+The XPath evaluator will automatically cast function arguments to their required data types by calling the `number()`, `string()`, `boolean()` functions, as described in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Function-Calls). The XPath evaluator has no knowledge of the data type of the value stored in the model. Node values are always obtained as strings. 
 
-_Note that when an expression result is stored in the XForms model, it is converted to a string by calling the `string()` function. A boolean `false` result, such as from the expression `1 > 2` or `false()` is stored in the model as the string "false". If you refer to that node in another expression as a boolean argument, the **string value** of that node ("true") is converted to boolean by calling the `boolean()` function which returns the boolean `true` (because `boolean("false") = true()`). The XPath evaluator has no knowledge of the data type of the value stored in the model. Node values are always obtained as strings. It is only aware of the data types its arguments require and will convert the strings accordingly. To deal with this, it usually best to not do boolean comparisons with stored values (compare strings instead) or use `[boolean-from-string()](#fn:boolean-from-string)`_
+_Note that when an expression result is stored in the XForms model, it is converted to a string by calling the `string()` function. A boolean `false` result, such as from the expression `1 > 2` is stored in the model as the string `"false"`. When referring to that node in another expression as a boolean argument, the **string value** of that node ("true") is converted to a boolean by calling the `boolean()` function which returns the boolean `true` (because `boolean("false") = true()`). To deal with this, it usually best to not do boolean comparisons with stored values (compare strings instead) or use [`boolean-from-string()`](#fn:boolean-from-string)._
+
+The table below describes the functions, and the data types of their arguments and return values, using the following special argument characters:
+
+* `?` argument is optional
+* `*` argument can be repeated
+* `|` alternative argument is allowed 
+
+The functions are categorized based on their main usage. There are no rules associated with these categories and some functions could belong to multiple categories.
 
 | function                                  | returns | description |
 |-------------------------------------------|---------|-------------|
