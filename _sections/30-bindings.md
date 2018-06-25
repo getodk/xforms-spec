@@ -99,9 +99,9 @@ Only the _parent_, _child_ and _self_ axes are supported of the [XPath 1.0 axes]
 
 A subset of [XPath 1.0 functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#corelib), some functions of later versions of XPath, and a number of additional custom functions are supported. Some of the XPath 1.0 functions have been extended with additional functionality.  
 
-The XPath evaluator will automatically cast function arguments to their required data types by calling the `number()`, `string()`, `boolean()` functions, as described in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Function-Calls). The XPath evaluator has no knowledge of the data type of the value stored in the model. Node values are always obtained as strings. 
+The XPath evaluator will automatically cast function arguments to their required data types by calling the `number()`, `string()`, `boolean()` functions, as described in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Function-Calls). The XPath evaluator has no knowledge of the data type of the value stored in the model. In XForms, node values are always stored and obtained as strings.
 
-_Note that when an expression result is stored in the XForms model, it is converted to a string by calling the `string()` function. A boolean `false` result, such as from the expression `1 > 2` is stored in the model as the string `"false"`. When referring to that node in another expression as a boolean argument, the **string value** of that node ("true") is converted to a boolean by calling the `boolean()` function which returns the boolean `true` (because `boolean("false") = true()`). To deal with this, it usually best to not do boolean comparisons with stored values (compare strings instead) or use [`boolean-from-string()`](#fn:boolean-from-string)._
+_Note: since expression results are stored in the XForms model as strings using the `string()` function, a boolean `false` result, such as from the expression `1 > 2`, is stored in the model as the string `"false"`. When referring to that node in another expression as a boolean argument, the **string value** of that node ("true") is converted to a boolean by calling the `boolean()` function which returns the boolean `true` because `boolean("false") = true()`. To deal with this, it usually best to not do boolean comparisons with stored values (compare strings instead) or use [`boolean-from-string()`](#fn:boolean-from-string)._
 
 The table below describes the functions, and the data types of their arguments and return values, using the following special argument characters:
 
@@ -109,7 +109,7 @@ The table below describes the functions, and the data types of their arguments a
 * `*` argument can be repeated
 * `|` alternative argument is allowed 
 
-The functions are categorized based on their main usage. There are no rules associated with these categories and some functions could belong to multiple categories.
+For convenience, the functions are categorized based on their main usage. Some functions could be argued to (also) belong in another category. However, the data type rules mentioned above are the same for all functions, regardless of the category they have been placed under.
 
 | function                                  | returns | description |
 |-------------------------------------------|---------|-------------|
@@ -123,7 +123,6 @@ The functions are categorized based on their main usage. There are no rules asso
 <a id="fn:starts-with" href="#fn:starts-with">`starts-with(string haystack, string needle)`</a> | boolean | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-starts-with).
 <a id="fn:ends-with" href="#fn:ends-with">`ends-with(string haystack, string needle)`</a> | boolean | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-ends-with).
 <a id="fn:uuid" href="#fn:uuid">`uuid(number?)`</a> |  string | Without arguments, it returns a random [RFC 4122 version 4](http://tools.ietf.org/html/rfc4122) compliant UUID. With an argument it returns a random GUID with the provided number of characters.
-<a id="fn:property" href="#fn:property">`property(string prop)`</a> |  string | Tbd
 <a id="fn:Boolean-Functions" href="#fn:Boolean-Functions">**Boolean Functions**</a>|||
 <a id="fn:if" href="#fn:if">`if(boolean condition, string then, string else)`</a> |  string | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-if).
 <a id="fn:coalesce" href="#fn:coalesce">`coalesce(string arg1, string arg2)`</a> |  string | Returns first non-empty value of arg1 and arg2 or empty if both are empty and/or non-existent.
@@ -133,7 +132,7 @@ The functions are categorized based on their main usage. There are no rules asso
 <a id="fn:boolean" href="#fn:boolean">`boolean(* arg)`</a> | boolean | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-boolean).
 <a id="fn:boolean-from-string" href="#fn:boolean-from-string">`boolean-from-string(string arg)`</a> | boolean | Deviates from [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-boolean-from-string) in that it returns `false` for any argument that is not "true" or "1".
 <a id="fn:not" href="#fn:not">`not(boolean arg)`</a> | boolean | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-not).
-<a id="fn:regex" href="#fn:regex">`regex(string value, string expression)`</a> |  string | Returns result of regex test on provided value. The regular expression is created from the provided expression string (`'[0-9]+'` becomes `/[0-9]+/`).
+<a id="fn:regex" href="#fn:regex">`regex(string value, string expression)`</a> |  boolean | Returns result of regex test on provided value. The regular expression is created from the provided expression string (`'[0-9]+'` becomes `/[0-9]+/`).
 <a id="fn:checklist" href="#fn:checklist">`checklist(number min, number max, string v*)`</a> |  boolean | Check whether the count of answers that evaluate to true (when it converts to a number > 0) is between the minimum and maximum inclusive. Min and max can be -1 to indicate _not applicable_.
 <a id="fn:weighted-checklist" href="#fn:weighted-checklist">`weighted-checklist(number min, number max, [string v, string w]*)`</a> | boolean | Like checklist(), but the number of arguments has to be even. Each v argument is paired with a w argument that _weights_ each v (true) count. The min and max refer to the weighted totals.
 <a id="fn:Number-Functions" href="#fn:Number-Functions">**Number Functions**</a>|||
