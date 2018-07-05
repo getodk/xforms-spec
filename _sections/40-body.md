@@ -30,6 +30,7 @@ The following form control elements are supported:
 |`<upload>`     | Used for image, audio, and video capture. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-upload) without support for filename and mediatype child elements, nor the `incremental` attribute and only supporting the `binary` data type.
 |`<trigger>`    | Used to obtain user confirmation (e.g. by displaying a single tickbox or button). Will add value _"OK"_ to corresponding instance node when user confirms. If not confirmed the value remains empty.
 |`<range>`      | Used to obtain numeric user input from a sequential range of values. Mostly as in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-range). However, it does not support the `incremental` attribute, and the `step`, `start`, and `end` attributes are required.
+|`<odk:rank>`   | Used to require user to rank/order options. The ordered options are recorded as a space-separated list (as with `<select>`). The recorded list always includes all options.
 
 The following user interface elements are supported:
 
@@ -45,24 +46,24 @@ Within the form controls the following elements can be used:
 | `<label>`     | Child of a [form control](#body-elements) element, `<item>`, `<itemset>` or `<group>` used to display a label. Only 1 `<label>` per form control is properly supported but can be used in [multiple languages](#languages)). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-commonelems-label) without support for Linking Attributes.
 | `<hint>`      | Child of a [form control](#body-elements) element used to display a hint. Only 1 `<hint>` element per form control is properly supported but can be used in [multiple languages](#languages)). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-commonelems-hint) without support for Linking Attributes.
 | `<output>`    | Child of a `<label>` or `<hint>` element used to display an instance value, inline, as part of the label, or hint text. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-output) but only supporting the `value` attribute.
-| `<item>`      | Child of `<select>` or `<select1>` that defines an choice option. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-common-elements-item).
-| `<itemset>`   | Child of `<select>` or `<select1>` that defines a list of choice options to be obtained elsewhere (from a [secondary instance](#secondary-instances)). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice9.html#ui-common-elements-itemset).
+| `<item>`      | Child of `<select>` or `<select1>` or `<odk:rank>` that defines an choice option. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-common-elements-item).
+| `<itemset>`   | Child of `<select>` or `<select1>` or `<odk:rank>` that defines a list of choice options to be obtained elsewhere (from a [secondary instance](#secondary-instances)). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice9.html#ui-common-elements-itemset).
 | `<value>`     | Child of `<item>` or `<itemset>` that defines a choice value. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-common-choices-value).
 
 Below is an example of a label, an output, a hint, an itemset and value used together to define a form control:
 
 {% highlight xml %}
  <group ref="/data/loc">
-    <label>Location</label>
+    <label>Cities</label>
     ...
-    <select1 ref="/data/loc/city">
-        <label>City</label>
-        <hint>Cities in <output value="/data/loc/country"/></hint>
-        <itemset nodeset="instance('cities')/root/item[country= /data/loc/country ]">
+    <odk:rank ref="/data/loc/cities">
+        <label>Rank these cities</label>
+        <hint>Rank the cities in <output value="/data/loc/country"/> in order of importance with the most important at the top.</hint>
+        <itemset nodeset="randomize(instance('cities')/root/item[country= /data/loc/country ])">
             <value ref="name"/>
             <label ref="label"/>
         </itemset>
-    </select1>
+    </odk:rank>
 </group>
 {% endhighlight %}
 
@@ -73,7 +74,7 @@ The following attributes are supported on body elements. Note that most attribut
 | attribute     | description
 |---------------|----------------
 | `ref` / `nodeset` | To link a body element with its corresponding data node and binding, both `nodeset` and `ref` attributes can be used. The convention that is helpful is the one used in XLSForms: use `nodeset="/some/path"` for `<repeat>` and `<itemset>` elements and use `ref="/some/path"` for everything else. The `ref` attribute can also refer to an itext reference (see [languages](#languages))
-| `class`         | Equivalent to class in HTML and allows a list of space-separate css classes as value. This attribute is only supported on the `<h:body>` element for form-wide style classes.
+| `class`         | Equivalent to class in HTML and allows a list of space-separated css classes as value. This attribute is only supported on the `<h:body>` element for form-wide style classes.
 | `appearance`    | For all form control elements and groups to change their appearance. See [appearances](#appearances)
 | `jr:count`      | For the `<repeat>` element (see [repeats](#repeats)). This is one of the ways to specify how many repeats should be created by default.
 | `jr:noAddRemove`| For the `<repeat>` element (see [repeats](#repeats)). This indicates whether the user is allowed to add or remove repeats. Can have values `true()` and `false()`
