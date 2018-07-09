@@ -1,3 +1,26 @@
+
+
+[2018-07-09]
+--------------------
+#### Added
+- `orx:max-pixels` bind attribute to transform uploaded images.
+- Submission chapter.
+- `orx:auto-send` submission element attribute.
+- `orx:auto-delete` submission element attribute.
+- `<odk:rank>` form control.
+- [`digest`](https://opendatakit.github.io/xforms-spec/#fn:digest) function.
+
+#### Changed
+- Corrected argument order in [`jr:choice-name`](https://opendatakit.github.io/xforms-spec/#fn:jr:choice-name) function.
+- Corrected Psuedo-number generator used in [`randomize`](https://opendatakit.github.io/xforms-spec/#fn:randomize) function.
+- Simplified syntax requirements for [encryption](https://opendatakit.github.io/xforms-spec/#encryption).
+- Clarified that the `start`, `end` and `step` attributes on the range control are required.
+- Categorized XPath functions and clarified data type conversion rules.
+- Clarified valid values for `jr:constraintMsg` and `jr:requiredMsg`.
+
+#### Removed
+- `property()` function (was never properly documented).
+
 [2018-03-29]
 --------------------
 #### Added
