@@ -12,7 +12,7 @@
 
 #### Changed
 - Corrected argument order in [`jr:choice-name`](https://opendatakit.github.io/xforms-spec/#fn:jr:choice-name) function.
-- Corrected Psuedo-number generator used in [`randomize`](https://opendatakit.github.io/xforms-spec/#fn:randomize) function.
+- Corrected Pseudo-number generator used in [`randomize`](https://opendatakit.github.io/xforms-spec/#fn:randomize) function.
 - Simplified syntax requirements for [encryption](https://opendatakit.github.io/xforms-spec/#encryption).
 - Clarified that the `start`, `end` and `step` attributes on the range control are required.
 - Categorized XPath functions and clarified data type conversion rules.
