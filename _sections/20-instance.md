@@ -31,6 +31,9 @@ Nodes inside a primary instance can contain attributes. The client application n
 |---------------|------------
 | `id`          | on the childnode of the primary instance: This is the unique ID at which the form is identified by the server that publishes the Form and receives data submissions. For more information see [this Form List Specification](https://bitbucket.org/javarosa/javarosa/wiki/FormListAPI). \[required\]
 | `orx:version` | on the childnode of the primary instance in the _http://openrosa.org/xforms/_ namespace: Form version which can contain any string value. Like [meta nodes](#metadata) this information is used as a _processing cue_ for the server receiving the submission.
+| `odk:prefix` | on the childnode of the primary instance in the _http://opendatakit.org/xforms_ namespace: optional string prefix which is included at the beginning of the [compact representation](#compact-record-representation-(for-sms))
+| `odk:delimiter` | on the childnode of the primary instance in the _http://opendatakit.org/xforms_ namespace: optional string delimiter which is used to separate prefix, tags and values in the [compact representation](#compact-record-representation-(for-sms))
+| `odk:tag` | on a question node (grandchild of the primary instance) in the _http://opendatakit.org/xforms_ namespace: optional string tag which is used to identify nodes that should be part of the [compact representation](#compact-record-representation-(for-sms))
 | `jr:template` | on any repeat group node in the _http://openrosa.org/javarosa namespace_: This serves to define a default template for repeats and is useful if any of the leaf nodes inside a repeat contains a default value. It is not transmitted in the record and only affects the behavior of the form engine. For more details, see the [repeats](#repeats) section.
 
 The primary instance also includes a special type of nodes for metadata inside the `<meta>` block. See the [Metadata](#metadata) section
