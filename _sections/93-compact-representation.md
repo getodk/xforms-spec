@@ -14,13 +14,13 @@ Given the following ODK XForm definition:
 
 {% highlight xml %}
 <instance>
-    <household id="household_survey" orx:version="2018061801" prefix="hh" delimiter="|">
+    <household id="household_survey" orx:version="2018061801" odk:prefix="hh" odk:delimiter="|">
     	<meta>
-          <instanceID tag="id" />
+          <instanceID odk:tag="id" />
         </meta>
         <person>
-            <firstname tag="fn" />
-            <lastname tag="ln" />
+            <firstname odk:tag="fn" />
+            <lastname odk:tag="ln" />
             <age>10</age>
         </person>
     </household>
@@ -30,23 +30,22 @@ Given the following ODK XForm definition:
 Full records might look like:
 
 {% highlight xml %}
-<household id="household_survey">
+<household id="household_survey" orx:version="2018061801" odk:prefix="hh" odk:delimiter="|">
 	<meta>
 		<instanceID>uuid:82724cc5-df6f-46bf-86d5-26683ae35d5b</instanceID>
 	</meta>
-	<firstname></firstname>
-	<lastname>Bar</lastname>
+	<lastname odk:tag="ln">Bar</lastname>
 	<age>10</age>
 </household>
 {% endhighlight %}
 
 {% highlight xml %}
-<household id="household_survey">
+<household id="household_survey" orx:version="2018061801" odk:prefix="hh" odk:delimiter="|">
 	<meta>
 		<instanceID>uuid:82724cc5-df6f-46bf-86d5-26683ae35d5b</instanceID>
 	</meta>
-	<firstname>Mary Kate</firstname>
-	<lastname>Doe</lastname>
+	<firstname odk:tag="fn">Mary Kate</firstname>
+	<lastname odk:tag="ln">Doe</lastname>
 	<age>15</age>
 </household>
 {% endhighlight %}
