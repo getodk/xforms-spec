@@ -47,7 +47,7 @@ function getMenuElement(headingEl) {
     var listItemEl = document.createElement('li'),
         linkEl = document.createElement('a');
 
-    linkEl.setAttribute('href', '#' + headingEl.textContent.toLowerCase().replace(/\s/g, '-'));
+    linkEl.setAttribute('href', '#' + headingEl.textContent.toLowerCase().replace(/\s/g, '-').replace(/,/, ''));
     linkEl.appendChild(document.createTextNode(headingEl.textContent));
 
     listItemEl.appendChild(linkEl);

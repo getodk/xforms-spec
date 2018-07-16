@@ -43,6 +43,8 @@ A `<repeat>` cannnot have a label child element. To display a label it should be
 ...
 {% endhighlight %}
 
+When a client needs to compactly show a single repeat instance in its user interface (e.g. as a collapsed repeat or a table-of-contents item), it is recommended to show the label of the first child group of that repeat.
+
 ### Creation, Removal of Repeats
 
 The default behavior of repeats is to let the user create or remove repeats using the the user interface. The user control for creating and removing repeats can be disabled by adding the attribute `jr:noAddRemove="true()"` to the `<repeat>` element. 
