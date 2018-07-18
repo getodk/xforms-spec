@@ -21,7 +21,7 @@ Below is an example of a complete and valid XForm:
         xmlns:h="http://www.w3.org/1999/xhtml" 
         xmlns:jr="http://openrosa.org/javarosa" 
         xmlns:orx="http://openrosa.org/xforms" 
-        xmlns:odk="http://opendatakit.org/xforms"
+        xmlns:odk="http://www.opendatakit.org/xforms"
         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <h:head>
         <h:title>My Survey</h:title>
