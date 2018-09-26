@@ -189,7 +189,7 @@ For convenience, the functions are categorized based on their main usage. Some f
 
 ### Metadata
 
-This section describes metadata about _the record_ that is created with the form. Metadata about _the form itself_ (id, version, etc) is covered in the [Primary Instance](http://localhost:4000/#primary-instance) section.
+This section describes metadata about _the record_ that is created with the form. Metadata about _the form itself_ (id, version, etc) is covered in the [Primary Instance](#primary-instance) section.
 
 The namespace of the meta block is either the default XForms namespace or "https://openrosa.org/xforms". The latter is recommended.
 
