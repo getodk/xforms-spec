@@ -5,11 +5,11 @@ page: encryption
 
 ### Introduction
 
-This specification is a sub-specification of the [ODK XForms Specification](/). It describes how to encrypt an XForms submission in an manner that is compatible with ODK tools for data aggregation and decryption.
+This specification is a sub-specification of the [ODK XForms Specification](../). It describes how to encrypt an XForms submission in an manner that is compatible with ODK tools for data aggregation and decryption.
 
 ### Overview
 
-A regular XForms submission consists of 1 XML file with optional additional media files from `<upload>` form controls. Forms that [have encryption enabled](/#encryption), will encrypt all these files and add an additional [submission manifest](#submission-manifest) XML file. The submission of these files occurs according to the [OpenRosa Form Submission Specification](https://docs.opendatakit.org/openrosa-form-submission/#form-submission), where the original XML file (now encrypted) is treated as a media file, and the submission manifest is treated as the XML file (aka the XForm Part).
+A regular XForms submission consists of 1 XML file with optional additional media files from `<upload>` form controls. Forms that [have encryption enabled](../#encryption), will encrypt all these files and add an additional [submission manifest](#submission-manifest) XML file. The submission of these files occurs according to the [OpenRosa Form Submission Specification](https://docs.opendatakit.org/openrosa-form-submission/#form-submission), where the original XML file (now encrypted) is treated as a media file, and the submission manifest is treated as the XML file (aka the XForm Part).
 
 ### Submission Manifest
 
@@ -37,9 +37,9 @@ The following elements are supported. Unless otherwise specified all attributes 
 | `<element>`/attribute             | description
 |-----------------------------------|-------------
 |`<data>`                           | The required root element.
-|          `id`                     | Required on the root element with same value as the `id` attribute in the [Primary Instance](/#primary-instance) of the XForm.
+|          `id`                     | Required on the root element with same value as the `id` attribute in the [Primary Instance](../#primary-instance) of the XForm.
 |         `encrypted`               | Required on the root element with the value "yes" indicating this is the manifest of an encrypted record.
-|         `version`                 | Required on the root element with same value as the `version` attribute in the [Primary Instance](/#primary-instance) of the XForm but only if it exist there.
+|         `version`                 | Required on the root element with same value as the `version` attribute in the [Primary Instance](../#primary-instance) of the XForm but only if it exist there.
 |`<base64EncryptedKey>`             | Required child of the root element with the value of the [encrypted encryption key](#key-encryption) used to encrypt the record.
 |`<encryptedXmlFile>`               | Required child of the root element with the value of the filename of the encrypted XML file.
 |`<media>`                          | Child of the root element, which is required for each media file the record contains.
@@ -88,9 +88,9 @@ Though it is unusual to use padding for a streaming cipher such as CFB, **it is 
 
 The algorithm name "AES/CFB/PKCS5Padding" in Java implies PKCS#5 padding. However, that padding scheme is actually not defined for AES so it is misnamed in Java. The PKCS#5 padding scheme is only defined for 8 byte blocks and AES always uses 16 byte blocks. What is meant is the equivalent of PKCS#5 for 16 byte blocks which is **PKCS#7**.
 
-### Key Encryption.
+### Key Encryption
 
-The AES encryption key is encrypted using the equivalent of the **RSA/NONE/OAEPWithSHA256AndMGF1Padding** algorithm in Java 8 using the RSA public key that is part of the [XForm definition](/#encryption). The result is base64-encoded.
+The AES encryption key is encrypted using the equivalent of the **RSA/NONE/OAEPWithSHA256AndMGF1Padding** algorithm in Java 8 using the RSA public key that is part of the [XForm definition](../#encryption). The result is base64-encoded.
 
 ### Signature
 
