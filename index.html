@@ -3,14 +3,21 @@ layout: default
 ---
 
 <div class="sidenav clearfix"></div>
-
+<div class="sidenav clearfix">
+	<h4>Sub specs:</h4>
+	<ul class="sub">
+		<li><a href="/encryption">Encryption Algorithms</a></li>
+	</ul>
+</div>
 <div class="wrap">
 	<article class="post-content">
 		{% for section in site.sections %}
+		{% if section.page == undefined %}
 		<section class="post">
 			<h2 id="{{section.title | downcase | replace: ' ', '-'}}">{{section.title}}</h2>
 			{{ section.output }}
 		</section>
+		{% endif %}
 		{% endfor %}
 	</article>
 </div>
