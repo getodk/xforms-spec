@@ -88,7 +88,7 @@ Though it is unusual to use padding for a streaming cipher such as CFB, **it is 
 
 The algorithm name "AES/CFB/PKCS5Padding" in Java implies PKCS#5 padding. However, that padding scheme is actually not defined for AES so it is misnamed in Java. The PKCS#5 padding scheme is only defined for 8 byte blocks and AES always uses 16 byte blocks. What is meant is the equivalent of PKCS#5 for 16 byte blocks which is **PKCS#7**.
 
-### Key Encryption.
+### Key Encryption
 
 The AES encryption key is encrypted using the equivalent of the **RSA/NONE/OAEPWithSHA256AndMGF1Padding** algorithm in Java 8 using the RSA public key that is part of the [XForm definition](../#encryption). The result is base64-encoded.
 
