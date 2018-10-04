@@ -102,7 +102,7 @@ join together in the following order the strings with a "\n" newline character:
     - instance ID 
     - for each media file and the XML file, in order of encryption, the concatenation 
       of the original filename + '::' + md5 digest as hexadecimal of original file 
-add a final `\n` to the result string
+add a final "\n" to the result string
 calculate an md5 digest of the result string as bytes
 encrypt this md5 digest using the same RSA algorithm and base64-encoding of the 
    result as used for the [key encryption](#key-encryption)
