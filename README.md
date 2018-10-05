@@ -14,7 +14,7 @@ Afterwards, to install all dependencies for this repo:
 
 ### Run locally
 
-When editing use `jekyll serve` or `bundle exec jekyll serve` to build, start up a webserver and automatically rebuild.
+When editing use `jekyll serve` or `bundle exec jekyll serve` to build, start up a webserver and automatically rebuild on http://localhost:4000/xforms-spec/.
 
 
 ### Contributing
