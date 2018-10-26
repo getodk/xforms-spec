@@ -53,7 +53,7 @@ Here is an excerpt used in an encryption-enabled XForm:
 <submission base64RsaPublicKey="MIIBIjANB...JCwIDAQAB"/>
 {% endhighlight %}
 
-Full details on the encryption algorithms and submission manifest can be found [here](/encryption).
+Full details on the encryption algorithms and submission manifest can be found [here](encryption).
 
 
 				
