@@ -59,7 +59,7 @@ The following are acceptable data type values.
 | `decimal`  | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#decimal), optionally in "http://www.w3.org/2001/XMLSchema" namespace
 | `date`     | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#date), optionally in "http://www.w3.org/2001/XMLSchema" namespace
 | `time` 	 | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#time), optionally in "http://www.w3.org/2001/XMLSchema" namespace
-| `dateTime` | Deviates from [XML 1.0](http://www.w3.org/TR/xmlschema-2/#dateTime), in that it _includes the timezone offset_ (i.e. not normalized to UTC), optionally in "http://www.w3.org/2001/XMLSchema" namespace
+| `dateTime` | Deviates from [XML 1.0](http://www.w3.org/TR/xmlschema-2/#dateTime), in that it _includes the timezone offset_ (i.e. not normalized to UTC). The timezone offset is HH:MM, where both hours and minutes are required and are zero-padded, preceded by the + or - sign without any spaces. The offset may also equal "Z".
 | `geopoint` | Space-separated list of valid latitude (decimal degrees), longitude (decimal degrees), altitude (decimal meters) and accuracy (decimal meters)
 | `geotrace` | Semi-colon-separated list of at least 2 geopoints, where the last geopoint's latitude and longitude is not equal to the first
 | `geoshape` | Semi-colon-separated list of at least 3 geopoints, where the last geopoint's latitude and longitude is equal to the first
@@ -85,7 +85,9 @@ The following are examples of valid paths:
 
 ### XPath Operators
 
-All [XPath 1.0 operators](https://www.w3.org/TR/1999/REC-xpath-19991116/#exprlex) are supported, i.e. `|`, `and`, `or`, `mod`, `div`, `=`, `!=`, `<=`, `<`, `>=`, `>`.
+All [XPath 1.0 operators](https://www.w3.org/TR/1999/REC-xpath-19991116/#exprlex) are supported, i.e. `|`, `and`, `or`, `mod`, `div`, `=`, `!=`, `<=`, `<`, `>=`, `>`, `+`, `-`.
+
+Note that the standard XPath type conversions are extended by this specification in the [`number()` function](#fn:number). This extended functionality provides the ability to perform arithmetic with, and compare, date and dateTime strings.
 
 ### XPath Predicates
 
@@ -97,11 +99,11 @@ Only the _parent_, _child_ and _self_ axes are supported of the [XPath 1.0 axes]
 
 ### XPath Functions
 
-A subset of [XPath 1.0 functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#corelib), some functions of later versions of XPath, and a number of additional custom functions are supported. Some of the XPath 1.0 functions have been extended with additional functionality.  
+A subset of [XPath 1.0 functions](https://www.w3.org/TR/1999/REC-xpath-19991116/#corelib), XForms functions, some functions of later versions of XPath, and a number of additional custom functions are supported. Some of the XPath/XForms functions have been extended with additional functionality.  
 
 The XPath evaluator will automatically cast function arguments to their required data types by calling the `number()`, `string()`, `boolean()` functions, as described in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Function-Calls). The XPath evaluator has no knowledge of the data type of the value stored in the model. In XForms, node values are always stored and obtained as strings.
 
-_Note: since expression results are stored in the XForms model as strings using the `string()` function, a boolean `false` result, such as from the expression `1 > 2`, is stored in the model as the string `"false"`. When referring to that node in another expression as a boolean argument, the **string value** of that node ("true") is converted to a boolean by calling the `boolean()` function which returns the boolean `true` because `boolean("false") = true()`. To deal with this, it usually best to not do boolean comparisons with stored values (compare strings instead) or use [`boolean-from-string()`](#fn:boolean-from-string)._
+_Note: since expression results are stored in the XForms model as strings using the `string()` function, a boolean `false` result, such as from the expression `1 > 2`, is stored in the model as the string `"false"`. When referring to that node in another expression as a boolean argument, the **string value** of that node ("false") is converted to a boolean by calling the `boolean()` function which returns the boolean `true` because `boolean("false") = true()`. To deal with this, it usually best to not do boolean comparisons with stored values (compare strings instead) or use [`boolean-from-string()`](#fn:boolean-from-string) in the XPath comparison expression._
 
 The table below describes the functions, and the data types of their arguments and return values, using the following special argument characters:
 
@@ -137,7 +139,7 @@ For convenience, the functions are categorized based on their main usage. Some f
 <a id="fn:checklist" href="#fn:checklist">`checklist(number min, number max, string v*)`</a> |  boolean | Check whether the count of answers that evaluate to true (when it converts to a number > 0) is between the minimum and maximum inclusive. Min and max can be -1 to indicate _not applicable_.
 <a id="fn:weighted-checklist" href="#fn:weighted-checklist">`weighted-checklist(number min, number max, [string v, string w]*)`</a> | boolean | Like checklist(), but the number of arguments has to be even. Each v argument is paired with a w argument that _weights_ each v (true) count. The min and max refer to the weighted totals.
 <a id="fn:Number-Functions" href="#fn:Number-Functions">**Number Functions**</a>|||
-<a id="fn:number" href="#fn:number">`number(* arg)`</a> | number | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-number). In addition it is also able to convert date- and dateTime-formatted strings to a number of days since January 1, 1970 GMT.
+<a id="fn:number" href="#fn:number">`number(* arg)`</a> | number | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-number). In addition it will convert date- and dateTime-formatted strings to a number of days since January 1, 1970 UTC.
 <a id="fn:random" href="#fn:random">`random()`</a> |  number | Deviates from [XForms 1.1](https://www.w3.org/TR/xforms11/#fn-random) by not supporting a parameter.
 <a id="fn:int" href="#fn:int">`int(number arg)`</a> |  number | Converts to an integer (a whole number) by discarding the fractional component of a number.
 <a id="fn:sum" href="#fn:sum">`sum(node-set arg)`</a> |  number | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-sum).
@@ -167,8 +169,8 @@ For convenience, the functions are categorized based on their main usage. Some f
 <a id="fn:current" href="#fn:current">`current()`</a> |  node-set | As in [XForms 1.1](https://www.w3.org/TR/xforms11/#fn-current). Used inside predicates of expressions that use instance() to enable referring to a node relative to the context of the _current_ question. E.g. as in `instance('countries')/item[name=current()/../name]/capital`).
 <a id="fn:randomize" href="#fn:randomize">`randomize(node-set arg, number seed)`</a> |  node-set | Shuffles the node-set argument using the ["inside-out" variant of the Fisher-Yates algorithm](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_%22inside-out%22_algorithm). The optional seed argument performs a (reproducible) shuffle using the same algorithm with a _seeded_ Park Miller Pseudo Number Generator.
 <a id="fn:Date-and-Time-Functions" href="#fn:Date-and-Time-Functions">**Date and Time Functions**</a>|||
-<a id="fn:today" href="#fn:today">`today()`</a> |  string | Returns a strings with today's date in the XML Schema `xsd:date` format.
-<a id="fn:now" href="#fn:now">`now()`</a> |  string | Deviates from [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-now) in that it returns the current date and time _including timezone offset_ (i.e. not normalized to UTC).
+<a id="fn:today" href="#fn:today">`today()`</a> |  string | Returns a string with today's local date in the format described under the [date datatype](#data-types).
+<a id="fn:now" href="#fn:now">`now()`</a> |  string | Deviates from [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-now) in that it returns the current date and time _including timezone offset_ (i.e. not normalized to UTC) as described under the [dateTime datatype](#data-types).
 <a id="fn:format-date" href="#fn:format-date">`format-date(date value, string format)`</a> | string | Returns the provided date value formatted as defined by the format argument using the following identifiers:<br/>`%Y`: 4-digit year<br/>`%y`: 2-digit year<br/>`%m` 0-padded month<br/>`%n` numeric month<br/>`%b` short text month (Jan, Feb, etc)\*<br/>`%d` 0-padded day of month<br/>`%e` day of month<br/>`%a` short text day (Sun, Mon, etc).\* <br/>\* If form locale can be determined that locale will be used. If form locale cannot be determined the locale of the client will be used (e.g. the browser or app).
 <a id="fn:format-date-time" href="#fn:format-date-time">`format-date-time(dateTime value, string format)`</a> | string | Returns the provided dateTime value formatted as defined by the format argument using the same identifiers as [`format-date`](#fn:format-date) plus the following:<br/>`%H` 0-padded hour (24-hr time)<br/>`%h` hour (24-hr time)<br/>`%M` 0-padded minute<br/>`%S` 0-padded second<br/>`%3` 0-padded millisecond ticks.\* <br/>\* If form locale can be determined that locale will be used. If form locale cannot be determined the locale of the client will be used (e.g. the browser or app).
 <a id="fn:date" href="#fn:date">`date(* value)`</a> | string | Converts to a string in the ....date format.
