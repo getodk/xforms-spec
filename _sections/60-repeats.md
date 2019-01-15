@@ -6,7 +6,7 @@ Repeats are sections that may be repeated in a form. They could consist of a sin
 
 A `<repeat>` uses the nodeset attribute to identify which instance node (and its children) can be repeated.
 
-A `<repeat>` cannnot have a label child element. To display a label it should be wrapped inside a `<group>` as shown below:
+A `<repeat>` cannot have a label child element. To display a label it should be wrapped inside a `<group>` as shown below:
 
 {% highlight xml %}
 ...
@@ -47,7 +47,7 @@ When a client needs to compactly show a single repeat instance in its user inter
 
 ### Creation, Removal of Repeats
 
-The default behavior of repeats is to let the user create or remove repeats using the the user interface. The user control for creating and removing repeats can be disabled by adding the attribute `jr:noAddRemove="true()"` to the `<repeat>` element. 
+The default behavior of repeats is to let the user create or remove repeats using the user interface. The user control for creating and removing repeats can be disabled by adding the attribute `jr:noAddRemove="true()"` to the `<repeat>` element.
 
 There are 2 different ways to ensure that multiple repeats are automatically created when a form loads.
 
