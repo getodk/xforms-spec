@@ -231,6 +231,8 @@ The following meta elements are supported:
 | `subscriberID`| IMSI of phone prefixed (with imsi: prefix, e.g. imsi:SD655E212), when available. | string | |same as meta block
 | `audit`       | A CSV or zipped CSV file containing audit logs pertaining to the record (e.g., timing, location). The file is attached in the same way as for an `<upload>` form control and binary instance node. Filename is determined by the client and file follows this [documented format](https://docs.opendatakit.org/form-audit-log). What data is recorded is configurable via [audit attributes](#audit-attributes). | binary | filename | same as meta block
 
+#### Preload Attributes
+
 As mentioned in [Bind Attributes](#bind-attributes), there are two different preload attributes. A particular combination of pre-load attributes populates a value according to a **predetermined fixed formula**, when a **predetermined event** occurs. Different combinations handle different events and use a different calculation.
 
 Supported preload attribute combinations are: 
