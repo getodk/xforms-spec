@@ -231,7 +231,9 @@ The following meta elements are supported:
 | `phoneNumber` | The phone number of the device, when available | string | | same as meta block
 | `simSerial`	| SIM serial number of phone, when available. | string | |same as meta block
 | `subscriberID`| IMSI of phone prefixed (with imsi: prefix, e.g. imsi:SD655E212), when available. | string | |same as meta block
-| `audit`       | A CSV or zipped CSV file containing audit logs pertaining to the record, including timing data in a format that is yet to be documented. The file is attached in the same way as for an `<upload>` form control and binary instance node. Filename is determined by the client. | binary | filename | same as meta block
+| `audit`       | A CSV or zipped CSV file containing audit logs pertaining to the record (e.g., timing, location). The file is attached in the same way as for an `<upload>` form control and binary instance node. Filename is determined by the client and file follows this [documented format](https://docs.opendatakit.org/form-audit-log). What data is recorded is configurable via [audit attributes](#audit-attributes). | binary | filename | same as meta block
+
+#### Preload Attributes
 
 As mentioned in [Bind Attributes](#bind-attributes), there are two different preload attributes. A particular combination of pre-load attributes populates a value according to a **predetermined fixed formula**, when a **predetermined event** occurs. Different combinations handle different events and use a different calculation.
 
@@ -248,3 +250,11 @@ Supported preload attribute combinations are:
 | property      | phone number      | see `phoneNumber`  	| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
 | property      | simserial         | see `simSerial` 		| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
 | property      | subscriberid	    | see `subscriberID`  	| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
+
+#### Audit Attributes
+
+| attribute                   | description
+| --------------------------- | -----------
+| `odk:location-priority`     | `no-power`, `low-power`, `balanced`, or `high-accuracy` as defined in [LocationRequest](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest). Required to enable location in log.
+| `odk:location-min-interval` | The desired minimum time, in seconds, location updates will be fetched. Required to enable location in log.
+| `odk:location-max-age`      | The maximum time, in seconds, locations will be considered valid. Must be greater than or equal to `odk:location-min-interval`. Required to enable location in log.
