@@ -241,15 +241,15 @@ Supported preload attribute combinations are:
 
 | jr:preload    | jr:preloadParams  | value           		| event
 |---------------|-------------------|-----------------------|-------------
-| uid           |                   | see `instanceID` 		| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready) if no existing value
-| timestamp     | start             | see `timeEnd` 		| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready) if no existing value
+| uid           |                   | see `instanceID` 		| [odk-instance-first-load](#event:odk-instance-first-load)
+| timestamp     | start             | see `timeEnd` 		| [odk-instance-first-load](#event:odk-instance-first-load)
 | timestamp     | end               | see `timeEnd`  		| [xforms-revalidate](https://www.w3.org/TR/xforms/#evt-revalidate)
-| property   	| deviceid          | see `deviceID` 	 	| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
-| property		| email             | see `email` 			| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
-| property 		| username          | see `userID` 			| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
-| property      | phone number      | see `phoneNumber`  	| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
-| property      | simserial         | see `simSerial` 		| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
-| property      | subscriberid	    | see `subscriberID`  	| [xforms-ready](https://www.w3.org/TR/xforms/#evt-ready)
+| property   	| deviceid          | see `deviceID` 	 	| [odk-instance-first-load](#event:odk-instance-first-load)
+| property		| email             | see `email` 			| [odk-instance-first-load](#event:odk-instance-first-load)
+| property 		| username          | see `userID` 			| [odk-instance-first-load](#event:odk-instance-first-load)
+| property      | phone number      | see `phoneNumber`  	| [odk-instance-first-load](#event:odk-instance-first-load)
+| property      | simserial         | see `simSerial` 		| [odk-instance-first-load](#event:odk-instance-first-load)
+| property      | subscriberid	    | see `subscriberID`  	| [odk-instance-first-load](#event:odk-instance-first-load)
 
 #### Audit Attributes
 
