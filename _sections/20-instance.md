@@ -123,3 +123,16 @@ The previous section discussed secondary instances with static read-only data th
 {% endhighlight %}
 
 See the [section on URIs](#uris) for acceptable URI formats that refer to an external secondary instance.
+
+### Secondary Instances - Last Saved
+
+Some apps, such as ODK Collect, remember the last-saved instance of every form and allow you to query that instance in exactly the same way as for any other [external secondary instance](#secondary-instances---external).
+Simply specify this kind of external secondary instance using the following `src` and use it in the same way you normally would:
+
+{% highlight xml %}
+<instance id="last-saved" src="jr://instance/last-saved"/>
+{% endhighlight %}
+
+You can give the last-saved instance any `id` you want.
+
+Note that the "last-saved" terminology is significant -- it refers to the form instance that was **saved** most recently (as opposed to last-opened or last-finalized, for example).
