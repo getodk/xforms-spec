@@ -136,3 +136,6 @@ Simply specify this kind of external secondary instance using the following `src
 You can give the last-saved instance any `id` you want.
 
 Note that the "last-saved" terminology is significant -- it refers to the form instance that was **saved** most recently (as opposed to last-opened or last-finalized, for example).
+
+The most common use case for this feature is to "auto-fill" specific form fields with the last-saved value via [`odk-instance-first-load`](#event:odk-instance-first-load).
+See [this ODK forum post](https://forum.opendatakit.org/t/remembering-previously-entered-value-in-odk-collect/9116/34) for more tips and tricks to make use of this feature.
