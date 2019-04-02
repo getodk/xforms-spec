@@ -1,3 +1,6 @@
 _site
 *.sublime-project
 *.sublime-workspace
+
+# RubyMine IDE files.
+.idea/
