@@ -10,10 +10,10 @@ Binary endpoints point to files. The following are currently supported:
 
 | URI format                                 | description
 |--------------------------------------------|----------------
-| `jr://images/path/to/file.png`             | points to an image resource in the sandboxed environment
-| `jr://audio/path/to/file.mp3`              | points to an audio resource in the sandboxed environment
-| `jr://video/path/to/file.mp4`              | points to a video resource in the sandboxed environment
-| `jr://file/path/to/file.xml`               | points to an XML resource in the sandboxed enviroment.
+| `jr://images/path/to/file.png`             | Points to an image resource in the sandboxed environment
+| `jr://audio/path/to/file.mp3`              | Points to an audio resource in the sandboxed environment
+| `jr://video/path/to/file.mp4`              | Points to a video resource in the sandboxed environment
+| `jr://file/path/to/file.xml`               | Points to an XML resource in the sandboxed environment
 
 ### Virtual Endpoints
 
