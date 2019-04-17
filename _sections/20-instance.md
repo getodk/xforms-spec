@@ -4,7 +4,7 @@ title: Instance
 
 A `<model>` can have multiple instances as childnodes. The first and required `<instance>` is called the _primary instance_ and represents the data structure of the record that will be created and submitted with the form. Additional instances are called _secondary instances_.
 
-### Primary Instance 
+### Primary Instance
 
 The _primary instance_ is the first instance defined by the form and should contain a single childnode. In the example below `<household>` will be populated with data and submitted. The primary instance's single child is the **document root** that XPath expressions are evaluated on (e.g. in the instance below the value of `/household/person/age` is 10).
 
@@ -123,19 +123,3 @@ The previous section discussed secondary instances with static read-only data th
 {% endhighlight %}
 
 See the [section on URIs](#uris) for acceptable URI formats that refer to an external secondary instance.
-
-### Secondary Instances - Last Saved
-
-Some apps, such as ODK Collect, remember the last-saved instance of every form and allow you to query that instance in exactly the same way as for any other [external secondary instance](#secondary-instances---external).
-Simply specify this kind of external secondary instance using the following `src` and use it in the same way you normally would:
-
-{% highlight xml %}
-<instance id="last-saved" src="jr://instance/last-saved"/>
-{% endhighlight %}
-
-You can give the last-saved instance any `id` you want.
-
-Note that the "last-saved" terminology is significant -- it refers to the form instance that was **saved** most recently (as opposed to last-opened or last-finalized, for example).
-
-The most common use case for this feature is to "auto-fill" specific form fields with the last-saved value via [`odk-instance-first-load`](#event:odk-instance-first-load).
-See [this ODK forum post](https://forum.opendatakit.org/t/remembering-previously-entered-value-in-odk-collect/9116/34) for more tips and tricks to make use of this feature.
