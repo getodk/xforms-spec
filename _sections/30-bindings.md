@@ -129,6 +129,7 @@ For convenience, the functions are categorized based on their main usage. Some f
 <a id="fn:ends-with" href="#fn:ends-with">`ends-with(string haystack, string needle)`</a> | boolean | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-ends-with).
 <a id="fn:uuid" href="#fn:uuid">`uuid(number?)`</a> |  string | Without arguments, it returns a random [RFC 4122 version 4](http://tools.ietf.org/html/rfc4122) compliant UUID. With an argument it returns a random GUID with the provided number of characters.
 <a id="fn:digest" href="#fn:digest">`digest(string src, string algorithm, string encoding?)`</a> |  string | As in [XForms 1.1](https://www.w3.org/TR/xforms/#fn-digest)
+<a id="fn:pulldata" href="#fn:pulldata">`pulldata(string instance_id, string desired_element, string query_element, string query)`</a> | string | Returns a single value from a secondary instance based on the specified query. Shortcut for `instance(instance_id)/root/item[query_element=query]/desired_element`.
 <a id="fn:Boolean-Functions" href="#fn:Boolean-Functions">**Boolean Functions**</a>|||
 <a id="fn:if" href="#fn:if">`if(boolean condition, string then, string else)`</a> |  string | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-if).
 <a id="fn:coalesce" href="#fn:coalesce">`coalesce(string arg1, string arg2)`</a> |  string | Returns first non-empty value of arg1 and arg2 or empty if both are empty and/or non-existent.
