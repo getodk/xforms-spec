@@ -262,3 +262,4 @@ Supported preload attribute combinations are:
 | `odk:location-priority`     | `no-power`, `low-power`, `balanced`, or `high-accuracy` as defined in [LocationRequest](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest). Required to enable location in log.
 | `odk:location-min-interval` | The desired minimum time, in seconds, location updates will be fetched. Required to enable location in log.
 | `odk:location-max-age`      | The maximum time, in seconds, locations will be considered valid. Must be greater than or equal to `odk:location-min-interval`. Required to enable location in log.
+| `odk:track-changes`         | Can be set to `"true"` or `"false"`. If true, whenever an answer is changed, the old value and new value will be added to the log. Attribute is not required and defaults to false.
