@@ -1,6 +1,7 @@
 ---
-title: Encryption
-page: encryption
+title: Encryption Algorithms
+page: encryption-algorithms
+redirect_from: /encryption/
 ---
 
 ### Introduction

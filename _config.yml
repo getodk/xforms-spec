@@ -11,3 +11,6 @@ safe: true
 highlighter: rouge
 collections:
 - sections
+
+plugins:
+  - jekyll-redirect-from
