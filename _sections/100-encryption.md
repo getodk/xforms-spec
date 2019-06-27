@@ -67,7 +67,7 @@ After encrypting all files belonging to the record and generating the submission
 
 #### Initialization Vector
 
-The initialization vector generation algorithm is pre-determined and reproducible. Each file is encrypted with a different initialization vector (through incrementation). This means that the order of files to be encrypted is _sequential and important_ in order to decrypt succesfully.
+The initialization vector generation algorithm is pre-determined and reproducible. Each file is encrypted with a different initialization vector (through incrementation). This means that the order of files to be encrypted is _sequential and important_ in order to decrypt successfully.
 
 The following algorithm is used for each record:
 
@@ -107,5 +107,5 @@ join together in the following order the strings with a "\n" newline character:
 add a final "\n" to the result string
 calculate an md5 digest of the result string as bytes
 encrypt this md5 digest using the same RSA algorithm and base64-encoding of the 
-   result as used for the [key encryption](#key-encryption)
+   result as used for the key encryption
 ```
