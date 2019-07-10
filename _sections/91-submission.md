@@ -37,9 +37,9 @@ Forms can enable encryption to provide a mechanism to keep finalized data privat
 
 Encrypted form definitions must have an explicit `<submission/>` element with a `base64RsaPublicKey` attribute.
 
-The client generates a different symmetric encryption key for each finalized form and uses it to encrypt the submission and all media files. The `base64RsaPublicKey` is used to encrypt the symmetric key with the **RSA/NONE/OAEPWithSHA256AndMGF1Padding** algorithm.
+The client generates a different symmetric encryption key for each finalized form and uses it to encrypt the submission and all media files. The `base64RsaPublicKey` is used to encrypt the symmetric key which is then passed back in a submission manifest.
 
-Here is an excerpt used in an encrypted form:
+Here is an excerpt used in an encryption-enabled XForm:
 
 {% highlight xml %}
 <instance>
@@ -52,6 +52,8 @@ Here is an excerpt used in an encrypted form:
 </instance>
 <submission base64RsaPublicKey="MIIBIjANB...JCwIDAQAB"/>
 {% endhighlight %}
+
+Full details on the encryption algorithms and submission manifest can be found [here](encryption).
 
 
 				

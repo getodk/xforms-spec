@@ -88,11 +88,14 @@ table tr th, table tr td {
     margin-left: 1em;
     padding-top: 1em;
     width: 20%;
+    display: flex;
+    flex-direction:column;
 }
 
 .sidenav > ul {
     font-size: 14px;
     padding: 0.6em 1em 0.6em 1.6em;
+    order: 2;
 }
 
 .sidenav > ul li {
@@ -101,6 +104,19 @@ table tr th, table tr td {
 
 .sidenav > ul li ul {
     margin-left: 2em;
+}
+
+.sidenav ul.sub{
+    list-style-type: circle;
+    order: 4;
+}
+
+.sidenav h4{
+    order: 3;
+}
+
+.sidenav ul.sub.first{
+    order: 1;
 }
 
 /* Layout Styles */

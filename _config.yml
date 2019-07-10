@@ -2,7 +2,7 @@
 title: ODK XForms Specification
 email: 
 description: "Documents the XForms and OpenRosa-derived form specification as supported by ODK-compliant tools."
-baseurl: ""
+baseurl: "/xforms-spec"
 url: ""
 
 # Build settings

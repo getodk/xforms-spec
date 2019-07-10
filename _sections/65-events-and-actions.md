@@ -6,12 +6,14 @@ XForm Events are dispatched following different steps in the form lifecycle. XFo
 
 ### Events
 
-The following subset of events defined by the [W3C XForms specification](https://www.w3.org/TR/xforms/#rpm-events) are supported:
+See the W3C XForms specification [section on events](https://www.w3.org/TR/xforms/#rpm-events). The following events are supported: 
 
 | event                     | description |
 | --------------------------| ----------- |
-| <a id="event:xforms-ready" href="#event:xforms-ready">`xforms-ready`</a>            | Notification event dispatched after all form controls have been initialized. |
-| <a id="event:xforms-value-changed" href="#event:xforms-value-changed">`xforms-value-changed`</a>    | Notification event dispatched after an instance data node's value changes. |
+| <a id="event:odk-instance-first-load" href="#event:odk-instance-first-load">`odk-instance-first-load`</a><a id="event:xforms-ready"></a>            | dispatched the first time an instance is loaded |
+| <a id="event:xforms-value-changed" href="#event:xforms-value-changed">`xforms-value-changed`</a>    | dispatched after an instance data node's value changes. |
+
+*Note: `xforms-ready` was previously documented as the event dispatched the first time an instance is loaded. Since that definition does not match the W3C XForms event with the same name, it was deprecated in favor of `odk-instance-first-load`.*
 
 ### Actions
 The following subset of actions defined by the [W3C XForms specification](https://www.w3.org/TR/2003/REC-xforms-20031014/slice10.html#id2634509) are supported:
@@ -27,7 +29,7 @@ Action elements triggered by initialization events go in the model as siblings o
 
 {% highlight xml %}
 <bind nodeset="/data/now" type="dateTime"/>
-<setvalue event="xforms-ready" ref="/data/now" value="now()" />
+<setvalue event="odk-instance-first-load" ref="/data/now" value="now()" />
 {% endhighlight %}
 
 #### Setting a static value when a node's value changes
