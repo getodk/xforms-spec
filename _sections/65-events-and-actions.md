@@ -21,7 +21,7 @@ The following subset of actions defined by the [W3C XForms specification](https:
 | action                    | description |
 | --------------------------| ----------- |
 | <a id="action:setvalue" href="#action:setvalue">`setvalue`</a>  | Explicitly sets the value of the specified instance data node. See [the W3C description](https://www.w3.org/TR/2003/REC-xforms-20031014/slice10.html#action-setvalue). `ref` can be used in place of `bind` to specify a node path instead of a node id. |
-| <a id="action:setlocation" href="#action:setlocation">`odk:setlocation`</a>  | Sets the current location's [geopoint](#data-types) value in the instance data node specified in the `ref` attribute. Any `value` attribute or textContent will be ignored. Failure to retrieve the location will result in an empty string value. |
+| <a id="action:setgeopoint" href="#action:setgeopoint">`odk:setgeopoint`</a>  | Sets the current location's [geopoint](#data-types) value in the instance data node specified in the `ref` attribute. Any `value` attribute or textContent will be ignored. Failure to retrieve the location will result in an empty string value. |
 
 Action elements triggered by initialization events go in the model as siblings of `bind` nodes. Action elements triggered by control-specific events are nested in that control block. 
 
