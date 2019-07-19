@@ -7,7 +7,7 @@ Throughout the XForm format URIs are used to refer to resources outside of the X
 <span id="binary-endpoints" class="invisible-bookmark"></span>
 ### File Endpoints
 
-These endpoints point to files. The following are currently supported:
+These endpoints point to files published in an XForms manifest whose location the client is aware of. The following are currently supported:
 
 | URI format                                 | description
 |--------------------------------------------|----------------
@@ -19,7 +19,7 @@ These endpoints point to files. The following are currently supported:
 
 ### Virtual Endpoints
 
-"Virtual" refers to the fact that there may or may not be an actual XML document behind the scenes. The following are currently supported:
+"Virtual" refers to the fact that there may or may not be an actual XML document behind the scenes. The URI is resolved locally in any way the client desires. The following are currently supported:
 
 | URI format                                 | description
 |--------------------------------------------|----------------
