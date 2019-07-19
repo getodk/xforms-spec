@@ -124,6 +124,7 @@ For convenience, the functions are categorized based on their main usage. Some f
 <a id="fn:substring-after" href="#fn:substring-after">`substring-after(string, string)`</a> |  string | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-substring-after).
 <a id="fn:translate" href="#fn:translate">`translate(string, string, string)`</a> |  string | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-translate).
 <a id="fn:string-length" href="#fn:string-length">`string-length(string arg)`</a> |  number | Deviates from [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-string-length) in that the argument is _required_.
+<a id="fn:normalize-space" href="#fn:normalize-space">`normalize-space(string arg)`</a> | string | Deviates from [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-normalize-space) in that the argument is _required_.
 <a id="fn:contains" href="#fn:contains">`contains(string haystack, string needle)`</a> |  boolean | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-contains).
 <a id="fn:starts-with" href="#fn:starts-with">`starts-with(string haystack, string needle)`</a> | boolean | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-starts-with).
 <a id="fn:ends-with" href="#fn:ends-with">`ends-with(string haystack, string needle)`</a> | boolean | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-ends-with).
