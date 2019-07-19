@@ -12,19 +12,12 @@ See the W3C XForms specification [section on events](https://www.w3.org/TR/xform
 | --------------------------| ----------- |
 | <a id="event:odk-instance-first-load" href="#event:odk-instance-first-load">`odk-instance-first-load`</a><a id="event:xforms-ready"></a>            | dispatched the first time an instance is loaded |
 | <a id="event:xforms-value-changed" href="#event:xforms-value-changed">`xforms-value-changed`</a>    | dispatched after an instance data node's value changes. |
-| <a id="event:odk-new-repeat" href="#event:odk-new-repeat">`odk-new-repeat`</a>	| dispatched when a new instance of a repeat is added to the primary instance and before recomputation of `calculates`, etc. Actions triggered by `odk-new-repeat` must be nested in the repeat form control. <a href="#the-odk-new-repeat-event">See more</a>.
+| <a id="event:odk-new-repeat" href="#event:odk-new-repeat">`odk-new-repeat`</a>	| dispatched when a new instance of a repeat is added to the primary instance. <a href="#the-odk-new-repeat-event">See more</a>.
 
 *Note: `xforms-ready` was previously documented as the event dispatched the first time an instance is loaded. Since that definition does not match the W3C XForms event with the same name, it was deprecated in favor of `odk-instance-first-load`.*
 
-#### The `odk-new-repeat` event
+#### The odk-new-repeat event
 The `odk-new-repeat` event is dispatched when a new instance of a repeat is added to the primary instance and before recomputation of `calculates`, `constraints`, etc. Actions triggered by `odk-new-repeat` must be nested in the repeat form control.
-
-Unlike <a href="https://www.w3.org/TR/xforms/#evt-insert">W3C XForms' `xforms-insert`</a>:
-<ul>
-	<li>it is narrowly for repeats (ODK XForms currently has no notion of inserting arbitrary nodes)</li>
-	<li>its handlers must be nested in the corresponding repeat control (W3C XForms identifies the added nodes and the insert position in event context information so handlers can go anywhere)</li>
-	<li>it is dispatched separately for each repeat instance (in W3C XForms, a single insert action may insert multiple nodes)</li>
-</ul>
 
 The `odk-new-repeat` event is never dispatched for repeat instances that are part of the form definition. However, it is dispatched for repeat instances added by evaluation of the `jr:count` attribute value. See <a href="#creation-removal-of-repeats">creation, removal of repeats</a>.
 
