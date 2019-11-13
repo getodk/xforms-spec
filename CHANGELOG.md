@@ -1,4 +1,29 @@
 
+[2019-11-11]
+--------------------
+##### Removed
+- `xforms-ready` event (replaced by `odk-instance-first-load`).
+- XForms 1.0 deviation to interpret absolute path references to repeat nodes as if they were relative.
+
+##### Added
+- Compact representation of a record: `odk:prefix`, `odk:delimiter`, `odk:tag` attributes
+- Repeat instance naming convention.
+- Record encryption via the `base64RsaPublicKey` attribute.
+- Audit log CSV format.
+- Location attributes for audit log: `odk:location-priority`, `odk:location-min-interval`, `odk:location-max-age` attributes.
+- Track changes for audit log: `odk:track-changes` attribute.
+- `odk-instance-first-load` event.
+- `xforms-value-changed` event.
+- `odk-new-repeat` event.
+- `odk:setlocation` action.
+- `substring-before()`, `substring-after()` functions.
+- `translate()` function.
+- `pull-data()` function.
+- `normalize-space()` function.
+- `jr:instance/last-saved` URI.
+
+##### Changed
+- Open Data Kit namespace URL.
 
 [2018-07-09]
 --------------------
