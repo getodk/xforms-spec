@@ -3,7 +3,7 @@
 --------------------
 ##### Removed
 - `xforms-ready` event (replaced by `odk-instance-first-load`).
-- XForms 1.0 deviation to interpret absolute path references to repeat nodes as if they were relative.
+- XForms 1.0 deviation to interpret absolute path references to single nodes inside repeats as if they were relative to the repeat instance context they are used in.
 
 ##### Added
 - Compact representation of a record: `odk:prefix`, `odk:delimiter`, `odk:tag` attributes
