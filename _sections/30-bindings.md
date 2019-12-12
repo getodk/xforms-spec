@@ -63,7 +63,7 @@ The following are acceptable data type values.
 | `geopoint` | Space-separated list of valid latitude (decimal degrees), longitude (decimal degrees), altitude (decimal meters) and accuracy (decimal meters)
 | `geotrace` | Semi-colon-separated list of at least 2 geopoints, where the last geopoint's latitude and longitude is not equal to the first
 | `geoshape` | Semi-colon-separated list of at least 3 geopoints, where the last geopoint's latitude and longitude is equal to the first
-| `binary`   | String ID (with binary file attached to submission)
+| `binary`   | URI pointing to binary file. For user-uploaded files attached to a submission, only the filename with extension should be used without a scheme or subdirectories.
 | `barcode`  | As string
 | `intent`   | As string, used for [external applications](#declaring-external-application)
 
