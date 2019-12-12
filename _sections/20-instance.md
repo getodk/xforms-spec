@@ -23,7 +23,7 @@ The _primary instance_ is the first instance defined by the form and should cont
 </instance>
 {% endhighlight %}
 
-Any value inside a primary instance is considered a default value for that question. If that node has a corresponding input element that value will be displayed to the user when the question is rendered.
+Any value inside a primary instance is considered a default value for that question. If that node has a corresponding input element that value will be displayed to the user when the question is rendered. For nodes of [type "binary"](http://localhost:4000/xforms-spec/#data-types), defaults use [file endpoint URIs](http://localhost:4000/xforms-spec/#file-endpoints).
 
 Nodes inside a primary instance can contain attributes. The client application normally retains the attribute when a record is submitted. There are 3 pre-defined instance attributes:
 
