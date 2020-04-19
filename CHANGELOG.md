@@ -33,12 +33,12 @@
 - `orx:auto-send` submission element attribute.
 - `orx:auto-delete` submission element attribute.
 - `<odk:rank>` form control.
-- [`digest`](https://opendatakit.github.io/xforms-spec/#fn:digest) function.
+- [`digest`](https://getodk.github.io/xforms-spec/#fn:digest) function.
 
 #### Changed
-- Corrected argument order in [`jr:choice-name`](https://opendatakit.github.io/xforms-spec/#fn:jr:choice-name) function.
-- Corrected Pseudo-number generator used in [`randomize`](https://opendatakit.github.io/xforms-spec/#fn:randomize) function.
-- Simplified syntax requirements for [encryption](https://opendatakit.github.io/xforms-spec/#encryption).
+- Corrected argument order in [`jr:choice-name`](https://getodk.github.io/xforms-spec/#fn:jr:choice-name) function.
+- Corrected Pseudo-number generator used in [`randomize`](https://getodk.github.io/xforms-spec/#fn:randomize) function.
+- Simplified syntax requirements for [encryption](https://getodk.github.io/xforms-spec/#encryption).
 - Clarified that the `start`, `end` and `step` attributes on the range control are required.
 - Categorized XPath functions and clarified data type conversion rules.
 - Clarified valid values for `jr:constraintMsg` and `jr:requiredMsg`.
@@ -49,9 +49,9 @@
 [2018-03-29]
 --------------------
 #### Added
-* [`randomize`](https://opendatakit.github.io/xforms-spec/#fn:randomize) function
-* [`audit`](https://opendatakit.github.io/xforms-spec/#metadata) metadata item
-* [`distance`](https://opendatakit.github.io/xforms-spec/#fn:distance) function
+* [`randomize`](https://getodk.github.io/xforms-spec/#fn:randomize) function
+* [`audit`](https://getodk.github.io/xforms-spec/#metadata) metadata item
+* [`distance`](https://getodk.github.io/xforms-spec/#fn:distance) function
 
 #### Changed
 * New preferred http://opendatakit.org/xforms namespace for new functionality.
@@ -59,28 +59,28 @@
 [2018-03-13]
 --------------------
 #### Added
-* [`if`](https://opendatakit.github.io/xforms-spec/#fn:if) function
-* ["guidance" hints](https://opendatakit.github.io/xforms-spec/#languages)
-* [`format-date-time`](https://opendatakit.github.io/xforms-spec/#fn:format-date-time) function
+* [`if`](https://getodk.github.io/xforms-spec/#fn:if) function
+* ["guidance" hints](https://getodk.github.io/xforms-spec/#languages)
+* [`format-date-time`](https://getodk.github.io/xforms-spec/#fn:format-date-time) function
 
 #### Changed
-* Edited [Appearances](https://opendatakit.github.io/xforms-spec/#appearances)
+* Edited [Appearances](https://getodk.github.io/xforms-spec/#appearances)
 
 #### Fixed
-* Error in [`count-selected`](https://opendatakit.github.io/xforms-spec/#fn:count-selected) argument description
+* Error in [`count-selected`](https://getodk.github.io/xforms-spec/#fn:count-selected) argument description
 
 [2017-12-22]
 --------------------
 #### Added
-* [Events and Actions](https://opendatakit.github.io/xforms-spec/#events-and-actions)
+* [Events and Actions](https://getodk.github.io/xforms-spec/#events-and-actions)
 
 #### Changed
-* Updated descriptions of [`decimal-time`](https://opendatakit.github.io/xforms-spec/#fn:decimal-time) and [`decimal-date-time`](https://opendatakit.github.io/xforms-spec/#fn:decimal-date-time)
+* Updated descriptions of [`decimal-time`](https://getodk.github.io/xforms-spec/#fn:decimal-time) and [`decimal-date-time`](https://getodk.github.io/xforms-spec/#fn:decimal-date-time)
 
 [2017-09-19]
 --------------------
 #### Added
-* [`count-non-empty`](https://opendatakit.github.io/xforms-spec/#fn:count-non-empty) function #127
+* [`count-non-empty`](https://getodk.github.io/xforms-spec/#fn:count-non-empty) function #127
 * `format-date` localization for %a and %b #122
 
 #### Removed
@@ -90,31 +90,31 @@
 [2017-05-05]
 --------------------
 #### Added
-* [Range control](https://opendatakit.github.io/xforms-spec/#body-elements) #109
+* [Range control](https://getodk.github.io/xforms-spec/#body-elements) #109
 * Required namespace for `title` #22
-* [`contains()`](https://opendatakit.github.io/xforms-spec/#fn:contains), [`starts-with()`](https://opendatakit.github.io/xforms-spec/#fn:starts-with) and [`ends-with()`](https://opendatakit.github.io/xforms-spec/#fn:ends-with) functions #105
-* [`exp10()`](https://opendatakit.github.io/xforms-spec/#fn:exp10) function #107
-* [`abs()`](https://opendatakit.github.io/xforms-spec/#fn:abs) function #106
+* [`contains()`](https://getodk.github.io/xforms-spec/#fn:contains), [`starts-with()`](https://getodk.github.io/xforms-spec/#fn:starts-with) and [`ends-with()`](https://getodk.github.io/xforms-spec/#fn:ends-with) functions #105
+* [`exp10()`](https://getodk.github.io/xforms-spec/#fn:exp10) function #107
+* [`abs()`](https://getodk.github.io/xforms-spec/#fn:abs) function #106
 
 
 [2017-02-06]
 --------------------
 #### Added
-* Section on [external XML instances](http://opendatakit.github.io/xforms-spec/#secondary-instances---external) #86
+* Section on [external XML instances](http://getodk.github.io/xforms-spec/#secondary-instances---external) #86
 
 [2017-02-01]
 --------------------
 #### Added
-* Background context to [introduction](http://opendatakit.github.io/xforms-spec/#introduction) #81
+* Background context to [introduction](http://getodk.github.io/xforms-spec/#introduction) #81
 
 [2017-01-05]
 --------------------
 #### Added
-* Section on [namespaces used](http://opendatakit.github.io/xforms-spec/#namespaces) #72
-* [`jr:RequiredMsg`](http://opendatakit.github.io/xforms-spec/#bind-attributes) bind attribute #68
-* Trig [XPath functions](http://opendatakit.github.io/xforms-spec/#xpath-functions) #67
+* Section on [namespaces used](http://getodk.github.io/xforms-spec/#namespaces) #72
+* [`jr:RequiredMsg`](http://getodk.github.io/xforms-spec/#bind-attributes) bind attribute #68
+* Trig [XPath functions](http://getodk.github.io/xforms-spec/#xpath-functions) #67
 
 #### Fixed
 * Inconsistent usage of XForm and XForms #70
-* [`indexed-repeat`](http://opendatakit.github.io/xforms-spec/#xpath-functions) uses 1-based indexing #69
+* [`indexed-repeat`](http://getodk.github.io/xforms-spec/#xpath-functions) uses 1-based indexing #69
 

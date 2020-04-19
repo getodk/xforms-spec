@@ -1,7 +1,7 @@
 ODK XForms Spec
 ===========
 
-Published at [https://opendatakit.github.io/xforms-spec/](https://opendatakit.github.io/xforms-spec/)
+Published at [https://getodk.github.io/xforms-spec/](https://getodk.github.io/xforms-spec/)
 
 
 ### Requirements for running locally
