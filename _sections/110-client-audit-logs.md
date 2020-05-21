@@ -33,4 +33,4 @@ If change tracking is configured by the form definition (see [audit attributes](
 - `new-value`: the value of the `node` at time of the end of the `event`
 
 ### Events
-Currently, ODK Collect is the only client known to implement this sub-specification. Supported events are listed [in its user-facing documentation](https://docs.opendatakit.org/form-audit-log/#event-types). As additional clients implement audit logging, standard and client-specific events will be listed here.
+Currently, ODK Collect is the only client known to implement this sub-specification. Supported events are listed [in its user-facing documentation](https://docs.getodk.org/form-audit-log/#event-types). As additional clients implement audit logging, standard and client-specific events will be listed here.

@@ -236,7 +236,7 @@ The following meta elements are supported:
 | `phoneNumber` | The phone number of the device, when available | string | | same as meta block
 | `simSerial`	| SIM serial number of phone, when available. | string | |same as meta block
 | `subscriberID`| IMSI of phone prefixed (with imsi: prefix, e.g. imsi:SD655E212), when available. | string | |same as meta block
-| `audit`       | A CSV or zipped CSV file containing audit logs pertaining to the record (e.g., timing, location). The file is attached in the same way as for an `<upload>` form control and binary instance node. Filename is determined by the client and file follows this [documented format](https://docs.opendatakit.org/form-audit-log). What data is recorded is configurable via [audit attributes](#audit-attributes). | binary | filename | same as meta block
+| `audit`       | A CSV or zipped CSV file containing audit logs pertaining to the record (e.g., timing, location). The file is attached in the same way as for an `<upload>` form control and binary instance node. Filename is determined by the client and file follows this [documented format](https://docs.getodk.org/form-audit-log). What data is recorded is configurable via [audit attributes](#audit-attributes). | binary | filename | same as meta block
 
 #### Preload Attributes
 

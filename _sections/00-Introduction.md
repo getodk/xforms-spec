@@ -2,9 +2,9 @@
 title: Introduction
 ---
 
-[Changelog](https://github.com/opendatakit/xforms-spec/blob/gh-pages/CHANGELOG.md)
+[Changelog](https://github.com/getodk/xforms-spec/blob/gh-pages/CHANGELOG.md)
 
-The ODK XForms specification is used by tools in the [Open Data Kit](https://opendatakit.org) ecosystem. It is a subset of the far larger [W3C XForms 1.0 specification](https://www.w3.org/TR/2003/REC-xforms-20031014/index.html#contents) and also contains a few additional features not found in the W3C XForms specification.
+The ODK XForms specification is used by tools in the [ODK](https://getodk.org) ecosystem. It is a subset of the far larger [W3C XForms 1.0 specification](https://www.w3.org/TR/2003/REC-xforms-20031014/index.html#contents) and also contains a few additional features not found in the W3C XForms specification.
 
 The purpose of this specification is to provide a common form description standard that many different kinds of compatible tools can be based on. Using a single, shared form description standard has the following advantages:
 
