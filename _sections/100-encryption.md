@@ -9,7 +9,7 @@ This specification is a sub-specification of the [ODK XForms Specification](./).
 
 ### Overview
 
-A regular XForms submission consists of 1 XML file with optional additional media files from `<upload>` form controls. Forms that [have encryption enabled](./#encryption), will encrypt all these files and add an additional [submission manifest](#submission-manifest) XML file. The submission of these files occurs according to the [OpenRosa Form Submission Specification](https://docs.opendatakit.org/openrosa-form-submission/#form-submission), where the original XML file (now encrypted) is treated as a media file, and the submission manifest is treated as the XML file (aka the XForm Part).
+A regular XForms submission consists of 1 XML file with optional additional media files from `<upload>` form controls. Forms that [have encryption enabled](./#encryption), will encrypt all these files and add an additional [submission manifest](#submission-manifest) XML file. The submission of these files occurs according to the [OpenRosa Form Submission Specification](https://docs.getodk.org/openrosa-form-submission/#form-submission), where the original XML file (now encrypted) is treated as a media file, and the submission manifest is treated as the XML file (aka the XForm Part).
 
 ### Submission Manifest
 
