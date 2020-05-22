@@ -26,7 +26,7 @@ Pull requests are welcome for any agreed-upon issues! Propose a [specification a
 
 This specification is not a fixed document and is regularly extended with new features. Occassionally, poor earlier choices are removed, and behavior is clarified or corrected. To propose a small correction or clarification, just open an issue [here](https://github.com/getodk/xforms-spec/issues). For a more significant change in the XForms specification, the following approach should be used:
 
-1. Post a proposal in the [ODK Forum](https://forum.opendatakit.org) (e.g. under the `Development` category and tagged with `spec-proposal` and `odk-xforms`). If you have a proposed XForm (and/or [XLSForm](https://xlsform.org)) syntax, please include it.
+1. Post a proposal in the [ODK Forum](https://forum.getodk.org) (e.g. under the `Development` category and tagged with `spec-proposal` and `odk-xforms`). If you have a proposed XForm (and/or [XLSForm](https://xlsform.org)) syntax, please include it.
 2. If the ODK community is interested and a syntax candidate emerges, there will be a vote according to the [ODK Voting Rules](https://github.com/getodk/governance/blob/master/GOVERNANCE.md#voting).
 3. Once the extension is approved any relevant issues will be created in [this repo](https://github.com/getodk/xforms-spec/issues), in [pyxform](https://github.com/XLSForm/pyxform/issues) and in the [XLSForm documentation](https://github.com/XLSForm/xlsform.github.io/issues) and the implementation can go ahead.
 
