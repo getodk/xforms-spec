@@ -11,7 +11,7 @@ See the W3C XForms specification [section on events](https://www.w3.org/TR/xform
 | event                     | description |
 | --------------------------| ----------- |
 | <a id="event:odk-instance-first-load" href="#event:odk-instance-first-load">`odk-instance-first-load`</a><a id="event:xforms-ready"></a>            | dispatched the first time an instance is loaded |
-| <a id="event:xforms-value-changed" href="#event:xforms-value-changed">`xforms-value-changed`</a>    | dispatched after an instance data node's value changes. |
+| <a id="event:xforms-value-changed" href="#event:xforms-value-changed">`xforms-value-changed`</a>    | As in [XForms 1.1](https://www.w3.org/TR/xforms11/#evt-valueChanged). |
 | <a id="event:odk-new-repeat" href="#event:odk-new-repeat">`odk-new-repeat`</a>	| dispatched when a new instance of a repeat is added to the primary instance. <a href="#the-odk-new-repeat-event">See more</a>.
 
 *Note: `xforms-ready` was previously documented as the event dispatched the first time an instance is loaded. Since that definition does not match the W3C XForms event with the same name, it was deprecated in favor of `odk-instance-first-load`.*
