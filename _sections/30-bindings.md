@@ -234,8 +234,6 @@ The following meta elements are supported:
 | `deprecatedID` | The `<instanceID/>` of the submission for which this is a revision. This revision will get a newly generated `<instanceID/>` and this field is populated by the prior value. Server software can use this field to unify multiple revisions to a submission into a consolidated submission record. | string |  | same as meta block
 | `email`		| The user's email address when available. | string | | same as meta block
 | `phoneNumber` | The phone number of the device, when available | string | | same as meta block
-| `simSerial`	| SIM serial number of phone, when available. | string | |same as meta block
-| `subscriberID`| IMSI of phone prefixed (with imsi: prefix, e.g. imsi:SD655E212), when available. | string | |same as meta block
 | `audit`       | A CSV or zipped CSV file containing audit logs pertaining to the record (e.g., timing, location). The file is attached in the same way as for an `<upload>` form control and binary instance node. Filename is determined by the client and file follows this [documented format](https://docs.getodk.org/form-audit-log). What data is recorded is configurable via [audit attributes](#audit-attributes). | binary | filename | same as meta block
 
 #### Preload Attributes
@@ -253,8 +251,6 @@ Supported preload attribute combinations are:
 | property		| email             | see `email` 			| [odk-instance-first-load](#event:odk-instance-first-load)
 | property 		| username          | see `userID` 			| [odk-instance-first-load](#event:odk-instance-first-load)
 | property      | phone number      | see `phoneNumber`  	| [odk-instance-first-load](#event:odk-instance-first-load)
-| property      | simserial         | see `simSerial` 		| [odk-instance-first-load](#event:odk-instance-first-load)
-| property      | subscriberid	    | see `subscriberID`  	| [odk-instance-first-load](#event:odk-instance-first-load)
 
 #### Audit Attributes
 
