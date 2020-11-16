@@ -46,6 +46,7 @@ The following attributes are supported on `<bind>` nodes. Only the nodeset attri
 | `jr:preload`| Preloaders for predefined meta data. See [preloaders](#preloaders---metadata).
 | `jr:preloadParams` | Parameters used by `jr:preload`. See [preloaders](#preloaders---metadata).
 | `orx:max-pixels`| Specifies a transformation for uploaded images (binary datatype), e.g. `orx:max-pixels="1024"`. If the long edge of the image is larger than the provided number value, the image should be resized proportionally so that the long edge matches the provided pixel value.
+| `odk:quality` | Specifies a quality level to be used for binary datatype. This will only be used for audio prompts (where mediatype is `audio/*`).
 
 ### Data Types
 
