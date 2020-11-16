@@ -4,3 +4,6 @@ _site
 
 # RubyMine IDE files.
 .idea/
+
+# Bundler files
+vendor/
