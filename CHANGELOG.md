@@ -1,5 +1,5 @@
 
-[2019-11-11]
+[1.0.0] - 2019-11-11
 --------------------
 ##### Removed
 - `xforms-ready` event (replaced by `odk-instance-first-load`).
