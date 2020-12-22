@@ -2,11 +2,11 @@
 title: Media
 ---
 
-The `<itext>` element described in the [languages](#languages) section can also be used for **media labels**. Media labels can be used in addition to text labels or instead of text labels. 
+The `<itext>` element described in the [languages](#languages) section can also be used for **media labels**. Media labels can be used in addition to text labels or instead of text labels.
 
 {% highlight xml %}
 ....
-<itext> 
+<itext>
     <translation default=true() lang="English">
         <text id="/widgets/select_widgets/grid_test/b:label">
             <value form="image">jr://images/b.jpg</value>

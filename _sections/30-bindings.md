@@ -2,7 +2,7 @@
 title: Bindings
 ---
 
-A `<bind>` element wires together a primary instance node and the presentation of the corresponding question to the user. It is used to describe the datatype and various kinds of logic related to the data. A bind can refer to any node in the primary instance including repeated nodes. It may or may not have a corresponding presentation node in the [body](#body). 
+A `<bind>` element wires together a primary instance node and the presentation of the corresponding question to the user. It is used to describe the datatype and various kinds of logic related to the data. A bind can refer to any node in the primary instance including repeated nodes. It may or may not have a corresponding presentation node in the [body](#body).
 
 An instance node does not require a corresponding `<bind>` node, regardless of whether it has a presentation node.
 
@@ -35,7 +35,7 @@ The following attributes are supported on `<bind>` nodes. Only the nodeset attri
 | --------- | --------- |
 | `nodeset`   | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice3.html#structure-bind-element) this specifies the [path](#xpath-paths) to the instance node or attribute \[required\].
 | `type`      | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice6.html#model-prop-type) this specifies the data type. [These data types](#data-types) values are supported and is considered "string" if omitted or if an unknown type is provided.
-| `readonly`  | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice6.html#model-prop-readOnly) this specifies whether the user is allowed to enter data, using a boolean expression. Considered `false()` if omitted. 
+| `readonly`  | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice6.html#model-prop-readOnly) this specifies whether the user is allowed to enter data, using a boolean expression. Considered `false()` if omitted.
 | `required`  | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice6.html#model-prop-required) this pecifies whether the question requires a non-empty value, using a boolean expression. Considered `false()` if omitted.
 | `relevant`  | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice6.html#model-prop-relevant) this specifies whether the question or group is relevant. The question or group will only be presented to the user when the XPath expression evaluates to `true()`. When `false()` the data node (and its descendants) are removed from the primary instance on submission.
 | `constraint`| As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice6.html#model-prop-relevant) this specifies acceptable answers for the specified prompt with an XPath expression. Will only be evaluated when the node is non-empty.
@@ -69,7 +69,7 @@ The following are acceptable data type values.
 
 ### XPath Paths
 
-XPath paths are used in XForms to reference instance nodes to store or retrieve data. Both absolute and relative paths are supported, along with using the proper relative path context node, depending on the situation. Paths can currently only reference XML elements (not attributes, comments, or raw text). The references `.` and `..` are also supported at any point in the path. 
+XPath paths are used in XForms to reference instance nodes to store or retrieve data. Both absolute and relative paths are supported, along with using the proper relative path context node, depending on the situation. Paths can currently only reference XML elements (not attributes, comments, or raw text). The references `.` and `..` are also supported at any point in the path.
 
 The following are examples of valid paths:
 
@@ -109,7 +109,7 @@ The table below describes the functions, and the data types of their arguments a
 
 * `?` argument is optional
 * `*` argument can be repeated
-* `|` alternative argument is allowed 
+* `|` alternative argument is allowed
 
 For convenience, the functions are categorized based on their main usage. Some functions could be argued to (also) belong in another category. However, the data type rules mentioned above are the same for all functions, regardless of the category they have been placed under.
 
@@ -220,7 +220,7 @@ The namespace of the meta block is either the default XForms namespace or "https
 
 These meta elements have corresponding `<bind>` elements with either a calculation or with _preload attributes_. Note that when using a calculation these values may be recalculated, e.g. when a draft record is loaded. This could lead to undesirable results for example when the result is a random value or timestamp.
 
-Using both a calculation and preload attributes is technically allowed but never recommended, because one will overwrite the other. 
+Using both a calculation and preload attributes is technically allowed but never recommended, because one will overwrite the other.
 
 The following meta elements are supported:
 
@@ -242,7 +242,7 @@ The following meta elements are supported:
 
 As mentioned in [Bind Attributes](#bind-attributes), there are two different preload attributes. A particular combination of pre-load attributes populates a value according to a **predetermined fixed formula**, when a **predetermined event** occurs. Different combinations handle different events and use a different calculation.
 
-Supported preload attribute combinations are: 
+Supported preload attribute combinations are:
 
 | jr:preload    | jr:preloadParams  | value           		| event
 |---------------|-------------------|-----------------------|-------------
