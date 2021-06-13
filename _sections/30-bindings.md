@@ -161,7 +161,7 @@ For convenience, the functions are categorized based on their main usage. Some f
 <a id="fn:asin" href="#fn:asin">`asin(number arg)`</a> |  number | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-asin).
 <a id="fn:acos" href="#fn:acos">`acos(number arg)`</a> |  number | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-acos).
 <a id="fn:atan" href="#fn:atan">`atan(number arg)`</a> |  number | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-atan).
-<a id="fn:atan2" href="#fn:atan2">`atan2(number arg)`</a> |  number | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-atan2).
+<a id="fn:atan2" href="#fn:atan2">`atan2(number arg, number arg)`</a> |  number | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-atan2).
 <a id="fn:sqrt" href="#fn:sqrt">`sqrt(number arg)`</a> |  number | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-sqrt).
 <a id="fn:exp" href="#fn:exp">`exp(number arg)`</a> |  number | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-exp).
 <a id="fn:exp10" href="#fn:exp10">`exp10(number arg)`</a> |  number | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-math-exp10).
