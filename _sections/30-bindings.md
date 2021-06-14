@@ -128,7 +128,7 @@ For convenience, the functions are categorized based on their main usage. Some f
 <a id="fn:contains" href="#fn:contains">`contains(string haystack, string needle)`</a> |  boolean | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-contains).
 <a id="fn:starts-with" href="#fn:starts-with">`starts-with(string haystack, string needle)`</a> | boolean | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-starts-with).
 <a id="fn:ends-with" href="#fn:ends-with">`ends-with(string haystack, string needle)`</a> | boolean | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-ends-with).
-<a id="fn:uuid" href="#fn:uuid">`uuid(number?)`</a> |  string | Without arguments, it returns a random [RFC 4122 version 4](http://tools.ietf.org/html/rfc4122) compliant UUID. With an argument it returns a random GUID with the provided number of characters.
+<a id="fn:uuid" href="#fn:uuid">`uuid(number?)`</a> |  string | Without arguments, it returns a random [RFC 4122 version 4](http://tools.ietf.org/html/rfc4122) compliant UUID. With an argument it returns a random string with the provided number of characters.
 <a id="fn:digest" href="#fn:digest">`digest(string src, string algorithm, string encoding?)`</a> |  string | As in [XForms 1.1](https://www.w3.org/TR/xforms/#fn-digest)
 <a id="fn:pulldata" href="#fn:pulldata">`pulldata(string instance_id, string desired_element, string query_element, string query)`</a> | string | Returns a single value from a secondary instance based on the specified query. Shortcut for `instance(instance_id)/root/item[query_element=query]/desired_element`.
 <a id="fn:Boolean-Functions" href="#fn:Boolean-Functions">**Boolean Functions**</a>|||
