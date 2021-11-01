@@ -132,7 +132,7 @@ For convenience, the functions are categorized based on their main usage. Some f
 <a id="fn:digest" href="#fn:digest">`digest(string src, string algorithm, string encoding?)`</a> |  string | As in [XForms 1.1](https://www.w3.org/TR/xforms/#fn-digest)
 <a id="fn:pulldata" href="#fn:pulldata">`pulldata(string instance_id, string desired_element, string query_element, string query)`</a> | string | Returns a single value from a secondary instance based on the specified query. Shortcut for `instance(instance_id)/root/item[query_element=query]/desired_element`.
 <a id="fn:Boolean-Functions" href="#fn:Boolean-Functions">**Boolean Functions**</a>|||
-<a id="fn:if" href="#fn:if">`if(boolean condition, string then, string else)`</a> |  string | As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-if).
+<a id="fn:if" href="#fn:if">`if(boolean condition, * then, * else)`</a> |  string | Deviates from [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice7.html#fn-if) in that the 2nd and 3rd parameter are objects and not strings.
 <a id="fn:coalesce" href="#fn:coalesce">`coalesce(string arg1, string arg2)`</a> |  string | Returns first non-empty value of arg1 and arg2 or empty if both are empty and/or non-existent.
 <a id="fn:once" href="#fn:once">`once(string calc)`</a> |  string | The parameter will be evaluated and returned if the context nodes's value is empty, otherwise the current value of the context node will be returned. The function is used e.g. to ensure that a random number is only generated once with `once(random())`.
 <a id="fn:true" href="#fn:true">`true()`</a> | boolean | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-true).
