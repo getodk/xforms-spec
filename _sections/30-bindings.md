@@ -53,19 +53,19 @@ The following are acceptable data type values.
 
 | type 	     | description
 |------------|------------
-| `string`   | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#string), optionally in "http://www.w3.org/2001/XMLSchema" namespace
-| `int`      | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#int), optionally in "http://www.w3.org/2001/XMLSchema" namespace
-| `boolean`  | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#boolean), optionally in "http://www.w3.org/2001/XMLSchema" namespace
-| `decimal`  | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#decimal), optionally in "http://www.w3.org/2001/XMLSchema" namespace
-| `date`     | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#date), optionally in "http://www.w3.org/2001/XMLSchema" namespace
-| `time` 	 | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#time), optionally in "http://www.w3.org/2001/XMLSchema" namespace
-| `dateTime` | Deviates from [XML 1.0](http://www.w3.org/TR/xmlschema-2/#dateTime), in that it _includes the timezone offset_ (i.e. not normalized to UTC). The timezone offset is HH:MM, where both hours and minutes are required and are zero-padded, preceded by the + or - sign without any spaces. The offset may also equal "Z".
-| `geopoint` | Space-separated list of valid latitude (decimal degrees), longitude (decimal degrees), altitude (decimal meters) and accuracy (decimal meters)
-| `geotrace` | Semi-colon-separated list of at least 2 geopoints, where the last geopoint's latitude and longitude is not equal to the first
-| `geoshape` | Semi-colon-separated list of at least 3 geopoints, where the last geopoint's latitude and longitude is equal to the first
-| `binary`   | URI pointing to binary file. For user-uploaded files attached to a submission, only the filename with extension should be used without a scheme or subdirectories.
-| `barcode`  | As string
-| `intent`   | As string, used for [external applications](#declaring-external-application)
+| <a id="data-type:string"   href="#data-type:string"  >`string`</a>   | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#string), optionally in "http://www.w3.org/2001/XMLSchema" namespace
+| <a id="data-type:int"      href="#data-type:int"     >`int`</a>      | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#int), optionally in "http://www.w3.org/2001/XMLSchema" namespace
+| <a id="data-type:boolean"  href="#data-type:boolean" >`boolean`</a>  | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#boolean), optionally in "http://www.w3.org/2001/XMLSchema" namespace
+| <a id="data-type:decimal"  href="#data-type:decimal" >`decimal`</a>  | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#decimal), optionally in "http://www.w3.org/2001/XMLSchema" namespace
+| <a id="data-type:date"     href="#data-type:date"    >`date`</a>     | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#date), optionally in "http://www.w3.org/2001/XMLSchema" namespace
+| <a id="data-type:time"     href="#data-type:time"    >`time`</a>     | As in [XML 1.0](http://www.w3.org/TR/xmlschema-2/#time), optionally in "http://www.w3.org/2001/XMLSchema" namespace
+| <a id="data-type:dateTime" href="#data-type:dateTime">`dateTime`</a> | Deviates from [XML 1.0](http://www.w3.org/TR/xmlschema-2/#dateTime), in that it _includes the timezone offset_ (i.e. not normalized to UTC). The timezone offset is HH:MM, where both hours and minutes are required and are zero-padded, preceded by the + or - sign without any spaces. The offset may also equal "Z".
+| <a id="data-type:geopoint" href="#data-type:geopoint">`geopoint`</a> | Space-separated list of valid latitude (decimal degrees), longitude (decimal degrees), altitude (decimal meters) and accuracy (decimal meters)
+| <a id="data-type:geotrace" href="#data-type:geotrace">`geotrace`</a> | Semi-colon-separated list of at least 2 geopoints, where the last geopoint's latitude and longitude is not equal to the first
+| <a id="data-type:geoshape" href="#data-type:geoshape">`geoshape`</a> | Semi-colon-separated list of at least 3 geopoints, where the last geopoint's latitude and longitude is equal to the first
+| <a id="data-type:binary"   href="#data-type:binary"  >`binary`</a>   | URI pointing to binary file. For user-uploaded files attached to a submission, only the filename with extension should be used without a scheme or subdirectories.
+| <a id="data-type:barcode"  href="#data-type:barcode" >`barcode`</a>  | As string
+| <a id="data-type:intent"   href="#data-type:intent"  >`intent`</a>   | As string, used for [external applications](#declaring-external-application)
 
 ### XPath Paths
 
