@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     addNavMenu();
     setHeaderListeners();
+    wrapTables();
 });
 
 /**
@@ -100,3 +101,17 @@ function addClickableClass(elements) {
         }
     }
 }
+
+const wrapTables = () => {
+    const tables = document.querySelectorAll('table');
+    const wrapperTemplate = document.createElement('div');
+
+    wrapperTemplate.classList.add('table-wrapper');
+
+    for (const table of tables) {
+        const wrapper = wrapperTemplate.cloneNode();
+
+        table.after(wrapper);
+        wrapper.appendChild(table);
+    }
+};

@@ -234,7 +234,8 @@ table tr th, table tr td {
 /* ----------------------------------------------------------*/
 
 .page-content {
-    padding: 30px;
+    --page-padding: clamp(16px, 3vw, 30px);
+    padding: var(--page-padding);
     background-color: #fff;
 }
 
@@ -349,6 +350,10 @@ table tr th, table tr td {
     padding: 1px 5px;
 }
 
+.post p code {
+    word-wrap: break-word;
+}
+
 .post ul,
 .post ol {
     margin-left: 1.35em;
@@ -389,6 +394,14 @@ table tr th, table tr td {
     cursor: pointer;
     text-decoration: underline;
 }
+
+.table-wrapper {
+    max-width: calc(100% + var(--page-padding));
+    margin-right: calc(0px - var(--page-padding));
+    padding-right: var(--page-padding);
+    overflow-x: auto;
+}
+
 
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
@@ -744,7 +757,7 @@ table tr th, table tr td {
 
 @media screen and (max-width: 600px) {
     .wrap {
-        padding: 0 12px;
+        padding: 0;
     }
 
     .site-nav {
