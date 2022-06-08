@@ -43,8 +43,8 @@ The following attributes are supported on `<bind>` nodes. Only the nodeset attri
 | `saveIncomplete` | Specifies whether to automatically save the draft record when the user reaches this question, options `true()` and `false()`. Considered false() if omitted.
 | `jr:requiredMsg` | Specifies the custom message to be displayed when the `required` is violated. Value can be string literal (`jr:constraintMsg="message"`) or a [translation function](#fn:Translation-Functions) call (`jr:constraintMsg="jr:itext('id')"`).
 | `jr:constraintMsg` | Specifies the custom message to be displayed when the `constraint` is violated. Value can be string literal (`jr:requiredMsg="message"`) or a [translation function](#fn:Translation-Functions) call (`jr:requiredMsg="jr:itext('id')"`).
-| `jr:preload`| Preloaders for predefined meta data. See [preloaders](#preloaders---metadata).
-| `jr:preloadParams` | Parameters used by `jr:preload`. See [preloaders](#preloaders---metadata).
+| `jr:preload`| Preloaders for predefined meta data. See [preload attributes](#preload-attributes).
+| `jr:preloadParams` | Parameters used by `jr:preload`. See [preload attributes](#preload-attributes).
 | `orx:max-pixels`| Specifies a transformation for uploaded images (binary datatype), e.g. `orx:max-pixels="1024"`. If the long edge of the image is larger than the provided number value, the image should be resized proportionally so that the long edge matches the provided pixel value.
 
 ### Data Types
