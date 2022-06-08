@@ -6,7 +6,7 @@ XForm Events are dispatched following different steps in the form lifecycle. XFo
 
 ### Events
 
-See the W3C XForms specification [section on events](https://www.w3.org/TR/xforms/#rpm-events). The following events are supported: 
+See the W3C XForms specification [section on events](https://www.w3.org/TR/xforms/#rpm-events). The following events are supported:
 
 | event                     | description |
 | --------------------------| ----------- |
@@ -15,29 +15,6 @@ See the W3C XForms specification [section on events](https://www.w3.org/TR/xform
 | <a id="event:odk-new-repeat" href="#event:odk-new-repeat">`odk-new-repeat`</a>	| dispatched when a new instance of a repeat is added to the primary instance. <a href="#the-odk-new-repeat-event">See more</a>.
 
 *Note: `xforms-ready` was previously documented as the event dispatched the first time an instance is loaded. Since that definition does not match the W3C XForms event with the same name, it was deprecated in favor of `odk-instance-first-load`.*
-
-#### The odk-new-repeat event
-The `odk-new-repeat` event is dispatched when a new instance of a repeat is added to the primary instance and before recomputation of `calculates`, `constraints`, etc. Actions triggered by `odk-new-repeat` must be nested in the repeat form control.
-
-The `odk-new-repeat` event is never dispatched for repeat instances that are part of the form definition. However, it is dispatched for repeat instances added by evaluation of the `jr:count` attribute value. See <a href="#creation-removal-of-repeats">creation, removal of repeats</a>.
-
-The following example demonstrates giving a node in a repeat a default, user-modifiable value based on other user input:
-
-{% highlight xml %}
-<h:body>
-    <input ref="/data/my_age">
-        <label>Your age</label>
-    </input>
-    ...
-    <repeat nodeset="/data/person">
-        <setvalue event="odk-new-repeat" ref="/data/person/age" value="../../my_age + 2" />
-        <input ref="/data/person/age">
-            <label>Person's age</label>
-        </input>
-        ...
-    </repeat>
-</h:body>
-{% endhighlight %}
 
 ### Actions
 The following subset of actions defined by the [W3C XForms specification](https://www.w3.org/TR/2003/REC-xforms-20031014/slice10.html#id2634509) are supported:
@@ -49,21 +26,57 @@ The following subset of actions defined by the [W3C XForms specification](https:
 
 Action elements triggered by initialization events go in the model as siblings of `bind` nodes. Action elements triggered by control-specific events are nested in that control block. Multiple triggering events may be specified as a space-separated list and in that case, initialization events may be specified in an action element nested in a control block. For example, the value `odk-instance-first-load odk-new-repeat` can be given to the `event` attribute of an action nested in a repeat. That action is then triggered once the first time the primary instance is loaded and every time an instance of the parent repeat is added.
 
-#### Setting a dynamic value after form load
+### The odk-new-repeat event
+The `odk-new-repeat` event is dispatched when a new instance of a repeat is added to the primary instance and before recomputation of `calculates`, `constraints`, etc. Actions triggered by `odk-new-repeat` must be nested in the repeat form control.
+
+The `odk-new-repeat` event is never dispatched for repeat instances that are part of the form definition. However, it is dispatched for repeat instances added by evaluation of the `jr:count` attribute value. See <a href="#creation-removal-of-repeats">creation, removal of repeats</a>.
+
+The following example demonstrates giving a node in a repeat a default, user-modifiable value based on other user input:
 
 {% highlight xml %}
-<bind nodeset="/data/now" type="dateTime"/>
-<setvalue event="odk-instance-first-load" ref="/data/now" value="now()" />
+<h:head>
+    <model>
+        ...
+        <bind nodeset="/data/my_age" type="int" />
+        <bind nodeset="/data/person/age" type="int" />
+        <bind nodeset="/data/person/location" />
+    </model>
+</h:head>
+<h:body>
+    <input ref="/data/my_age">
+        <label>Your age</label>
+    </input>
+    ...
+    <repeat nodeset="/data/person">
+        <setvalue event="odk-new-repeat" ref="/data/person/age" value="../../my_age + 2" />
+        <odk:setgeopoint event="odk-new-repeat" ref="/data/person/location" />
+        <input ref="/data/person/age">
+            <label>Person's age</label>
+        </input>
+        ...
+    </repeat>
+</h:body>
 {% endhighlight %}
 
-#### Setting a static value when a node's value changes
+### Setting a dynamic value after form load
+
+{% highlight xml %}
+<bind nodeset="/data/now" type="dateTime" />
+<bind nodeset="/data/location" />
+<setvalue event="odk-instance-first-load" ref="/data/now" value="now()" />
+<odk:setgeopoint event="odk-instance-first-load" ref="/data/location" />
+{% endhighlight %}
+
+### Setting a static value when a node's value changes
 
 {% highlight xml %}
 <bind nodeset="/data/my_text" type="string" />
 <bind nodeset="/data/my_text_changed" type="string" />
+<bind nodeset="/data/my_current_location" type="string" />
 ...
 <input ref="/data/my_text">
     <setvalue event="xforms-value-changed" ref="/data/my_text_changed">Value changed!</setvalue>
+    <odk:setgeopoint event="xforms-value-changed" ref="/data/my_current_location" />
 </input>
 {% endhighlight %}
 
