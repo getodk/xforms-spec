@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<div class="sidenav clearfix">
+    <ul class="sub first">
+        <li><a href="{{ site.baseurl }}/">Back to main spec</a></li>
+    </ul>
+</div>
+
+<div class="wrap">
+    <article class="post-content">
+        {% for section in site.sections %}
+        {% if section.page == 'entities'%}
+        <section class="post">
+            <h2 id="{{section.title | downcase | replace: ' ', '-'}}">{{section.title}}</h2>
+            {{ section.output }}
+        </section>
+        {% endif %}
+        {% endfor %}
+    </article>
+</div>
