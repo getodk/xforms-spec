@@ -230,12 +230,10 @@ The following meta elements are supported:
 | `timeStart`  | A timestamp of when the form entry was started    | datetime         | now()                     | same as meta block
 | `timeEnd`    | A timestamp of when the form entry ended          | datetime         | now()                     | same as meta block
 | `userID`     | The username stored in the client, when available | string           |                             | same as meta block
-| `deviceID`   | Unique identifier of device. Guaranteed not to be blank but could be 'not supported'. Either the cellular IMEI (with imei: prefix, e.g. imei:A0006F5E212), WiFi mac address (with mac: prefix, e.g mac:01:23:45:67:89:ab), Android ID (e.g. android_id:12011110), or another unique device ID for a webbased client (with domain prefix,e .g. enketo.org:SOMEID) | string | depends on client, prefixed | same as meta block
+| `deviceID`   | Unique identifier of client install. Guaranteed not to be blank. For privacy reasons, this identifier should be stored as application state and be user-resettable (e.g. by reinstalling the client or clearing cookies). Clients typically use a prefix to identify themselves (e.g. `enketo.org:SOMEID`). | string | depends on client, prefixed | same as meta block
 | `deprecatedID` | The `<instanceID/>` of the submission for which this is a revision. This revision will get a newly generated `<instanceID/>` and this field is populated by the prior value. Server software can use this field to unify multiple revisions to a submission into a consolidated submission record. | string |  | same as meta block
 | `email`		| The user's email address when available. | string | | same as meta block
 | `phoneNumber` | The phone number of the device, when available | string | | same as meta block
-| `simSerial`	| SIM serial number of phone, when available. | string | |same as meta block
-| `subscriberID`| IMSI of phone prefixed (with imsi: prefix, e.g. imsi:SD655E212), when available. | string | |same as meta block
 | `audit`       | A CSV or zipped CSV file containing audit logs pertaining to the record (e.g., timing, location). The file is attached in the same way as for an `<upload>` form control and binary instance node. Filename is determined by the client and file follows this [documented format](https://docs.getodk.org/form-audit-log). What data is recorded is configurable via [audit attributes](#audit-attributes). | binary | filename | same as meta block
 
 #### Preload Attributes
@@ -253,8 +251,6 @@ Supported preload attribute combinations are:
 | property		| email             | see `email` 			| [odk-instance-first-load](#event:odk-instance-first-load)
 | property 		| username          | see `userID` 			| [odk-instance-first-load](#event:odk-instance-first-load)
 | property      | phone number      | see `phoneNumber`  	| [odk-instance-first-load](#event:odk-instance-first-load)
-| property      | simserial         | see `simSerial` 		| [odk-instance-first-load](#event:odk-instance-first-load)
-| property      | subscriberid	    | see `subscriberID`  	| [odk-instance-first-load](#event:odk-instance-first-load)
 
 #### Audit Attributes
 
