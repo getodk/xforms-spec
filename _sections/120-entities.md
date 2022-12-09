@@ -59,7 +59,7 @@ This specification is a sub-specification of the [ODK XForms Specification](./).
 ```
 
 ### Namespacing
-This specification uses the `http://www.opendatakit.org/xforms/entities` namespace for attributes added to nodes defined by the ODK XForms spec. The prefix commonly used for this namespace is `entities`.
+This specification uses the `http://www.opendatakit.org/xforms/entities` namespace for attributes added to nodes defined by the ODK XForms spec. In this document, the corresponding prefix used is `entities`.
 
 Additions to the main instance are NOT namespaced. The specification describes exact XPath paths that consumers must look for.
 
@@ -84,7 +84,7 @@ Entities are declared in an `entity` element in the [`meta` block](./#metadata) 
 - MUST have attribute `id` populated by a [RFC 4122 version 4 UUID](https://www.rfc-editor.org/rfc/rfc4122)
   - Consumers of submissions that create entities MUST fail to create entities that don't have a UUID `id`
 - MUST have attribute `dataset` representing the target Dataset for entities created from submissions of this form
-  - Dataset names follow the same rules as form field names (valid XML identifiers) and additionally MUST NOT include `.` or start with `__`
+  - Dataset names follow the same rules as form field names ([valid XML identifiers](https://www.w3.org/TR/xml/#NT-Name)) and additionally MUST NOT include `.` or start with `__`
 - MUST have a `create` attribute populated with a "1" or "true" if the entity should be created
   - Consumers of submissions that create entities MUST interpret "1" or "true" as indications to create an entity and any other value as indication not to create an entity
 - MUST have a direct child `label` representing a human-readable label
@@ -94,6 +94,6 @@ Entities are declared in an `entity` element in the [`meta` block](./#metadata) 
 The `entities:saveto` [`bind` attribute](./#bind-attributes) declares that the form field specified by the `nodeset` attribute on the bind should be saved as an Entity Property. The attribute's value is the Entity Property's name and and has the following restrictions:
 - `name` and `label` are reserved property names (for use when datasets are represented as itemset CSVs)
 - Property names with `__` prefixes are reserved
-- Property names follow the same rules as form field names (valid XML identifiers)
+- Property names follow the same rules as form field names ([valid XML identifiers](https://www.w3.org/TR/xml/#NT-Name))
 
 The set of all Entity Properties defined across all forms that populate a specific Dataset define that Dataset’s schema.
