@@ -17,15 +17,15 @@ This specification is a sub-specification of the [ODK XForms Specification](./).
 
 **Entity Property**: A named value that belongs to an Entity.
 
-**Immutable System Property**: An Entity Property that the system knows about and that can’t be changed (`dataset`, `id`)
+**Immutable System Property**: An Entity Property that is used by the system and that can't be changed (`dataset`, `id`)
 
-**Mutable System Property**: An Entity Property that the system knows about and that can be changed (`label`)
+**Mutable System Property**: An Entity Property that is used by the system and that can be changed (`label`)
 
 **User-defined Property**: Properties with arbitrary names defined by the form designer
 
-**Entity actions**: Actions that can be taken on Entities (`create`)
+**Entity Actions**: Actions that can be taken on Entities (`create`)
 
-### Example entity-creating form
+### Example of an entity-creating form
 
 ```xml
 <?xml version="1.0"?>
@@ -65,32 +65,33 @@ Additions to the main instance are NOT namespaced. The specification describes e
 
 ### Versioning
 
-Implementers of the ODK XForms specification may choose to opt into this entities specification or ignore it entirely. For this reason, the entities layer is versioned separately from ODK XForms using the `entities-version` attribute in the `http://www.opendatakit.org/xforms/entities` namespace.
+Consumers of the ODK XForms specification may opt into this entities specification but don't have to. For this reason, the entities layer is versioned separately from ODK XForms using the `entities-version` attribute in the `http://www.opendatakit.org/xforms/entities` namespace.
 
-The specifications is versioned using a `YYYY.NN.MM` scheme:
+The specification is versioned using a `YYYY.NN.MM` scheme:
 * YYYY: the year of the release
 * NN: the count of the release within the year. 
 * MM: the patch version. This is incremented when changes that don’t impact compatibility are made to the specification document.
 
-The `YYYY.MM` components of the version are only changed when a consumer built for an earlier version can no longer correctly use a form definition. For example, a version update will likely be made when multiple entities per form are supported. 
+The `YYYY.NN` components of the version are only changed when a consumer built for an earlier version can no longer correctly use a form definition. For example, a version update will likely be made when multiple entities per form are supported.
 
-Consumers MUST reject forms that specify a version code that is newer than what they can effectively process.
+Consumers MUST reject forms with a version code that is newer than what they can process.
 
 ### Declaring that a form creates entities
 
 Entities are declared in an `entity` element in the [`meta` block](./#metadata) of the form definition. The `entity` element:
 
 - MUST be a direct child of `meta` in the primary instance.
-- MUST have attribute `id` populated by a [RFC 4122 version 4 uuid](https://www.rfc-editor.org/rfc/rfc4122)
+- MUST have attribute `id` populated by a [RFC 4122 version 4 UUID](https://www.rfc-editor.org/rfc/rfc4122)
   - Consumers of submissions that create entities MUST fail to create entities that don't have a UUID `id`
 - MUST have attribute `dataset` representing the target Dataset for entities created from submissions of this form
+  - Dataset names follow the same rules as form field names (valid XML identifiers) and additionally MUST NOT include `.` or start with `__`
 - MUST have a `create` attribute populated with a "1" or "true" if the entity should be created
   - Consumers of submissions that create entities MUST interpret "1" or "true" as indications to create an entity and any other value as indication not to create an entity
 - MUST have a direct child `label` representing a human-readable label
 
 ### Identifying entity properties
 
-The `entities:saveto` [`bind` attribute](./#bind-attributes) is used to declare that the form field specified by the `nodeset` attribute on the bind should be saved as an Entity Property. The attribute's value is the Entity Property's name and and has the following restrictions:
+The `entities:saveto` [`bind` attribute](./#bind-attributes) declares that the form field specified by the `nodeset` attribute on the bind should be saved as an Entity Property. The attribute's value is the Entity Property's name and and has the following restrictions:
 - `name` and `label` are reserved property names (for use when datasets are represented as itemset CSVs)
 - Property names with `__` prefixes are reserved
 - Property names follow the same rules as form field names (valid XML identifiers)
