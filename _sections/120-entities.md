@@ -39,7 +39,7 @@ This specification is a sub-specification of the [ODK XForms Specification](./).
           <species/>
           <meta>
             <instanceID/>
-            <entity dataset="trees" id="" create="">
+            <entity dataset="trees" id="" create="true">
               <label/>
             </entity>
           </meta>
@@ -52,7 +52,6 @@ This specification is a sub-specification of the [ODK XForms Specification](./).
 
       <bind nodeset="/data/meta/entity/@id" type="string"/>
       <setvalue event="odk-instance-first-load" ref="/data/meta/entity/@id" value="uuid()"/>
-      <bind nodeset="/data/meta/entity/@create" type="string" calculate="true()"/>
       <bind nodeset="/data/meta/entity/label" calculate="/data/species"  type="string"/>
     </model>
     ...
@@ -87,6 +86,7 @@ Entities are declared in an `entity` element in the [`meta` block](./#metadata) 
   - Dataset names follow the same rules as form field names ([valid XML identifiers](https://www.w3.org/TR/xml/#NT-Name)) and additionally MUST NOT include `.` or start with `__`
 - MUST have a `create` attribute populated with a "1" or "true" if the entity should be created
   - Consumers of submissions that create entities MUST interpret "1" or "true" as indications to create an entity and any other value as indication not to create an entity
+  - Forms MAY use a bound expression to conditionally create entities (e.g. `<bind nodeset="/data/meta/entity/@create" type="string" calculate="/data/age > 18"/>`)
 - MUST have a direct child `label` representing a human-readable label
 
 ### Identifying entity properties
