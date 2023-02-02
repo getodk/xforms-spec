@@ -193,6 +193,7 @@ For convenience, the functions are categorized based on their main usage. Some f
 <a id="fn:Geographic-Functions" href="#fn:Geographic-Functions">**Geographic Functions**</a>|||
 <a id="fn:area" href="#fn:area">`area(node-set ns|geoshape gs)`</a> | number | Returns the calculated area in m2 of either a node-set of geopoints or a geoshape value (not a combination of both) on Earth. It takes into account the circumference of the Earth around the Equator but does not take altitude into account.
 <a id="fn:distance" href="#fn:distance">`distance(node-set ns|geoshape gs|geotrace gt)`</a> |  number | Returns the distance in meters of either a node-set of geopoints or a single geoshape value or a single geotrace value (not a combination of these) on Earth, in the sequence provided by the points in the parameter. It takes into account the circumference of the Earth around the Equator and does not take altitude into account.
+<a id="fn:base64-decode" href="#fn:base64-decode">`base64-decode(base64Binary input)`| `string` | Interprets the contents of the base64Binary value as a sequence of bytes representing a UTF-8 character string and returns the corresponding string.
 
 ### Metadata
 
