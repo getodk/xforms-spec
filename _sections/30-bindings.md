@@ -212,6 +212,7 @@ The namespace of the meta block is either the default XForms namespace or "https
             <orx:timeEnd/>
             <orx:userID/>
             <orx:instanceID/>
+            <orx:instanceName/>
             <orx:audit/>>
         </orx:meta>
     </data>
@@ -227,6 +228,7 @@ The following meta elements are supported:
 | element      | description                                       | default datatype | value             | namespace
 |--------------|---------------------------------------------------|----------------------------------------------------------------------------
 | `instanceID` | The unique ID of the record [required]            | string           | concatenation of 'uuid:' and uuid() | same as meta block
+| `instanceName` | The name of the form. If no binding is specified, defaults to the form title.             | string           |  | same as meta block
 | `timeStart`  | A timestamp of when the form entry was started    | datetime         | now()                     | same as meta block
 | `timeEnd`    | A timestamp of when the form entry ended          | datetime         | now()                     | same as meta block
 | `userID`     | The username stored in the client, when available | string           |                             | same as meta block
