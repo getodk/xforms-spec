@@ -33,6 +33,7 @@ Below is an example of a complete and valid XForm:
                     <age></age>
                     <orx:meta>
                         <orx:instanceID/>
+                        <orx:instanceName/>
                     </orx:meta>
                 </data>
             </instance>
