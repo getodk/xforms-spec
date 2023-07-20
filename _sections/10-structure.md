@@ -33,6 +33,7 @@ Below is an example of a complete and valid XForm:
                     <age></age>
                     <orx:meta>
                         <orx:instanceID/>
+                        <orx:instanceName/>
                     </orx:meta>
                 </data>
             </instance>
@@ -40,6 +41,8 @@ Below is an example of a complete and valid XForm:
             <bind nodeset="/data/lastname"  type="xsd:string" />
             <bind nodeset="/data/age" type="xsd:int" />
             <bind nodeset="/data/orx:meta/orx:instanceID" preload="uid" type="xsd:string"/>
+            <bind nodeset="/data/orx:meta/orx:instanceName" readonly="true()" type="xsd:string"
+              calculate="concat(/data/firstname, ' ', /data/lastname)"/>
         </model>
     </h:head>
     <h:body>
