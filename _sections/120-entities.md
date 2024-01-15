@@ -15,7 +15,7 @@ This specification is a sub-specification of the [ODK XForms Specification](./).
 
 | Version  | Changes |
 |----------|-------------------------------------------------------------------------------------------------------------------|
-| 2023.1.0 | Adds Entity updates from form submissions, still with Entities only created on the server                         |
+| 2023.1.0 | Adds Entity updates from form submissions, still with Entities only created or updated on the server              |
 | 2022.1.0 | Adds Entity creation from form submissions, with Entities only created on the server (no offline Entity creation) |
 
 *See section on [Versioning](#versioning)*
@@ -156,7 +156,7 @@ Entity updates are declared in the `entity` element in the [`meta` block](./#met
 - MUST have a `update` attribute populated with a "1" or "true" if the entity should be updated
   - Consumers of submissions that update entities MUST interpret "1" or "true" as indications to update an entity and any other value as indication not to update an entity
 - MUST have a `baseVersion` attribute that is populated with the version of the entity that the form had access to
-- MAY also have a bind to a create attribute as previously defined. In that case, the form designer is responsible for making sure that the id is correctly populated in each case and that the update and create conditions are non-overlapping.
+- MAY also have a bind to a `create` attribute as previously defined. In that case, the form designer is responsible for making sure that the id is correctly populated in each case and that the `update` and `create` conditions don't result in both being truthy at the same time. If both are truthy, the spec consumer processing submissions should do both and one of them will fail.
 - MAY have a direct child label representing a human-readable label
 
 
@@ -167,4 +167,4 @@ The `entities:saveto` [`bind` attribute](./#bind-attributes) declares that the f
 - Property names with `__` prefixes are reserved
 - Property names follow the same rules as form field names ([valid XML identifiers](https://www.w3.org/TR/xml/#NT-Name))
 
-The set of all Entity Properties defined across all forms that populate a specific Dataset define that Dataset’s schema.
+The set of all Entity Properties defined across all forms that populate a specific Dataset define that Dataset’s schema. New properties can be introduced by forms that create or update Entities.
