@@ -3,11 +3,22 @@ title: Entities
 page: entities
 ---
 
-Version 2022.1.0
+Version 2023.1.0
+
+⚠️ In this specification, collections of Entities are referred to as Datasets. The term "Entity List" is generally recommended instead of "Dataset" in text that is intended for users rather than developers.
 
 ### Introduction
 
-This specification is a sub-specification of the [ODK XForms Specification](./). It describes a semantic layer that identifies the subject of a form ("entity") and its properties. Consumers that implement this specification can process form submissions to extract entity information based on the directives provided in the form definition.
+This specification is a sub-specification of the [ODK XForms Specification](./). It describes a semantic layer that identifies the subject of a form ("Entity") and its properties. Consumers that implement this specification can process form submissions to extract Entity information based on the directives provided in the form definition.
+
+### Versions
+
+| Version  | Changes |
+|----------|-------------------------------------------------------------------------------------------------------------------|
+| 2023.1.0 | Adds Entity updates from form submissions, still with Entities only created or updated on the server              |
+| 2022.1.0 | Adds Entity creation from form submissions, with Entities only created on the server (no offline Entity creation) |
+
+*See section on [Versioning](#versioning)*
 
 ### Glossary
 
@@ -23,7 +34,7 @@ This specification is a sub-specification of the [ODK XForms Specification](./).
 
 **User-defined Property**: Properties with arbitrary names defined by the form designer
 
-**Entity Actions**: Actions that can be taken on Entities (`create`)
+**Entity Actions**: Actions that can be taken on Entities (`create`, `update`)
 
 ### Example of an entity-creating form
 
@@ -57,6 +68,49 @@ This specification is a sub-specification of the [ODK XForms Specification](./).
     ...
 ```
 
+### Example of an entity-updating form
+
+```xml
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:odk="http://www.opendatakit.org/xforms" xmlns:entities="http://www.opendatakit.org/xforms/entities">
+    <h:head>
+        <h:title>Trees circumference update</h:title>
+        <model odk:xforms-version="1.0.0" entities:entities-version="2023.1.0">
+            <instance>
+                <data id="trees_update" version="20240108145123">
+                    <tree/>
+                    <circumference/>
+                    <meta>
+                        <instanceID/>
+                        <entity dataset="trees" id="" update="1" baseVersion="">
+                            <label/>
+                        </entity>
+                    </meta>
+                </data>
+            </instance>
+
+            <instance id="trees" src="jr://file-csv/trees.csv"/>
+
+            <bind nodeset="/data/tree" type="string"/>
+            <bind nodeset="/data/circumference" type="int" entities:saveto="circumference_cm"/>
+
+            <bind jr:preload="uid" nodeset="/data/meta/instanceID" type="string" readonly="true()"/>
+
+            <bind nodeset="/data/meta/entity/@id" type="string" readonly="true()" calculate=" /data/tree "/>
+            <bind nodeset="/data/meta/entity/@baseVersion" calculate="instance('trees')/root/item[name= /data/tree ]/__version" type="string" readonly="true()"/>
+            <bind nodeset="/data/meta/entity/label" calculate="concat( /data/circumference , &quot;cm &quot;, instance('trees')/root/item[name= /data/tree ]/species)" type="string" readonly="true()"/>
+        </model>
+        ...
+```
+
+### Referencing existing entities in forms
+Servers implementing this specification must serve datasets as CSV files which can be attached to forms as external secondary instances. Entity CSVs:
+
+- MUST have a `name` column containing UUIDs for each entity
+- MUST have a `label` column containing the label of each entity
+- MUST have a `__version` column containing the version of each entity (starting with spec version 2023.1.0)
+- MAY have arbitrarily many additional columns representing user-defined properties
+
 ### Namespacing
 This specification uses the `http://www.opendatakit.org/xforms/entities` namespace for attributes added to nodes defined by the ODK XForms spec. In this document, the corresponding prefix used is `entities`.
 
@@ -77,7 +131,7 @@ Consumers MUST reject forms with a version code that is newer than what they can
 
 ### Declaring that a form creates entities
 
-Entities are declared in an `entity` element in the [`meta` block](./#metadata) of the form definition. The `entity` element:
+Entities are declared in the `entity` element in the [`meta` block](./#metadata) of the form definition. For entity creation, the `entity` element:
 
 - MUST be a direct child of `meta` in the primary instance.
 - MUST have attribute `id` populated by a [RFC 4122 version 4 UUID](https://www.rfc-editor.org/rfc/rfc4122)
@@ -89,6 +143,23 @@ Entities are declared in an `entity` element in the [`meta` block](./#metadata) 
   - Forms MAY use a bound expression to conditionally create entities (e.g. `<bind nodeset="/data/meta/entity/@create" type="string" calculate="/data/age > 18"/>`)
 - MUST have a direct child `label` representing a human-readable label
 
+### Declaring that a form updates entities
+
+*Added in spec version 2023.1.0*
+
+Entity updates are declared in the `entity` element in the [`meta` block](./#metadata) of the form definition. For entity updates, the `entity` element:
+
+- MUST be a direct child of `meta` in the primary instance.
+- MUST have attribute `id` populated by a [RFC 4122 version 4 UUID](https://www.rfc-editor.org/rfc/rfc4122) representing an existing entity
+  - Consumers of submissions that update entities MUST fail if the `id` attribute does not contain a UUID or if `id` does not reference an existing entity
+- MUST have attribute `dataset` representing the target Dataset for entities updated by submissions of this form
+- MUST have a `update` attribute populated with a "1" or "true" if the entity should be updated
+  - Consumers of submissions that update entities MUST interpret "1" or "true" as indications to update an entity and any other value as indication not to update an entity
+- MUST have a `baseVersion` attribute that is populated with the version of the entity that the form had access to
+- MAY also have a bind to a `create` attribute as previously defined. In that case, the form designer is responsible for making sure that the id is correctly populated in each case and that the `update` and `create` conditions don't result in both being truthy at the same time. If both are truthy, the spec consumer processing submissions should do both and one of them will fail.
+- MAY have a direct child label representing a human-readable label
+
+
 ### Identifying entity properties
 
 The `entities:saveto` [`bind` attribute](./#bind-attributes) declares that the form field specified by the `nodeset` attribute on the bind should be saved as an Entity Property. The attribute's value is the Entity Property's name and and has the following restrictions:
@@ -96,4 +167,4 @@ The `entities:saveto` [`bind` attribute](./#bind-attributes) declares that the f
 - Property names with `__` prefixes are reserved
 - Property names follow the same rules as form field names ([valid XML identifiers](https://www.w3.org/TR/xml/#NT-Name))
 
-The set of all Entity Properties defined across all forms that populate a specific Dataset define that Dataset’s schema.
+The set of all Entity Properties defined across all forms that populate a specific Dataset define that Dataset’s schema. New properties can be introduced by forms that create or update Entities.
