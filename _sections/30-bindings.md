@@ -81,7 +81,6 @@ The following are examples of valid paths:
 * `../relative/path/to/node`
 * `./relative/path/to/node`
 * `another/relative/path`
-* `//node`
 
 ### XPath Operators
 
