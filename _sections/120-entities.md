@@ -159,6 +159,9 @@ Entity updates are declared in the `entity` element in the [`meta` block](./#met
 - MAY also have a bind to a `create` attribute as previously defined. In that case, the form designer is responsible for making sure that the id is correctly populated in each case and that the `update` and `create` conditions don't result in both being truthy at the same time. If both are truthy, the spec consumer processing submissions should do both and one of them will fail.
 - MAY have a direct child label representing a human-readable label
 
+When a consumer of this specification applies an entity `update`, it:
+- MUST treat a `baseVersion` value other than a positive integer as 0
+- MUST increment the `baseVersion` of its local entity representation by 1 when an update is successfully applied
 
 ### Identifying entity properties
 
