@@ -43,7 +43,7 @@ A `<repeat>` cannot have a label child element. To display a label it should be 
 ...
 {% endhighlight %}
 
-When a client needs to compactly show a single repeat instance in its user interface (e.g. as a collapsed repeat or a table-of-contents item), it is recommended to show the label of the first child group of that repeat.
+When a client needs to compactly show a single repeat instance in its user interface (e.g. as a collapsed repeat or a table-of-contents item), it is recommended to show the label of the first child of that repeat if that first child is a group.
 
 ### Creation, Removal of Repeats
 
