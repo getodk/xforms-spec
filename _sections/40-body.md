@@ -79,7 +79,7 @@ The following attributes are supported on body elements. Note that most attribut
 | `jr:count`      | For the `<repeat>` element (see [repeats](#repeats)). This is one of the ways to specify how many repeats should be created by default.
 | `jr:noAddRemove`| For the `<repeat>` element (see [repeats](#repeats)). This indicates whether the user is allowed to add or remove repeats. Can have values `true()` and `false()`
 | `autoplay`      | For all form control elements, this automatically plays a [video or audio 'label'](#media) if the question is displayed on its own page, when the user reaches this page.
-| `accuracyThreshold` | For `<input>` with type `geopoint`, `geotrace`, or `geoshape` this sets the auto-accept threshold in meters for geopoint captures. [review]()
+| `accuracyThreshold` | For `<input>` with type `geopoint`, `geotrace`, or `geoshape` this sets the auto-accept threshold in meters for geopoint captures.
 | `value`         | For the `<output>` element to reference the node value to be displayed.
 | `rows`          | Specifies the minimum number of rows a string `<input>` field gets.
 | `mediatype`     | For the `<upload>` element. The string value specifies the kind of media picker that will be displayed. Unlike in XForms 1.0, only one value can be specified. Possible values vary by client and examples include `image/*`, `audio/*` and `video/*`. Ignored if `accept` is also specified.
