@@ -11,6 +11,7 @@ See the W3C XForms specification [section on events](https://www.w3.org/TR/xform
 | event                     | description |
 | --------------------------| ----------- |
 | <a id="event:odk-instance-first-load" href="#event:odk-instance-first-load">`odk-instance-first-load`</a><a id="event:xforms-ready"></a>            | dispatched the first time an instance is loaded |
+| <a id="event:odk-instance-load" href="#event:odk-instance-load">`odk-instance-load`</a> | dispatched every time an instance is loaded |
 | <a id="event:xforms-value-changed" href="#event:xforms-value-changed">`xforms-value-changed`</a>    | As in [XForms 1.1](https://www.w3.org/TR/xforms11/#evt-valueChanged). |
 | <a id="event:odk-new-repeat" href="#event:odk-new-repeat">`odk-new-repeat`</a>	| dispatched when a new instance of a repeat is added to the primary instance. <a href="#the-odk-new-repeat-event">See more</a>.
 
@@ -23,6 +24,7 @@ The following subset of actions defined by the [W3C XForms specification](https:
 | --------------------------| ----------- |
 | <a id="action:setvalue" href="#action:setvalue">`setvalue`</a>  | Explicitly sets the value of the specified instance data node. See [the W3C description](https://www.w3.org/TR/2003/REC-xforms-20031014/slice10.html#action-setvalue). `ref` can be used in place of `bind` to specify a node path instead of a node id. |
 | <a id="action:setgeopoint" href="#action:setgeopoint">`odk:setgeopoint`</a>  | Sets the current location's [geopoint](#data-types) value in the instance data node specified in the `ref` attribute. Any `value` attribute or textContent will be ignored. Failure to retrieve the location will result in an empty string value. |
+| <a id="action:recordaudio" href="#action:recordaudio">`odk:recordaudio`</a> | Records audio starting at the triggering event, saves the audio to a file, and writes the filename to the node specified in the `ref` attribute. Any `value` attribute or textContent will be ignored. Exactly when recording stops is determined by the specific client implementation.
 
 Action elements triggered by initialization events go in the model as siblings of `bind` nodes. Action elements triggered by control-specific events are nested in that control block. Multiple triggering events may be specified as a space-separated list and in that case, initialization events may be specified in an action element nested in a control block. For example, the value `odk-instance-first-load odk-new-repeat` can be given to the `event` attribute of an action nested in a repeat. That action is then triggered once the first time the primary instance is loaded and every time an instance of the parent repeat is added.
 
