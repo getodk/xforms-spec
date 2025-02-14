@@ -232,6 +232,7 @@ The following meta elements are supported:
 | `instanceName` | The name of the record             | string           |  | same as meta block
 | `timeStart`  | A timestamp of when the form entry was started    | datetime         | now()                     | same as meta block
 | `timeEnd`    | A timestamp of when the form entry ended          | datetime         | now()                     | same as meta block
+| `today`      | A date stamp of when the form entry was started   | date             | today()                   | same as meta block
 | `userID`     | The username stored in the client, when available | string           |                             | same as meta block
 | `deviceID`   | Unique identifier of client install. Guaranteed not to be blank. For privacy reasons, this identifier should be stored as application state and be user-resettable (e.g. by reinstalling the client or clearing cookies). Clients typically use a prefix to identify themselves (e.g. `enketo.org:SOMEID`). | string | depends on client, prefixed | same as meta block
 | `deprecatedID` | The `<instanceID/>` of the submission for which this is a revision. This revision will get a newly generated `<instanceID/>` and this field is populated by the prior value. Server software can use this field to unify multiple revisions to a submission into a consolidated submission record. | string |  | same as meta block
@@ -250,6 +251,7 @@ Supported preload attribute combinations are:
 | uid           |                   | see `instanceID` 		| [odk-instance-first-load](#event:odk-instance-first-load)
 | timestamp     | start             | see `timeEnd` 		| [odk-instance-first-load](#event:odk-instance-first-load)
 | timestamp     | end               | see `timeEnd`  		| [xforms-revalidate](https://www.w3.org/TR/xforms/#evt-revalidate)
+| date          | today             | see `today`           | [odk-instance-first-load](#event:odk-instance-first-load)
 | property   	| deviceid          | see `deviceID` 	 	| [odk-instance-first-load](#event:odk-instance-first-load)
 | property		| email             | see `email` 			| [odk-instance-first-load](#event:odk-instance-first-load)
 | property 		| username          | see `userID` 			| [odk-instance-first-load](#event:odk-instance-first-load)
