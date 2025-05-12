@@ -33,4 +33,4 @@ Files referenced by "image" and "big-image" may be the same; however, for perfor
 
 Implementations are expected to support these file formats at minimum:
 
-* image/big-image: JPEG, PNG, GIF
+* image/big-image: JPEG, PNG, GIF, SVG
