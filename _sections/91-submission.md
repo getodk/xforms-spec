@@ -30,7 +30,7 @@ The following attributes are supported on the submission element.
 | `base64RsaPublicKey`    | This attribute is required to enable [encryption](#encryption). It is a base64-encoded RSA public key. The corresponding private key will be needed to decrypt submissions (and should not be included in the form definition).
 | `orx:auto-send`         | Optional attribute that is either `"false"` or `"true"`. If true, any finalized records will be sent automatically by the client as soon as a connection is available.
 | `orx:auto-delete`       | Optional attribute that is either `"false"` or `"true"`. If true, any successfully submitted records will be immediately deleted from the client.
-| `orx:client-editable`   | Optional attribute that is either `"false"` or `"true"`. If true, the client will allow editing finalized records (see `deprecatedID`).
+| `odk:client-editable`   | Optional attribute that is either `"false"` or `"true"`. If true, the client will allow editing finalized records (see `deprecatedID`).
 
 ### Encryption
 
