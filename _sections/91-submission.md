@@ -28,8 +28,9 @@ The following attributes are supported on the submission element.
 | `action`                | This attribute is optional and can be used to specify a custom URL to send submissions to.
 | `method`                | This attribute is only required and used if the `action` attribute is used. Otherwise it's ignored. The value should be set to `post`. In the past, the value `form-data-post` was used. Though this is now deprecated, it is recommended that a server accepts submissions for both methods and considers `form-data-post` an alias for `post`.
 | `base64RsaPublicKey`    | This attribute is required to enable [encryption](#encryption). It is a base64-encoded RSA public key. The corresponding private key will be needed to decrypt submissions (and should not be included in the form definition).
-| `orx:auto-send`         | Optional attribute that is either `"false"` or `"true"`. If true, any final records will be sent automatically by the client as soon as a connection is available.
-| `orx:auto-delete`       | Optional attribute that is either `"false"` or `"true"`. If true, and successfully submitted records will be immediately deleted from the client.
+| `orx:auto-send`         | Optional attribute that is either `"false"` or `"true"`. If true, any finalized records will be sent automatically by the client as soon as a connection is available.
+| `orx:auto-delete`       | Optional attribute that is either `"false"` or `"true"`. If true, any successfully submitted records will be immediately deleted from the client.
+| `odk:client-editable`   | Optional attribute that is either `"false"` or `"true"`. If true, the client will allow editing finalized records (see `deprecatedID`).
 
 ### Encryption
 
