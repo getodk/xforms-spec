@@ -214,7 +214,7 @@ The namespace of the meta block is either the default XForms namespace or "https
             <orx:userID/>
             <orx:instanceID/>
             <orx:instanceName/>
-            <orx:audit/>>
+            <orx:audit/>
         </orx:meta>
     </data>
 </instance>
