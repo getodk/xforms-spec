@@ -249,13 +249,13 @@ Supported preload attribute combinations are:
 | jr:preload    | jr:preloadParams  | value           		| event
 |---------------|-------------------|-----------------------|-------------
 | uid           |                   | see `instanceID` 		| [odk-instance-first-load](#event:odk-instance-first-load)
-| timestamp     | start             | see `timeEnd` 		| [odk-instance-first-load](#event:odk-instance-first-load)
+| timestamp     | start             | see `timeStart` 		| [odk-instance-first-load](#event:odk-instance-first-load)
 | timestamp     | end               | see `timeEnd`  		| [xforms-revalidate](https://www.w3.org/TR/xforms/#evt-revalidate)
 | date          | today             | see `today`           | [odk-instance-first-load](#event:odk-instance-first-load)
 | property   	| deviceid          | see `deviceID` 	 	| [odk-instance-first-load](#event:odk-instance-first-load)
 | property		| email             | see `email` 			| [odk-instance-first-load](#event:odk-instance-first-load)
 | property 		| username          | see `userID` 			| [odk-instance-first-load](#event:odk-instance-first-load)
-| property      | phone number      | see `phoneNumber`  	| [odk-instance-first-load](#event:odk-instance-first-load)
+| property      | phonenumber       | see `phoneNumber`  	| [odk-instance-first-load](#event:odk-instance-first-load)
 
 #### Audit Attributes
 
