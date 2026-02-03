@@ -24,7 +24,7 @@ The following form control elements are supported:
 
 | control       | description
 |---------------|------------
-|`<input>`      | This element is used to obtain user input for data types: string, integer, decimal, and date. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-input) without Special Attributes support.
+|`<input>`      | This element is used to obtain user input for data types: string, integer, decimal, and date. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-input) without Special Attributes support. This is with the exception of when the `geotrace` or `geoshape` types are used - in that case, `incremental` is supported.
 |`<select1>`    | Used to display a single-select list (data type: string). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-selectOne) without Special Attributes support.
 |`<select>`     | Used to display a multiple-select list (data type: string). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-selectMany) without Special Attributes support.
 |`<upload>`     | Used for image, audio, and video capture. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-upload) without support for filename and mediatype child elements, nor the `incremental` attribute and only supporting the `binary` data type.
