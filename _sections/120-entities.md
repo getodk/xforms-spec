@@ -198,7 +198,7 @@ The set of all Entity Properties defined across all forms that populate a specif
 
 *Added in spec version 2025.1.0*
 
-Any container in a form definition MAY directly include at most one Entity declaration. Nested containers MAY also each directly include at most one Entity declaration.
+Any [container](.#glossary:~:text=Container) in a form definition MAY directly include at most one Entity declaration. Nested containers MAY also each directly include at most one Entity declaration.
 
 Clients of this spec MUST associate each `entities:saveto` binding with the nearest ancestor container that has an Entity declaration. If no ancestor container has an Entity declaration, the form is invalid.
 
