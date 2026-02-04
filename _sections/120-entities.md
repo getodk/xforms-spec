@@ -204,6 +204,4 @@ Clients of this spec MUST associate each `entities:saveto` binding with the near
 
 If an `entities:saveto` binding is declared within a repeat, the nearest ancestor container that has an Entity declaration MUST be that repeat or a descendant group of that repeat. If the nearest ancestor container with an Entity declaration is outside the repeat, the form is invalid.
 
-If an Entity declaration's associated `save_to`s are in a repeat, each node reference in an Entity-level expression (`label`, `create_if`, etc) MUST resolve to a single unambiguous node for each repeat instance. A node reference is valid only if
-* The referenced node is within the repeat subtree, or
-* The referenced node is outside the repeat subtree and is not contained within any repeat that is not an ancestor of the Entity declaration’s repeat.
+If an Entity declaration's associated `saveto`s are in a repeat, each node reference in an Entity-level expression (`label`, `create`, etc) MUST resolve to a single unambiguous node for each repeat instance.
