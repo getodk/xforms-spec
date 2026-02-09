@@ -144,7 +144,7 @@ Consumers MUST reject forms with a version code that is newer than what they can
 
 ### Declaring that a form creates entities
 
-Entities are declared in the `entity` element in the [`meta` block](./#metadata) of the primary instance root or, starting with spec version 2025.1.0, of a `group` or `repeat`. For entity creation, the `entity` element:
+Entities are declared in the `entity` element in the [`meta` block](./#metadata) of a container. For entity creation, the `entity` element:
 
 - MUST be a direct child of `meta`
 - MUST have attribute `id` populated by a [RFC 4122 version 4 UUID](https://www.rfc-editor.org/rfc/rfc4122)
@@ -160,7 +160,7 @@ Entities are declared in the `entity` element in the [`meta` block](./#metadata)
 
 *Added in spec version 2023.1.0*
 
-Entity updates are declared in the `entity` element in the [`meta` block](./#metadata) of the primary instance root or, starting with spec version 2025.1.0, of a `group` or `repeat`. For entity updates, the `entity` element:
+Entity updates are declared in the `entity` element in the [`meta` block](./#metadata) of a container. For entity updates, the `entity` element:
 
 - MUST be a direct child of `meta`
 - MUST have attribute `id` populated by a [RFC 4122 version 4 UUID](https://www.rfc-editor.org/rfc/rfc4122) representing an existing entity
@@ -204,4 +204,4 @@ Clients of this spec MUST associate each `entities:saveto` binding with the near
 
 If an `entities:saveto` binding is declared within a repeat, the nearest ancestor container that has an Entity declaration MUST be that repeat or a descendant group of that repeat. If the nearest ancestor container with an Entity declaration is outside the repeat, the form is invalid.
 
-If an Entity declaration's associated `saveto`s are in a repeat, each node reference in an Entity-level expression (`label`, `create`, etc) MUST resolve to a single unambiguous node for each repeat instance.
+If an Entity declaration's associated `saveto`s are in a repeat, each node reference in an Entity-level expression (`label`, `create`, etc) MUST resolve to a single unambiguous node for each repeat instance. For example, references in a parent `repeat` or `group` and references in a child `group` are acceptable but references in a child or sibling `repeat` are not.
