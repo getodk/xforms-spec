@@ -138,7 +138,7 @@ The specification is versioned using a `YYYY.NN.MM` scheme:
 * NN: the count of the release within the year. 
 * MM: the patch version. This is incremented when changes that don’t impact compatibility are made to the specification document.
 
-The `YYYY.NN` components of the version are only changed when a consumer built for an earlier version can no longer correctly use a form definition. For example, a version update will likely be made when multiple entities per form are supported.
+The `YYYY.NN` components of the version are only changed when a consumer built for an earlier version can no longer correctly use a form definition.
 
 Consumers MUST reject forms with a version code that is newer than what they can process.
 
