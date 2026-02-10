@@ -41,11 +41,15 @@ The primary instance also includes a special type of nodes for metadata inside t
 
 
 
-### Secondary Instances - Internal
+### Secondary Instances
 
-Secondary instances are used to pre-load read-only data inside a form. This data is searchable in XPath. At the moment the key use case is in designing so-called _cascading selections_ where the available options of a multiple-choice question can be filtered based on an earlier answer.
+Secondary instances are used to access read-only data from a form. This data is searchable in XPath. A key use case is in designing _cascading selections_ where the available options of a multiple-choice question can be filtered based on an earlier answer.
 
-A secondary instance should get a unique `id` attribute on the `<instance>` node. This allows apps to query the data (which is outside the root, ie. the primary instance, and would normally not be reachable). It uses the `instance('cities')/root/item[country='nl']` syntax to do this.
+A secondary instance should get a unique `id` attribute on the `<instance>` node. This allows apps to query the data which is outside the root (the primary instance) and would normally not be reachable. The [instance](#fn:instance) function is used for this purpose. For example, `instance('cities')/root/item[country='nl']` filters the items in the ``cities`` instance from the example below.
+
+#### Secondary Instances - Internal
+
+The example below defines two secondary instances with ids `cities` and `neighborhoods`. Internal secondary instances can define [translated strings](#languages) and references to [media](#media).
 
 {% highlight xml %}
 <instance>
@@ -78,9 +82,9 @@ A secondary instance should get a unique `id` attribute on the `<instance>` node
             <name>nyc</name>
       </item>
       <item>
-        <itextId>static_instance-cities-5</itextId>
-        <country>nl</country>
-        <name>dro</name>
+            <itextId>static_instance-cities-5</itextId>
+            <country>nl</country>
+            <name>dro</name>
       </item>
     </root>
 </instance>
