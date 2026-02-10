@@ -15,6 +15,7 @@ This specification is a sub-specification of the [ODK XForms Specification](./).
 
 | Version  | Changes |
 |----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 2025.1.0 | Adds support for Entity declarations in groups or repeats.
 | 2024.1.0 | Adds metadata to support clients with offline Entity representations. Clients should only apply creates and updates offline for forms with this version or higher. |
 | 2023.1.0 | Adds Entity updates from form submissions, still with Entities only created or updated on the server                                                               |
 | 2022.1.0 | Adds Entity creation from form submissions, with Entities only created on the server (no offline Entity creation)                                                  |
@@ -23,7 +24,7 @@ This specification is a sub-specification of the [ODK XForms Specification](./).
 
 ### Glossary
 
-**Entity**: A uniquely-identified thing that a form is about.
+**Entity**: A uniquely-identified thing that a form can reference, create, or modify.
 
 **Dataset**: A set of Entities of the same type.
 
@@ -36,6 +37,10 @@ This specification is a sub-specification of the [ODK XForms Specification](./).
 **User-defined Property**: Properties with arbitrary names defined by the form designer
 
 **Entity Actions**: Actions that can be taken on Entities (`create`, `update`)
+
+**Container**: The root, a group, or a repeat in a form definition.
+
+**Entity declaration**: a `meta/entity` block in a container that declares how Entities are affected by that container when a submission is finalized.
 
 ### Example of an entity-creating form
 
@@ -133,15 +138,15 @@ The specification is versioned using a `YYYY.NN.MM` scheme:
 * NN: the count of the release within the year. 
 * MM: the patch version. This is incremented when changes that don’t impact compatibility are made to the specification document.
 
-The `YYYY.NN` components of the version are only changed when a consumer built for an earlier version can no longer correctly use a form definition. For example, a version update will likely be made when multiple entities per form are supported.
+The `YYYY.NN` components of the version are only changed when a consumer built for an earlier version can no longer correctly use a form definition.
 
 Consumers MUST reject forms with a version code that is newer than what they can process.
 
 ### Declaring that a form creates entities
 
-Entities are declared in the `entity` element in the [`meta` block](./#metadata) of the form definition. For entity creation, the `entity` element:
+Entities are declared in the `entity` element in the [`meta` block](./#metadata) of a container. For entity creation, the `entity` element:
 
-- MUST be a direct child of `meta` in the primary instance.
+- MUST be a direct child of `meta`
 - MUST have attribute `id` populated by a [RFC 4122 version 4 UUID](https://www.rfc-editor.org/rfc/rfc4122)
   - Consumers of submissions that create entities MUST fail to create entities that don't have a UUID `id`
 - MUST have attribute `dataset` representing the target Dataset for entities created from submissions of this form
@@ -155,9 +160,9 @@ Entities are declared in the `entity` element in the [`meta` block](./#metadata)
 
 *Added in spec version 2023.1.0*
 
-Entity updates are declared in the `entity` element in the [`meta` block](./#metadata) of the form definition. For entity updates, the `entity` element:
+Entity updates are declared in the `entity` element in the [`meta` block](./#metadata) of a container. For entity updates, the `entity` element:
 
-- MUST be a direct child of `meta` in the primary instance.
+- MUST be a direct child of `meta`
 - MUST have attribute `id` populated by a [RFC 4122 version 4 UUID](https://www.rfc-editor.org/rfc/rfc4122) representing an existing entity
   - Consumers of submissions that update entities MUST fail if the `id` attribute does not contain a UUID or if `id` does not reference an existing entity
 - MUST have attribute `dataset` representing the target Dataset for entities updated by submissions of this form
@@ -188,3 +193,15 @@ The `entities:saveto` [`bind` attribute](./#bind-attributes) declares that the f
 - Property names follow the same rules as form field names ([valid XML identifiers](https://www.w3.org/TR/xml/#NT-Name))
 
 The set of all Entity Properties defined across all forms that populate a specific Dataset define that Dataset’s schema. New properties can be introduced by forms that create or update Entities.
+
+### Multiple Entity declarations in a form
+
+*Added in spec version 2025.1.0*
+
+Any [container](.#glossary:~:text=Container) in a form definition MAY directly include at most one Entity declaration. Nested containers MAY also each directly include at most one Entity declaration.
+
+Clients of this spec MUST associate each `entities:saveto` binding with the nearest ancestor container that has an Entity declaration. If no ancestor container has an Entity declaration, the form is invalid.
+
+If an `entities:saveto` binding is declared within a repeat, the nearest ancestor container that has an Entity declaration MUST be that repeat or a descendant group of that repeat. If the nearest ancestor container with an Entity declaration is outside the repeat, the form is invalid.
+
+If an Entity declaration's associated `saveto`s are in a repeat, each node reference in an Entity-level expression (`label`, `create`, etc) MUST resolve to a single unambiguous node for each repeat instance. For example, references in a parent `repeat` or `group` and references in a child `group` are acceptable but references in a child or sibling `repeat` are not.
