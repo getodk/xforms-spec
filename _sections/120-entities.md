@@ -170,7 +170,9 @@ Entity updates are declared in the `entity` element in the [`meta` block](./#met
   - Consumers of submissions that update entities MUST interpret "1" or "true" as indications to update an entity and any other value as indication not to update an entity
 - MUST have a `baseVersion` attribute that is populated with the version of the entity that the form had access to
 - MAY also have a bind to a `create` attribute as previously defined. In that case, the form designer is responsible for making sure that the id is correctly populated in each case and that the `update` and `create` conditions don't result in both being truthy at the same time. If both are truthy, the spec consumer processing submissions should do both and one of them will fail.
-- MAY have a direct child label representing a human-readable label
+- MAY have a direct child label representing a human-readable label. If it is absent or blank, the update has no effect on the Entity's label
+
+
 
 When a consumer of this specification applies an entity `update`, it:
 - MUST treat a `__version` value other than a positive integer, including a missing value, as 0
