@@ -241,6 +241,8 @@ The following meta elements are supported:
 | `phoneNumber` | The phone number of the device, when available | string | | same as meta block
 | `audit`       | A CSV or zipped CSV file containing audit logs pertaining to the record (e.g., timing, location). The file is attached in the same way as for an `<upload>` form control and binary instance node. Filename is determined by the client and file follows this [documented format](https://docs.getodk.org/form-audit-log). What data is recorded is configurable via [audit attributes](#audit-attributes). | binary | filename | same as meta block
 
+`meta` is not reserved in any way and any number of elements with that name can appear anywhere within the [primary instance](#primary-instance). However, the above elements should only be supported by a client for a `meta` element that is a direct child of the primary instance. These elements should be ignored if they appear in a `meta` block elsewhere.
+
 #### Preload Attributes
 
 As mentioned in [Bind Attributes](#bind-attributes), there are two different preload attributes. A particular combination of pre-load attributes populates a value according to a **predetermined fixed formula**, when a **predetermined event** occurs. Different combinations handle different events and use a different calculation.
