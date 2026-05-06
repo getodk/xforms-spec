@@ -120,10 +120,98 @@ The example below defines two secondary instances with ids `cities` and `neighbo
 
 ### Secondary Instances - External
 
-The previous section discussed secondary instances with static read-only data that is present in the XForm document itself. Another type of secondary instances presents read-only data from an _external_ source. The external source can be static or dynamic and is specified using the additional `src` attribute with a URI value on an empty `<instance>` node. Querying an external instance is done in exactly the same way as for an [internal secondary instance](#secondary-instances---internal).
+Secondary instances can give access to read-only data from an _external_ source. The external source can be static or dynamic and is specified using the additional `src` attribute with a URI value on an empty `<instance>` node. See the [section on URIs](#uris) to learn more about the supported sources.
+
+Querying an external instance is done in exactly the same way as for an [internal secondary instance](#secondary-instances---internal), using an XML-compatible internal representation.
+
+#### Secondary instances from files
+
+In addition to XML file references, it's possible to create external secondary instances from CSV and GeoJSON files.
+
+XML and GeoJSON files are referenced using the `jr://file/` URI scheme. CSV external secondary instances are referenced using the `jr://file-csv/` URI scheme. 
 
 {% highlight xml %}
 <instance id="countries" src="jr://file/country-data.xml"/>
+<instance id="cities" src="jr://file-csv/cities.csv"/>
+<instance id="boundaries" src="jr://file/boundaries.geojson"/>
 {% endhighlight %}
 
-See the [section on URIs](#uris) for acceptable URI formats that refer to an external secondary instance.
+CSV or GeoJSON external instances are converted into an XML-compatible representation with:
+
+* a root element named `root`
+* an `item` element for each CSV row or each GeoJSON `Feature`
+* for CSV, a child of `item` for each column
+* for GeoJSON, a child of `item` for each member of `properties`
+* for GeoJSON, a `geometry` child of `item` containing the feature geometry represented in the ODK format (`Point` to `geopoint`, `LineString` and `MultiLineString` to `geotrace` and `Polygon` and `MultiPolygon` to `geoshape`).
+
+GeoJSON external secondary instances MUST contain a single GeoJSON `FeatureCollection`.
+
+For example, consider the following XML document:
+
+{% highlight xml %}
+<root>
+  <item>
+    <name>FR-75C</name>
+    <label>Paris</label>
+    <population>2161000</population>
+    <geometry>48.8566 2.3522 0 0</geometry>
+  </item>
+  <item>
+    <name>JP-13</name>
+    <label>Tokyo</label>
+    <population>13960000</population>
+    <geometry>35.6895 139.6917 0 0</geometry>
+  </item>
+</root>
+{% endhighlight %}
+
+The following documents MUST be equivalent for querying:
+
+<details>
+<summary>CSV document</summary>
+
+{% highlight csv %}
+name,label,population,geometry
+FR-75C,Paris,2161000,48.8566 2.3522 0 0
+JP-13,Tokyo,13960000,35.6895 139.6917 0 0
+{% endhighlight %}
+
+</details>
+
+<details>
+<summary>GeoJSON document</summary>
+
+{% highlight json %}
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "FR-75C",
+        "label": "Paris",
+        "population": 2161000
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2.3522, 48.8566]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "JP-13",
+        "label": "Tokyo",
+        "population": 13960000
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [139.6917, 35.6895]
+      }
+    }
+  ]
+}
+{% endhighlight %}
+
+</details>
+
