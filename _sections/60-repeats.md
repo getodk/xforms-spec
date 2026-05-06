@@ -77,14 +77,14 @@ A. Multiple nodes can be defined in the primary instance of the XForm. E.g. see 
 ...
 {% endhighlight %}
 
-B. Using the `jr:count` attribute on the `<repeat>` element. E.g. see below for the use of jr:count to automatically create 3 repeats for the above form. The value could also be a `/path/to/node` and clients should evaluate the number of repeats dynamically.
+B. The `jr:count` attribute on the `<repeat>` element can be used to specify a number of repeat instances. For example, the form below uses `jr:count` to automatically create repeats based on the value of the `hh_size` field. The `jr:count` value must be a reference to a primary instance node and clients should evaluate it dynamically.
 
 {% highlight xml %}
 ...
 <h:body>
     <group ref="/data/person">
         <label>Person</label>
-        <repeat nodeset="/data/person" jr:count="3">
+        <repeat nodeset="/data/person" jr:count="/data/hh_size">
             <input ref="/data/person/name">
                 <label>Enter name</label>
             </input>
