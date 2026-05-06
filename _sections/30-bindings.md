@@ -247,6 +247,8 @@ The following meta elements are supported:
 
 As mentioned in [Bind Attributes](#bind-attributes), there are two different preload attributes. A particular combination of pre-load attributes populates a value according to a **predetermined fixed formula**, when a **predetermined event** occurs. Different combinations handle different events and use a different calculation.
 
+If an unsupported pair of values is provided, the preload has no effect.
+
 Supported preload attribute combinations are: 
 
 | jr:preload    | jr:preloadParams  | value           		| event
