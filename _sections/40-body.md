@@ -88,7 +88,31 @@ The following attributes are supported on body elements. Note that most attribut
 |`start`          | For the `<range>` element. The lower bound of the range. This attribute is required and its value has to be valid for the data type used.
 |`end`            | For the `<range>` element. The upper bound of the range. This attribute is required and its value has to be valid for the data type used.
 |`step`           | For the `<range>` element. The increment between values that can be selected. This attribute is required and its value has to be valid for the data type used.
+| `odk:tick-interval` | For the `<range>` element. Specifies the spacing between tick marks along the slider track. When present, its value MUST be non-zero, its absolute value MUST be an exact multiple of `abs(step)`, and its absolute value MUST be less than or equal to `abs(end - start)`. If any of these conditions are violated, or if the `no-ticks` appearance is specified, clients MUST ignore `odk:tick-interval`.
+| `odk:placeholder` | For the `<range>` element. Defines the value at which the slider is displayed when the question value is blank or null. Its value MUST be between `start` and `end`, inclusive, and MUST align with a `step` increment from `start`. If either condition is violated, clients MUST ignore `odk:placeholder`.
+| `odk:tick-labelset` | For the `<range>` element, see below.  |
 
+### Range tick labels
+
+Like selects, the `<range>` control MAY contain multiple `item` children or a single `itemset` child. Unlike selects, these are optional.
+
+When defined, each `item` specifies a labeled tick on the slider:
+
+* the item value defines the tick position
+* the item label defines the text displayed at that position
+
+For each tick label `item`:
+
+* the value MUST be present
+* the value MUST parse as a number between `start` and `end`, inclusive
+* the value MUST align with the allowed tick positions:
+  * if `odk:tick-interval` is specified, the value MUST differ from `start` by an integer multiple of `odk:tick-interval`
+  * otherwise, the value MUST differ from `start` by an integer multiple of `step`
+* if the `no-ticks` appearance is specified, the only permitted `item` values are `start` and `end`
+
+If multiple items have the same value, clients MUST use the first item in document order.
+
+Clients MUST ignore any item that violates these requirements. Invalid items MUST NOT affect the model value or any other behavior of the range control.
 
 ### Appearances
 
