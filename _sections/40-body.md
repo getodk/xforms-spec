@@ -46,8 +46,8 @@ Within the form controls the following elements can be used:
 | `<label>`     | Child of a [form control](#body-elements) element, `<item>`, `<itemset>` or `<group>` used to display a label. Only 1 `<label>` per form control is properly supported but can be used in [multiple languages](#languages)). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-commonelems-label) without support for Linking Attributes.
 | `<hint>`      | Child of a [form control](#body-elements) element used to display a hint. Only 1 `<hint>` element per form control is properly supported but can be used in [multiple languages](#languages)). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-commonelems-hint) without support for Linking Attributes.
 | `<output>`    | Child of a `<label>` or `<hint>` element used to display an instance value, inline, as part of the label, or hint text. It can also be a child of a `<text>` [translation](#languages). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-output) but only supporting the `value` attribute.
-| `<item>`      | Child of `<select>` or `<select1>` or `<odk:rank>` that defines an choice option. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-common-elements-item).
-| `<itemset>`   | Child of `<select>` or `<select1>` or `<odk:rank>` that defines a list of choice options to be obtained elsewhere (from a [secondary instance](#secondary-instances)). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice9.html#ui-common-elements-itemset).
+| `<item>`      | Child of `<select>` or `<select1>` or `<odk:rank>` that defines an choice option. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-common-elements-item). Also used by [`<range>` for tick labels](#range-tick-labels).
+| `<itemset>`   | Child of `<select>` or `<select1>` or `<odk:rank>` that defines a list of choice options from a [secondary instance](#secondary-instances). As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice9.html#ui-common-elements-itemset). Also used by [`<range>` for tick labels](#range-tick-labels).
 | `<value>`     | Child of `<item>` or `<itemset>` that defines a choice value. As in [XForms 1.0](https://www.w3.org/TR/2003/REC-xforms-20031014/slice8.html#ui-common-choices-value).
 
 Below is an example of a label, an output, a hint, an itemset and value used together to define a form control:
@@ -66,6 +66,28 @@ Below is an example of a label, an output, a hint, an itemset and value used tog
     </odk:rank>
 </group>
 {% endhighlight %}
+
+#### Range tick labels
+
+Like selects, the `<range>` control MAY contain multiple `item` children or a single `itemset` child. Unlike selects, these are optional.
+
+When defined, each `item` specifies a labeled tick on the slider:
+
+* the item value defines the tick position
+* the item label defines the text displayed at that position
+
+For each tick label `item`:
+
+* the value MUST be present
+* the value MUST parse as a number between `start` and `end`, inclusive
+* the value MUST align with the allowed tick positions:
+  * if `odk:tick-interval` is specified, the value MUST differ from `start` by an integer multiple of `odk:tick-interval`
+  * otherwise, the value MUST differ from `start` by an integer multiple of `step`
+* if the `no-ticks` appearance is specified, the only permitted `item` values are `start` and `end`
+
+If multiple items have the same value, clients MUST use the first item in document order.
+
+Clients MUST ignore any item that violates these requirements. Invalid items MUST NOT affect the model value or any other behavior of the range control.
 
 ### Body Attributes
 
@@ -90,29 +112,6 @@ The following attributes are supported on body elements. Note that most attribut
 |`step`           | For the `<range>` element. The increment between values that can be selected. This attribute is required and its value has to be valid for the data type used.
 | `odk:tick-interval` | For the `<range>` element. Specifies the spacing between tick marks along the slider track. When present, its value MUST be non-zero, its absolute value MUST be an exact multiple of `abs(step)`, and its absolute value MUST be less than or equal to `abs(end - start)`. If any of these conditions are violated, or if the `no-ticks` appearance is specified, clients MUST ignore `odk:tick-interval`.
 | `odk:placeholder` | For the `<range>` element. Defines the value at which the slider is displayed when the question value is blank or null. Its value MUST be between `start` and `end`, inclusive, and MUST align with a `step` increment from `start`. If either condition is violated, clients MUST ignore `odk:placeholder`.
-| `odk:tick-labelset` | For the `<range>` element, see below.  |
-
-### Range tick labels
-
-Like selects, the `<range>` control MAY contain multiple `item` children or a single `itemset` child. Unlike selects, these are optional.
-
-When defined, each `item` specifies a labeled tick on the slider:
-
-* the item value defines the tick position
-* the item label defines the text displayed at that position
-
-For each tick label `item`:
-
-* the value MUST be present
-* the value MUST parse as a number between `start` and `end`, inclusive
-* the value MUST align with the allowed tick positions:
-  * if `odk:tick-interval` is specified, the value MUST differ from `start` by an integer multiple of `odk:tick-interval`
-  * otherwise, the value MUST differ from `start` by an integer multiple of `step`
-* if the `no-ticks` appearance is specified, the only permitted `item` values are `start` and `end`
-
-If multiple items have the same value, clients MUST use the first item in document order.
-
-Clients MUST ignore any item that violates these requirements. Invalid items MUST NOT affect the model value or any other behavior of the range control.
 
 ### Appearances
 
