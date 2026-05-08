@@ -132,7 +132,7 @@ The document referenced by `src` becomes the content of the secondary instance i
 
 It MUST be possible to query any external secondary instance using XPath, the same way as [internal secondary instances](#secondary-instances---internal).
 
-#### Secondary instances from CSV
+##### Secondary instances from CSV
 
 CSV external secondary instances are referenced using the `jr://file-csv/` URI scheme. 
 
@@ -192,7 +192,7 @@ MUST be equivalent for querying to:
 </root>
 {% endhighlight %}
 
-#### Secondary Instances from GeoJSON
+##### Secondary Instances from GeoJSON
 
 GeoJSON secondary instances are referenced using the `jr://file/` URI scheme.
 
