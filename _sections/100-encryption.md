@@ -16,7 +16,7 @@ A regular XForms submission consists of 1 XML file with optional additional medi
 Below is an example of a valid submission manifest:
 
 ```xml
-<data xmlns="http://opendatakit.org/submissions" id="mysurvey" encrypted="yes" version="2014083101">
+<data xmlns="http://www.opendatakit.org/xforms/encrypted" id="mysurvey" encrypted="yes" version="2014083101">
     <base64EncryptedKey>sHXUut13/res3S3uJkwgfhABOc74aXGnCTxTcRTplS9kflomxAzK35zcLc0BJu/Dro7FpPia4qU+f3yb3roJi/EUtRkTaHauAYDEX2OHZ4QThoSmbR0NJRw6kLjfkNS5bFaONWEbRn8eSbT7uyOGyvx5ddL3IKIxzu9vGzJX+cMpKKUQsORaXNEL7lRns7tVen93OSlYhSQak/CbAbkpsSpIW+Q13zrGv3n20YOHaun5yhSyZq6LeaHzPWKQv2POyl+N2j3NGbkz+RIvaVBLvTae4zB0iXlfTkYK9HwOKKDS6MI7z4g4L988WlQurkw5jlN5X9ahNhwZN2yLWTsnCQ==</base64EncryptedKey>
     <encryptedXmlFile>submission.xml.enc</encryptedXmlFile>
     <media>
