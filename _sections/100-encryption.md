@@ -32,7 +32,7 @@ Below is an example of a valid submission manifest:
 </data>
 ```
 
-The following elements are supported. Unless otherwise specified all attributes and elements should be in the `"http://opendatakit.org/submissions"` namespace.
+The following elements are supported. Unless otherwise specified all attributes and elements should be in the `"http://www.opendatakit.org/xforms/encrypted"` namespace.
 
 | `<element>`/attribute             | description
 |-----------------------------------|-------------
