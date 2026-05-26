@@ -12,7 +12,7 @@ The purpose of this specification is to provide a common form description standa
 1. Tool implementors in the ODK ecosystem can benefit from feedback from a broad range of collaborators when designing new core functionality.
 1. Tool implementors in the ODK ecosystem can share core implementations.
 
-This document is intended primarily for developers who build form processing engines or software form builders. Most organizations who use tools in the ODK ecosystem for data collection will prefer to create forms using the [XLSForm standard](http://xlsform.org/) or a graphical form builder.
+This document is intended primarily for developers who build form processing engines or software form builders. Most organizations who use tools in the ODK ecosystem for data collection will prefer to create forms using the [XLSForm standard](https://xlsform.org/) or a graphical form builder.
 
 A version of this specification was initially developed by the [OpenRosa Consortium](https://bitbucket.org/javarosa/javarosa/wiki/OpenRosaAPI). [JavaRosa](https://bitbucket.org/javarosa/javarosa/wiki/Home) is a Java library initially developed by the consortium as a J2ME app that implements this specification. There are now several other compatible implementations.
 
