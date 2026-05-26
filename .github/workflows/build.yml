@@ -1,0 +1,14 @@
+name: Build Site
+
+on:
+  branch:
+  pull_request:
+    branches: [ "gh-pages" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+    - run: docker build -t jekyll-site .
+    - run: docker run -v "$PWD:/work" jekyll-site bundle exec jekyll build
