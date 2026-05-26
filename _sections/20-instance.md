@@ -62,7 +62,7 @@ The example below defines two secondary instances with ids `cities` and `neighbo
             <age>10</age>
         </person>
         <meta>
-          <instanceID/>
+            <instanceID/>
         </meta>
     </household>
 </instance>
@@ -77,17 +77,17 @@ The example below defines two secondary instances with ids `cities` and `neighbo
             <itextId>static_instance-cities-1</itextId>
             <country>usa</country>
             <name>den</name>
-      </item>
-      <item>
+        </item>
+        <item>
             <itextId>static_instance-cities-2</itextId>
             <country>usa</country>
             <name>nyc</name>
-      </item>
-      <item>
+        </item>
+        <item>
             <itextId>static_instance-cities-5</itextId>
             <country>nl</country>
             <name>dro</name>
-      </item>
+        </item>
     </root>
 </instance>
 <instance id="neighborhoods">
@@ -177,18 +177,18 @@ MUST be equivalent for querying to:
 
 {% highlight xml %}
 <root>
-  <item>
-    <name>FR-75C</name>
-    <label>Paris</label>
-    <population>2161000</population>
-    <geometry>48.8566 2.3522 0 0</geometry>
-  </item>
-  <item>
-    <name>JP-13</name>
-    <label>Tokyo</label>
-    <population>13960000</population>
-    <geometry>35.6895 139.6917 0 0</geometry>
-  </item>
+    <item>
+        <name>FR-75C</name>
+        <label>Paris</label>
+        <population>2161000</population>
+        <geometry>48.8566 2.3522 0 0</geometry>
+    </item>
+    <item>
+        <name>JP-13</name>
+        <label>Tokyo</label>
+        <population>13960000</population>
+        <geometry>35.6895 139.6917 0 0</geometry>
+    </item>
 </root>
 {% endhighlight %}
 

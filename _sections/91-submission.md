@@ -10,7 +10,7 @@ _Note that submission behavior can be highly variable between different clients.
 <model>
     <instance>
         <data id="mysurvey" orx:version="2014083101">
-          ...
+            ...
         </data>
     </instance>
     <submission orx:auto-send="true" />
@@ -44,12 +44,12 @@ Here is an excerpt used in an encryption-enabled XForm:
 
 {% highlight xml %}
 <instance>
-      <sample id="sample-v1.0">
+    <sample id="sample-v1.0">
         <orx:meta>
-           <orx:instanceID/>
+            <orx:instanceID/>
         </orx:meta>
         <name/>
-      </sample>
+    </sample>
 </instance>
 <submission base64RsaPublicKey="MIIBIjANB...JCwIDAQAB"/>
 {% endhighlight %}

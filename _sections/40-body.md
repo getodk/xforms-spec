@@ -5,7 +5,7 @@ title: Body
 The `<body>` contains the information required to display a question to a user, including the type of prompt, the appearance of the prompt (widget), the labels, the hints and the choice options.
 
 {% highlight xml %}
- <h:body>
+<h:body>
     <input ref="/data/firstname">
         <label>What is your first name?</label>
     </input>
