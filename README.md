@@ -6,6 +6,8 @@ Published at [https://getodk.github.io/xforms-spec/](https://getodk.github.io/xf
 
 ### Requirements for running locally
 
+#### Native Ruby
+
 Install [Jekyll](https://jekyllrb.com/docs/installation/) (Windows users, see [here](https://jekyllrb.com/docs/windows/)) and [bundler](https://bundler.io).
 
 Afterwards, to install all dependencies for this repo:
@@ -15,6 +17,12 @@ Afterwards, to install all dependencies for this repo:
 ### Run locally
 
 When editing use `jekyll serve` or `bundle exec jekyll serve` to build, start up a webserver and automatically rebuild on http://localhost:4000/xforms-spec/.
+
+#### Docker
+
+```sh
+./dev-docker.sh
+```
 
 
 ### Contributing
