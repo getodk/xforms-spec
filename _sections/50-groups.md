@@ -45,25 +45,25 @@ The sample below includes both the body and corresponding instance. The responde
 <h:body>
     <group ref="/data/respondent">
         <input ref="firstname">
-          <label>What is your first name?</label>
+            <label>What is your first name?</label>
         </input>
         <input ref="lastname">
-          <label>What is your last name?</label>
+            <label>What is your last name?</label>
         </input>
         <input ref="age">
-          <label>What is your age?</label>
+            <label>What is your age?</label>
         </input>
     </group>
     <group ref="/data/context">
         <label>Context</label>
         <input ref="location">
-          <label>Record the location</label>
+            <label>Record the location</label>
         </input>
         <input ref="township">
-          <label>What is the name of the township</label>
+            <label>What is the name of the township</label>
         </input>
         <input ref="population">
-          <label>What is the estimated population size</label>
+        <label>What is the estimated population size</label>
         </input>
     </group>
 </h:body>

@@ -57,15 +57,15 @@ A. Multiple nodes can be defined in the primary instance of the XForm. E.g. see 
 ...
 <instance>
     <data id="repeats" version="2014083101">
-        <person>    
+        <person>
             <name />
             <relationship />
         </person>
-        <person>    
+        <person>
             <name />
             <relationship />
         </person>
-        <person>    
+        <person>
             <name />
             <relationship />
         </person>
@@ -107,11 +107,11 @@ A. Specify the values inside a repeat group with a `jr:template=""` attribute in
 ...
 <instance>
     <data id="repeats" version="2014083101">
-        <person jr:template="" >    
+        <person jr:template="" >
             <name />
             <relationship>spouse</relationship>
         </person>
-         <person>    
+        <person>
             <name>John</name>
             <relationship>father</relationship>
         </person>
@@ -129,11 +129,11 @@ B. Specify the values for each repeat instance individually in the primary insta
 ...
 <instance>
     <data id="repeats" version="2014083101">
-        <person>    
+        <person>
             <name>John</name>
             <relationship>father</relationship>
         </person>
-        <person>    
+        <person>
             <name>Kofi</name>
             <relationship>brother</relationship>
         </person>

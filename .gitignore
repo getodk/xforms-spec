@@ -4,3 +4,5 @@ _site
 
 # RubyMine IDE files.
 .idea/
+
+/.jekyll-metadata
