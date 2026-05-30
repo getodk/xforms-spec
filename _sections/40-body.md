@@ -115,7 +115,7 @@ The following attributes are supported on body elements. Note that most attribut
 
 ### Appearances
 
-The appearance of all form controls and of a group can be changed with appearance attributes. Appearance values usually relate to a specific [data](#data-types) or [question](#body-elements) type. See the [XLS Form specification](http://xlsform.org) for a list of appearance attributes that are available for each data type. Multiple space-separated appearance values can be added to a form control in any order.
+The appearance of all form controls and of a group can be changed with appearance attributes. Appearance values usually relate to a specific [data](#data-types) or [question](#body-elements) type. See the [XLS Form specification](https://xlsform.org) for a list of appearance attributes that are available for each data type. Multiple space-separated appearance values can be added to a form control in any order.
 
 An appearance value may also work in conjunction with an [image label](#media) to substantially alter the appearance and behavior of a form control as is e.g. the case with appearance 'image-map'.
 
