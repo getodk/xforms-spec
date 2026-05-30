@@ -49,30 +49,30 @@ This specification is a sub-specification of the [ODK XForms Specification](./).
 ```xml
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:entities="http://www.opendatakit.org/xforms/entities" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:odk="http://www.opendatakit.org/xforms" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <h:head>
-    <h:title>Trees registration</h:title>
-    <model odk:xforms-version="1.0.0" entities:entities-version="2024.1.0">
-      <instance>
-        <data id="trees_registration" version="2025110901">
-          <location/>
-          <species/>
-          <meta>
-            <instanceID/>
-            <entity dataset="trees" id="" create="true">
-              <label/>
-            </entity>
-          </meta>
-        </data>
-      </instance>
-      <bind nodeset="/data/location" type="geopoint" entities:saveto="geometry" />
-      <bind nodeset="/data/species" type="string" entities:saveto="species" />
+    <h:head>
+        <h:title>Trees registration</h:title>
+        <model odk:xforms-version="1.0.0" entities:entities-version="2024.1.0">
+            <instance>
+                <data id="trees_registration" version="2025110901">
+                    <location/>
+                    <species/>
+                    <meta>
+                        <instanceID/>
+                        <entity dataset="trees" id="" create="true">
+                            <label/>
+                        </entity>
+                    </meta>
+                </data>
+            </instance>
+            <bind nodeset="/data/location" type="geopoint" entities:saveto="geometry" />
+            <bind nodeset="/data/species" type="string" entities:saveto="species" />
 
-      <bind jr:preload="uid" nodeset="/data/meta/instanceID" readonly="true()" type="string"/>
+            <bind jr:preload="uid" nodeset="/data/meta/instanceID" readonly="true()" type="string"/>
 
-      <bind nodeset="/data/meta/entity/@id" type="string"/>
-      <setvalue event="odk-instance-first-load" ref="/data/meta/entity/@id" value="uuid()"/>
-      <bind nodeset="/data/meta/entity/label" calculate="/data/species"  type="string"/>
-    </model>
+            <bind nodeset="/data/meta/entity/@id" type="string"/>
+            <setvalue event="odk-instance-first-load" ref="/data/meta/entity/@id" value="uuid()"/>
+            <bind nodeset="/data/meta/entity/label" calculate="/data/species"    type="string"/>
+        </model>
     ...
 ```
 

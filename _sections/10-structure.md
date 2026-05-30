@@ -47,13 +47,13 @@ Below is an example of a complete and valid XForm:
     </h:head>
     <h:body>
         <input ref="/data/firstname">
-          <label>What is your first name?</label>
+            <label>What is your first name?</label>
         </input>
         <input ref="/data/lastname">
-          <label>What is your last name?</label>
+            <label>What is your last name?</label>
         </input>
         <input ref="/data/age">
-          <label>What is your age?</label>
+            <label>What is your age?</label>
         </input>
     </h:body>
 </h:html>
