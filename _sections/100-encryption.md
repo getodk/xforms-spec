@@ -77,7 +77,7 @@ convert md5 digest to a seed array of 16 bytes
 start a counter at 0
 for each file in the record to be encrypted - including the first - do:
     calculate index as remainder of the counter modulo 16
-    increment byte in seed array at index with 1
+    increment byte in seed array at index by 1
     increment counter
     use updated seedArray as initialization vector for AES encryption
 ```
