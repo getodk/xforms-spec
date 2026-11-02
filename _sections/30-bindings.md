@@ -147,7 +147,7 @@ For convenience, the functions are categorized based on their main usage. Some f
 <a id="fn:number" href="#fn:number">`number(* arg)`</a> | number | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-number). In addition it will convert date- and dateTime-formatted strings to a number of days since January 1, 1970 UTC.
 <a id="fn:random" href="#fn:random">`random()`</a> |  number | Deviates from [XForms 1.1](https://www.w3.org/TR/xforms11/#fn-random) by not supporting a parameter.
 <a id="fn:int" href="#fn:int">`int(number arg)`</a> |  number | Converts to an integer (a whole number) by discarding the fractional component of a number.
-<a id="fn:sum" href="#fn:sum">`sum(node-set arg)`</a> |  number | As in [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-sum).
+<a id="fn:sum" href="#fn:sum">`sum(node-set arg)`</a> |  number | Deviates from [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-sum) in that empty nodes are counted as 0 instead of NaN.
 <a id="fn:max" href="#fn:max">`max(node-set arg*)`</a> |  number | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-max).
 <a id="fn:min" href="#fn:min">`min(node-set arg*)`</a> | number | As in [XPath 3.0](https://www.w3.org/TR/xpath-functions-30/#func-min).
 <a id="fn:round" href="#fn:round">`round(number arg, number decimals?)`</a> |  number | Deviates from [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-round) in that a second argument may be provided to specify the number of decimals.
